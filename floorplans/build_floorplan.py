@@ -15,6 +15,7 @@ SEGMENTS = [
     ("S", 48, "wall", "F"),
     ("S", 42, "window", "G"),
     ("S", 48, "wall", "H"),
+    ("W", 46, "wall", "I"),
 ]
 
 MARGIN = 80
@@ -34,7 +35,7 @@ def build():
     ox = MARGIN + 80 - min(xs) * SCALE
     oy = MARGIN - min(ys) * SCALE
     width = int((max(xs) - min(xs)) * SCALE + 2 * MARGIN + 240)
-    height = int((max(ys) - min(ys)) * SCALE + 2 * MARGIN)
+    height = int((max(ys) - min(ys)) * SCALE + 2 * MARGIN + 20)
 
     def P(px, py):
         return ox + px * SCALE, oy + py * SCALE
@@ -63,22 +64,22 @@ def build():
                        f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#4a6b80" stroke-width="2"/></g>')
         # dimension
         if vertical:
-            dx_ = x1 - DIM_OFFSET
+            dx_ = x1 + DIM_OFFSET + 30
             mid = (y1 + y2) / 2
             out.append(f'  <g stroke="#888"><line x1="{dx_}" y1="{y1}" x2="{dx_}" y2="{y2}"/>'
                        f'<line x1="{dx_-6}" y1="{y1}" x2="{dx_+6}" y2="{y1}"/><line x1="{dx_-6}" y1="{y2}" x2="{dx_+6}" y2="{y2}"/></g>')
-            out.append(f'  <text x="{dx_-12}" y="{mid}" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 {dx_-12} {mid})">{length}" {kind}</text>')
+            out.append(f'  <text x="{dx_+16}" y="{mid}" font-size="12" fill="#444" text-anchor="middle" transform="rotate(90 {dx_+16} {mid})">{length}" {kind}</text>')
         else:
-            dy_ = y1 - DIM_OFFSET
+            dy_ = y1 + DIM_OFFSET
             mid = (x1 + x2) / 2
             out.append(f'  <g stroke="#888"><line x1="{x1}" y1="{dy_}" x2="{x2}" y2="{dy_}"/>'
                        f'<line x1="{x1}" y1="{dy_-6}" x2="{x1}" y2="{dy_+6}"/><line x1="{x2}" y1="{dy_-6}" x2="{x2}" y2="{dy_+6}"/></g>')
-            out.append(f'  <text x="{mid}" y="{dy_-8}" font-size="12" fill="#444" text-anchor="middle">{length}" {kind}</text>')
+            out.append(f'  <text x="{mid}" y="{dy_+16}" font-size="12" fill="#444" text-anchor="middle">{length}" {kind}</text>')
 
     out.append('  <g font-size="14" font-weight="700" fill="#c0392b">')
     for label, px, py in pts:
         cx, cy = P(px, py)
-        out.append(f'    <circle cx="{cx}" cy="{cy}" r="5"/><text x="{cx + 14}" y="{cy + 5}">{label}</text>')
+        out.append(f'    <circle cx="{cx}" cy="{cy}" r="5"/><text x="{cx + 10}" y="{cy - 10}">{label}</text>')
     out.append("  </g>")
     out.append("</svg>")
     Path(__file__).with_name("floorplan.svg").write_text("\n".join(out) + "\n")
