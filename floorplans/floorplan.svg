@@ -39,6 +39,9 @@
   <line id="wall-LM" x1="320" y1="1344" x2="160" y2="1344" stroke="#2b2b2b" stroke-width="8"/>
   <g stroke="#888"><line x1="320" y1="1384" x2="160" y2="1384"/><line x1="320" y1="1378" x2="320" y2="1390"/><line x1="160" y1="1378" x2="160" y2="1390"/></g>
   <text x="240.0" y="1400" font-size="12" fill="#444" text-anchor="middle">40" wall</text>
+  <line id="wall-MN" x1="160" y1="1344" x2="160" y2="1104" stroke="#2b2b2b" stroke-width="8"/>
+  <g stroke="#888"><line x1="90" y1="1344" x2="90" y2="1104"/><line x1="84" y1="1344" x2="96" y2="1344"/><line x1="84" y1="1104" x2="96" y2="1104"/></g>
+  <text x="74" y="1224.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 74 1224.0)">60" wall</text>
   <g font-size="14" font-weight="700" fill="#c0392b">
     <circle cx="816" cy="80" r="5"/><text x="826" y="70">A</text>
     <circle cx="816" cy="264" r="5"/><text x="826" y="254">B</text>
@@ -53,5 +56,6 @@
     <circle cx="440" cy="1344" r="5"/><text x="450" y="1334">K</text>
     <circle cx="320" cy="1344" r="5"/><text x="330" y="1334">L</text>
     <circle cx="160" cy="1344" r="5"/><text x="170" y="1334">M</text>
+    <circle cx="160" cy="1104" r="5"/><text x="170" y="1094">N</text>
   </g>
 </svg>

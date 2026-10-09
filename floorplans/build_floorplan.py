@@ -20,6 +20,7 @@ SEGMENTS = [
     ("W", 24, "wall", "K"),
     ("W", 30, "wall", "L"),
     ("W", 40, "wall", "M"),
+    ("N", 60, "wall", "N"),
 ]
 
 MARGIN = 80
@@ -68,11 +69,12 @@ def build():
                        f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#4a6b80" stroke-width="2"/></g>')
         # dimension
         if vertical:
-            dx_ = x1 + DIM_OFFSET + 30
+            side = 1 if (x1 - ox) / SCALE >= (min(xs) + max(xs)) / 2 else -1  # keep dims outside the room
+            dx_ = x1 + side * (DIM_OFFSET + 30)
             mid = (y1 + y2) / 2
             out.append(f'  <g stroke="#888"><line x1="{dx_}" y1="{y1}" x2="{dx_}" y2="{y2}"/>'
                        f'<line x1="{dx_-6}" y1="{y1}" x2="{dx_+6}" y2="{y1}"/><line x1="{dx_-6}" y1="{y2}" x2="{dx_+6}" y2="{y2}"/></g>')
-            out.append(f'  <text x="{dx_+16}" y="{mid}" font-size="12" fill="#444" text-anchor="middle" transform="rotate(90 {dx_+16} {mid})">{length}" {kind}</text>')
+            out.append(f'  <text x="{dx_+16*side}" y="{mid}" font-size="12" fill="#444" text-anchor="middle" transform="rotate({90*side} {dx_+16*side} {mid})">{length}" {kind}</text>')
         else:
             dy_ = y1 + DIM_OFFSET
             mid = (x1 + x2) / 2
