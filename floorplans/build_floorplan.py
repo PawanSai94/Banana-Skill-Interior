@@ -29,10 +29,13 @@ SEGMENTS = [
     ("N", 96, "opening", "R"),
     ("N", 36, "wall", "S"),
     ("E", 23, "wall", "T"),
-    ("E", 32, "door", "U"),  # laundry door, hinged at T, swings north into the laundry
+    ("E", 32, "door:laundry door", "U"),  # hinged at T, swings north into the laundry
+    ("E", 61, "wall", "V"),
+    ("E", 36, "door", "W"),  # swings open inside
+    ("E", 10, "wall", "X"),
 ]
 
-LABELS = {"opening": "walkway opening", "door": "laundry door"}
+LABELS = {"opening": "walkway opening"}
 MARGIN = 80
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
 
@@ -71,6 +74,8 @@ def build():
 
     for i, seg in enumerate(SEGMENTS):
         d, length, kind, label = seg[:4]
+        kind, _, name = kind.partition(":")
+        name = name or LABELS.get(kind, kind)
         a, b = starts[i], pts[i + 1]
         x1, y1 = P(a[1], a[2])
         x2, y2 = P(b[1], b[2])
@@ -101,14 +106,14 @@ def build():
             mid = (y1 + y2) / 2
             out.append(f'  <g stroke="#888"><line x1="{dx_}" y1="{y1}" x2="{dx_}" y2="{y2}"/>'
                        f'<line x1="{dx_-6}" y1="{y1}" x2="{dx_+6}" y2="{y1}"/><line x1="{dx_-6}" y1="{y2}" x2="{dx_+6}" y2="{y2}"/></g>')
-            out.append(f'  <text x="{dx_+16*side}" y="{mid}" font-size="12" fill="#444" text-anchor="middle" transform="rotate({90*side} {dx_+16*side} {mid})">{length}" {LABELS.get(kind, kind)}</text>')
+            out.append(f'  <text x="{dx_+16*side}" y="{mid}" font-size="12" fill="#444" text-anchor="middle" transform="rotate({90*side} {dx_+16*side} {mid})">{length}" {name}</text>')
         else:
             vside = 1 if (y1 - oy) / SCALE >= (min(ys) + max(ys)) / 2 else -1
             dy_ = y1 + vside * DIM_OFFSET
             mid = (x1 + x2) / 2
             out.append(f'  <g stroke="#888"><line x1="{x1}" y1="{dy_}" x2="{x2}" y2="{dy_}"/>'
                        f'<line x1="{x1}" y1="{dy_-6}" x2="{x1}" y2="{dy_+6}"/><line x1="{x2}" y1="{dy_-6}" x2="{x2}" y2="{dy_+6}"/></g>')
-            out.append(f'  <text x="{mid}" y="{dy_+(16 if vside > 0 else -8)}" font-size="12" fill="#444" text-anchor="middle">{length}" {LABELS.get(kind, kind)}</text>')
+            out.append(f'  <text x="{mid}" y="{dy_+(16 if vside > 0 else -8)}" font-size="12" fill="#444" text-anchor="middle">{length}" {name}</text>')
 
     out.append('  <g font-size="14" font-weight="700" fill="#c0392b">')
     for label, px, py in pts:
