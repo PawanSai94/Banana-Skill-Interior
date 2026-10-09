@@ -37,6 +37,9 @@ SEGMENTS = [
 
 LABELS = {"opening": "walkway opening"}
 MARGIN = 80
+# Overall run dimensions drawn outside the segment dimensions: (from label, to label)
+TOTALS = [("D", "H")]
+
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
 
 
@@ -114,6 +117,28 @@ def build():
             out.append(f'  <g stroke="#888"><line x1="{x1}" y1="{dy_}" x2="{x2}" y2="{dy_}"/>'
                        f'<line x1="{x1}" y1="{dy_-6}" x2="{x1}" y2="{dy_+6}"/><line x1="{x2}" y1="{dy_-6}" x2="{x2}" y2="{dy_+6}"/></g>')
             out.append(f'  <text x="{mid}" y="{dy_+(16 if vside > 0 else -8)}" font-size="12" fill="#444" text-anchor="middle">{length}" {name}</text>')
+
+    for a_lbl, b_lbl in TOTALS:
+        a, b = by_label[a_lbl], by_label[b_lbl]
+        x1, y1 = P(a[1], a[2])
+        x2, y2 = P(b[1], b[2])
+        inches = abs(b[1] - a[1]) + abs(b[2] - a[2])
+        ft, rem = divmod(inches, 12)
+        text = f"{a_lbl}–{b_lbl}: {inches / 12:g} linear ft ({ft}′-{rem}″)"
+        if x1 == x2:
+            side = 1 if (x1 - ox) / SCALE >= (min(xs) + max(xs)) / 2 else -1
+            dx_ = x1 + side * (DIM_OFFSET + 90)
+            mid = (y1 + y2) / 2
+            out.append(f'  <g stroke="#c0392b"><line x1="{dx_}" y1="{y1}" x2="{dx_}" y2="{y2}"/>'
+                       f'<line x1="{dx_-8}" y1="{y1}" x2="{dx_+8}" y2="{y1}"/><line x1="{dx_-8}" y1="{y2}" x2="{dx_+8}" y2="{y2}"/></g>')
+            out.append(f'  <text x="{dx_+18*side}" y="{mid}" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" transform="rotate({90*side} {dx_+18*side} {mid})">{text}</text>')
+        else:
+            vside = 1 if (y1 - oy) / SCALE >= (min(ys) + max(ys)) / 2 else -1
+            dy_ = y1 + vside * (DIM_OFFSET + 50)
+            mid = (x1 + x2) / 2
+            out.append(f'  <g stroke="#c0392b"><line x1="{x1}" y1="{dy_}" x2="{x2}" y2="{dy_}"/>'
+                       f'<line x1="{x1}" y1="{dy_-8}" x2="{x1}" y2="{dy_+8}"/><line x1="{x2}" y1="{dy_-8}" x2="{x2}" y2="{dy_+8}"/></g>')
+            out.append(f'  <text x="{mid}" y="{dy_+(18 if vside > 0 else -8)}" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle">{text}</text>')
 
     out.append('  <g font-size="14" font-weight="700" fill="#c0392b">')
     for label, px, py in pts:
