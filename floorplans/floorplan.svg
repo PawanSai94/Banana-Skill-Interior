@@ -57,6 +57,9 @@
   <g id="opening-QR" stroke="#2b2b2b"><line x1="160" y1="628" x2="160" y2="244" stroke="#999" stroke-dasharray="6 5"/><line x1="154" y1="628" x2="166" y2="628" stroke-width="3"/><line x1="154" y1="244" x2="166" y2="244" stroke-width="3"/></g>
   <g stroke="#888"><line x1="90" y1="628" x2="90" y2="244"/><line x1="84" y1="628" x2="96" y2="628"/><line x1="84" y1="244" x2="96" y2="244"/></g>
   <text x="74" y="436.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 74 436.0)">96" walkway opening</text>
+  <line id="wall-RS" x1="160" y1="244" x2="160" y2="100" stroke="#2b2b2b" stroke-width="8"/>
+  <g stroke="#888"><line x1="90" y1="244" x2="90" y2="100"/><line x1="84" y1="244" x2="96" y2="244"/><line x1="84" y1="100" x2="96" y2="100"/></g>
+  <text x="74" y="172.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 74 172.0)">36" wall</text>
   <g font-size="14" font-weight="700" fill="#c0392b">
     <circle cx="816" cy="80" r="5"/><text x="826" y="70">A</text>
     <circle cx="816" cy="264" r="5"/><text x="826" y="254">B</text>
@@ -77,5 +80,6 @@
     <circle cx="160" cy="748" r="5"/><text x="170" y="738">P</text>
     <circle cx="160" cy="628" r="5"/><text x="170" y="618">Q</text>
     <circle cx="160" cy="244" r="5"/><text x="170" y="234">R</text>
+    <circle cx="160" cy="100" r="5"/><text x="170" y="90">S</text>
   </g>
 </svg>
