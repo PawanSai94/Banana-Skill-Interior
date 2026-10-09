@@ -28,8 +28,11 @@ SEGMENTS = [
     ("N", 30, "wall", "Q"),
     ("N", 96, "opening", "R"),
     ("N", 36, "wall", "S"),
+    ("E", 23, "wall", "T"),
+    ("E", 32, "door", "U"),  # laundry door
 ]
 
+LABELS = {"opening": "walkway opening", "door": "laundry door"}
 MARGIN = 80
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
 
@@ -75,6 +78,19 @@ def build():
         seg_id = f"{kind}-{a[0]}{b[0]}"
         if kind == "wall":
             out.append(f'  <line id="{seg_id}" x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#2b2b2b" stroke-width="8"/>')
+        elif kind == "door":
+            # Door leaf hinged at the start point, swinging into the room.
+            if vertical:
+                sx = -1 if (x1 - ox) / SCALE >= (min(xs) + max(xs)) / 2 else 1
+                lx, ly = x1 + sx * abs(y2 - y1), y1
+            else:
+                sy = 1 if (y1 - oy) / SCALE < (min(ys) + max(ys)) / 2 else -1
+                lx, ly = x1, y1 + sy * abs(x2 - x1)
+            r = length * SCALE
+            sweep = 1 if (lx - x1) * (y2 - y1) - (ly - y1) * (x2 - x1) < 0 else 0
+            out.append(f'  <g id="{seg_id}"><line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#fff" stroke-width="10"/>'
+                       f'<line x1="{x1}" y1="{y1}" x2="{lx}" y2="{ly}" stroke="#2b2b2b" stroke-width="2.5"/>'
+                       f'<path d="M {lx} {ly} A {r} {r} 0 0 {sweep} {x2} {y2}" fill="none" stroke="#999" stroke-dasharray="4 3"/></g>')
         elif kind == "opening":
             jx, jy = (6, 0) if vertical else (0, 6)
             out.append(f'  <g id="{seg_id}" stroke="#2b2b2b"><line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#999" stroke-dasharray="6 5"/>'
@@ -92,13 +108,14 @@ def build():
             mid = (y1 + y2) / 2
             out.append(f'  <g stroke="#888"><line x1="{dx_}" y1="{y1}" x2="{dx_}" y2="{y2}"/>'
                        f'<line x1="{dx_-6}" y1="{y1}" x2="{dx_+6}" y2="{y1}"/><line x1="{dx_-6}" y1="{y2}" x2="{dx_+6}" y2="{y2}"/></g>')
-            out.append(f'  <text x="{dx_+16*side}" y="{mid}" font-size="12" fill="#444" text-anchor="middle" transform="rotate({90*side} {dx_+16*side} {mid})">{length}" {kind.replace("opening", "walkway opening")}</text>')
+            out.append(f'  <text x="{dx_+16*side}" y="{mid}" font-size="12" fill="#444" text-anchor="middle" transform="rotate({90*side} {dx_+16*side} {mid})">{length}" {LABELS.get(kind, kind)}</text>')
         else:
-            dy_ = y1 + DIM_OFFSET
+            vside = 1 if (y1 - oy) / SCALE >= (min(ys) + max(ys)) / 2 else -1
+            dy_ = y1 + vside * DIM_OFFSET
             mid = (x1 + x2) / 2
             out.append(f'  <g stroke="#888"><line x1="{x1}" y1="{dy_}" x2="{x2}" y2="{dy_}"/>'
                        f'<line x1="{x1}" y1="{dy_-6}" x2="{x1}" y2="{dy_+6}"/><line x1="{x2}" y1="{dy_-6}" x2="{x2}" y2="{dy_+6}"/></g>')
-            out.append(f'  <text x="{mid}" y="{dy_+16}" font-size="12" fill="#444" text-anchor="middle">{length}" {kind.replace("opening", "walkway opening")}</text>')
+            out.append(f'  <text x="{mid}" y="{dy_+(16 if vside > 0 else -8)}" font-size="12" fill="#444" text-anchor="middle">{length}" {LABELS.get(kind, kind)}</text>')
 
     out.append('  <g font-size="14" font-weight="700" fill="#c0392b">')
     for label, px, py in pts:
