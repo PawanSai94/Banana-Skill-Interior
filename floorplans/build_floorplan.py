@@ -29,7 +29,7 @@ SEGMENTS = [
     ("N", 96, "opening", "R"),
     ("N", 36, "wall", "S"),
     ("E", 23, "wall", "T"),
-    ("E", 32, "door", "U"),  # laundry door
+    ("E", 32, "door", "U"),  # laundry door, hinged at T, swings north into the laundry
 ]
 
 LABELS = {"opening": "walkway opening", "door": "laundry door"}
@@ -79,18 +79,11 @@ def build():
         if kind == "wall":
             out.append(f'  <line id="{seg_id}" x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#2b2b2b" stroke-width="8"/>')
         elif kind == "door":
-            # Door leaf hinged at the start point, swinging into the room.
-            if vertical:
-                sx = -1 if (x1 - ox) / SCALE >= (min(xs) + max(xs)) / 2 else 1
-                lx, ly = x1 + sx * abs(y2 - y1), y1
-            else:
-                sy = 1 if (y1 - oy) / SCALE < (min(ys) + max(ys)) / 2 else -1
-                lx, ly = x1, y1 + sy * abs(x2 - x1)
-            r = length * SCALE
-            sweep = 1 if (lx - x1) * (y2 - y1) - (ly - y1) * (x2 - x1) < 0 else 0
-            out.append(f'  <g id="{seg_id}"><line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#fff" stroke-width="10"/>'
-                       f'<line x1="{x1}" y1="{y1}" x2="{lx}" y2="{ly}" stroke="#2b2b2b" stroke-width="2.5"/>'
-                       f'<path d="M {lx} {ly} A {r} {r} 0 0 {sweep} {x2} {y2}" fill="none" stroke="#999" stroke-dasharray="4 3"/></g>')
+            # Door shown as a gap with jambs (no swing drawn).
+            jx, jy = (6, 0) if vertical else (0, 6)
+            out.append(f'  <g id="{seg_id}" stroke="#2b2b2b"><line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#8a6a3d" stroke-width="2"/>'
+                       f'<line x1="{x1-jx}" y1="{y1-jy}" x2="{x1+jx}" y2="{y1+jy}" stroke-width="3"/>'
+                       f'<line x1="{x2-jx}" y1="{y2-jy}" x2="{x2+jx}" y2="{y2+jy}" stroke-width="3"/></g>')
         elif kind == "opening":
             jx, jy = (6, 0) if vertical else (0, 6)
             out.append(f'  <g id="{seg_id}" stroke="#2b2b2b"><line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#999" stroke-dasharray="6 5"/>'
