@@ -6,7 +6,8 @@ SCALE = 4  # px per inch
 START = ("A", 0, 0)  # label, x inches (east +), y inches (south +)
 DIRS = {"N": (0, -1), "S": (0, 1), "E": (1, 0), "W": (-1, 0)}
 
-# (direction, length in inches, kind, end label)
+# (direction, length in inches, kind, end label[, start label])
+# Start label defaults to the previous segment's end point.
 SEGMENTS = [
     ("S", 46, "wall", "B"),
     ("S", 42, "window", "C"),
@@ -22,6 +23,7 @@ SEGMENTS = [
     ("W", 40, "wall", "M"),
     ("N", 60, "wall", "N"),
     ("E", 40, "wall", "N1"),
+    ("N", 41, "wall", "O", "N"),
 ]
 
 MARGIN = 80
@@ -30,11 +32,16 @@ DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
 
 def build():
     pts = [START]
-    x, y = START[1], START[2]
-    for d, length, _, label in SEGMENTS:
+    by_label = {START[0]: START}
+    starts = []
+    for seg in SEGMENTS:
+        d, length, _, label = seg[:4]
+        start = by_label[seg[4]] if len(seg) > 4 else pts[-1]
+        starts.append(start)
         dx, dy = DIRS[d]
-        x, y = x + dx * length, y + dy * length
-        pts.append((label, x, y))
+        pt = (label, start[1] + dx * length, start[2] + dy * length)
+        pts.append(pt)
+        by_label[label] = pt
 
     xs = [p[1] for p in pts]
     ys = [p[2] for p in pts]
@@ -55,8 +62,9 @@ def build():
         '<path d="M 0 -11 L 5 7 L 0 3 L -5 7 Z" fill="#333"/><text y="-18" font-size="10" fill="#555" text-anchor="middle">N</text></g>',
     ]
 
-    for i, (d, length, kind, label) in enumerate(SEGMENTS):
-        a, b = pts[i], pts[i + 1]
+    for i, seg in enumerate(SEGMENTS):
+        d, length, kind, label = seg[:4]
+        a, b = starts[i], pts[i + 1]
         x1, y1 = P(a[1], a[2])
         x2, y2 = P(b[1], b[2])
         vertical = d in "NS"
