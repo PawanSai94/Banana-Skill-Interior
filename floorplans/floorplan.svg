@@ -48,6 +48,12 @@
   <line id="wall-NO" x1="160" y1="1104" x2="160" y2="940" stroke="#2b2b2b" stroke-width="8"/>
   <g stroke="#888"><line x1="90" y1="1104" x2="90" y2="940"/><line x1="84" y1="1104" x2="96" y2="1104"/><line x1="84" y1="940" x2="96" y2="940"/></g>
   <text x="74" y="1022.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 74 1022.0)">41" wall</text>
+  <line id="wall-OP" x1="160" y1="940" x2="160" y2="748" stroke="#2b2b2b" stroke-width="8"/>
+  <g stroke="#888"><line x1="90" y1="940" x2="90" y2="748"/><line x1="84" y1="940" x2="96" y2="940"/><line x1="84" y1="748" x2="96" y2="748"/></g>
+  <text x="74" y="844.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 74 844.0)">48" wall</text>
+  <line id="wall-PQ" x1="160" y1="748" x2="160" y2="628" stroke="#2b2b2b" stroke-width="8"/>
+  <g stroke="#888"><line x1="90" y1="748" x2="90" y2="628"/><line x1="84" y1="748" x2="96" y2="748"/><line x1="84" y1="628" x2="96" y2="628"/></g>
+  <text x="74" y="688.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 74 688.0)">30" wall</text>
   <g font-size="14" font-weight="700" fill="#c0392b">
     <circle cx="816" cy="80" r="5"/><text x="826" y="70">A</text>
     <circle cx="816" cy="264" r="5"/><text x="826" y="254">B</text>
@@ -65,5 +71,7 @@
     <circle cx="160" cy="1104" r="5"/><text x="170" y="1094">N</text>
     <circle cx="320" cy="1104" r="5"/><text x="330" y="1094">N1</text>
     <circle cx="160" cy="940" r="5"/><text x="170" y="930">O</text>
+    <circle cx="160" cy="748" r="5"/><text x="170" y="738">P</text>
+    <circle cx="160" cy="628" r="5"/><text x="170" y="618">Q</text>
   </g>
 </svg>
