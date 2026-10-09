@@ -40,6 +40,9 @@ MARGIN = 80
 # Overall run dimensions drawn outside the segment dimensions: (from label, to label)
 TOTALS = [("D", "H"), ("H", "L")]
 
+# Countertops along walls: (points along the wall, depth in inches)
+COUNTERS = [(["D", "H", "L"], 26)]
+
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
 
 
@@ -74,6 +77,31 @@ def build():
         f'  <g id="north" transform="translate({width - 40},40)"><circle r="14" fill="none" stroke="#555"/>'
         '<path d="M 0 -11 L 5 7 L 0 3 L -5 7 Z" fill="#333"/><text y="-18" font-size="10" fill="#555" text-anchor="middle">N</text></g>',
     ]
+
+    cx_in, cy_in = (min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2
+    for labels, depth in COUNTERS:
+        wall = [by_label[l] for l in labels]
+        normals = []
+        for a, b in zip(wall, wall[1:]):
+            if a[1] == b[1]:  # vertical run: offset toward room centre in x
+                normals.append((1 if cx_in > a[1] else -1, 0))
+            else:
+                normals.append((0, 1 if cy_in > a[2] else -1))
+        inner = []
+        for i, p in enumerate(wall):
+            nx = sum(n[0] for n in normals[max(0, i - 1):i + 1])
+            ny = sum(n[1] for n in normals[max(0, i - 1):i + 1])
+            inner.append((p[1] + nx * depth, p[2] + ny * depth))
+        poly = [(p[1], p[2]) for p in wall] + inner[::-1]
+        d_attr = " ".join(f"{'M' if i == 0 else 'L'} {P(x, y)[0]} {P(x, y)[1]}" for i, (x, y) in enumerate(poly)) + " Z"
+        out.append(f'  <path id="counter-{"".join(labels)}" d="{d_attr}" fill="#efe6d6" stroke="#8a6a3d" stroke-width="1.5"/>')
+        for i, (a, b) in enumerate(zip(wall, wall[1:])):
+            # label centred on each run, inside the counter
+            mx = (a[1] + b[1]) / 2 + normals[i][0] * depth / 2
+            my = (a[2] + b[2]) / 2 + normals[i][1] * depth / 2
+            tx, ty = P(mx, my)
+            rot = f' transform="rotate(-90 {tx} {ty})"' if a[1] == b[1] else ""
+            out.append(f'  <text x="{tx}" y="{ty + 4}" font-size="12" fill="#6b4f2a" text-anchor="middle"{rot}>{depth}" countertop</text>')
 
     for i, seg in enumerate(SEGMENTS):
         d, length, kind, label = seg[:4]

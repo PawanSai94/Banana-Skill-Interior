@@ -3,6 +3,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1056 1484" width="1056" height="1484" font-family="Helvetica, Arial, sans-serif">
   <rect width="1056" height="1484" fill="#ffffff"/>
   <g id="north" transform="translate(1016,40)"><circle r="14" fill="none" stroke="#555"/><path d="M 0 -11 L 5 7 L 0 3 L -5 7 Z" fill="#333"/><text y="-18" font-size="10" fill="#555" text-anchor="middle">N</text></g>
+  <path id="counter-DHL" d="M 816 624 L 816 1344 L 320 1344 L 320 1240 L 712 1240 L 712 624 Z" fill="#efe6d6" stroke="#8a6a3d" stroke-width="1.5"/>
+  <text x="764.0" y="988.0" font-size="12" fill="#6b4f2a" text-anchor="middle" transform="rotate(-90 764.0 984.0)">26" countertop</text>
+  <text x="568.0" y="1296.0" font-size="12" fill="#6b4f2a" text-anchor="middle">26" countertop</text>
   <line id="wall-AB" x1="816" y1="80" x2="816" y2="264" stroke="#2b2b2b" stroke-width="8"/>
   <g stroke="#888"><line x1="886" y1="80" x2="886" y2="264"/><line x1="880" y1="80" x2="892" y2="80"/><line x1="880" y1="264" x2="892" y2="264"/></g>
   <text x="902" y="172.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(90 902 172.0)">46" wall</text>
