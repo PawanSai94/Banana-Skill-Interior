@@ -38,7 +38,7 @@ SEGMENTS = [
 LABELS = {"opening": "walkway opening"}
 MARGIN = 80
 # Overall run dimensions drawn outside the segment dimensions: (from label, to label)
-TOTALS = [("D", "H")]
+TOTALS = [("D", "H"), ("H", "L")]
 
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
 
@@ -61,7 +61,7 @@ def build():
     ox = MARGIN + 80 - min(xs) * SCALE
     oy = MARGIN - min(ys) * SCALE
     width = int((max(xs) - min(xs)) * SCALE + 2 * MARGIN + 240)
-    height = int((max(ys) - min(ys)) * SCALE + 2 * MARGIN + 20)
+    height = int((max(ys) - min(ys)) * SCALE + 2 * MARGIN + 60)
 
     def P(px, py):
         return ox + px * SCALE, oy + py * SCALE
@@ -124,7 +124,7 @@ def build():
         x2, y2 = P(b[1], b[2])
         inches = abs(b[1] - a[1]) + abs(b[2] - a[2])
         ft, rem = divmod(inches, 12)
-        text = f"{a_lbl}–{b_lbl}: {inches / 12:g} linear ft ({ft}′-{rem}″)"
+        text = f"{a_lbl}–{b_lbl}: {f"{inches / 12:.2f}".rstrip("0").rstrip(".")} linear ft ({ft}′-{rem}″)"
         if x1 == x2:
             side = 1 if (x1 - ox) / SCALE >= (min(xs) + max(xs)) / 2 else -1
             dx_ = x1 + side * (DIM_OFFSET + 90)
