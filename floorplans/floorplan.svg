@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Floor plan built step by step from user measurements. Scale: 4 px = 1 inch. North is up. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" width="600" height="520" font-family="Helvetica, Arial, sans-serif">
+  <rect width="600" height="520" fill="#ffffff"/>
+  <g id="north" transform="translate(560,40)">
+    <circle r="14" fill="none" stroke="#555"/>
+    <path d="M 0 -11 L 5 7 L 0 3 L -5 7 Z" fill="#333"/>
+    <text y="-18" font-size="10" fill="#555" text-anchor="middle">N</text>
+  </g>
+
+  <!-- A to B: wall, 46 in (south) -->
+  <line id="wall-AB" x1="200" y1="80" x2="200" y2="264" stroke="#2b2b2b" stroke-width="8"/>
+
+  <!-- B to C: window, 42 in (south) -->
+  <g id="window-BC">
+    <rect x="196" y="264" width="8" height="168" fill="#fff" stroke="#2b2b2b" stroke-width="1"/>
+    <line x1="200" y1="264" x2="200" y2="432" stroke="#4a6b80" stroke-width="2"/>
+  </g>
+
+  <!-- Dimensions -->
+  <g font-size="12" fill="#444" text-anchor="middle">
+    <line x1="160" y1="80" x2="160" y2="264" stroke="#888"/>
+    <line x1="154" y1="80" x2="166" y2="80" stroke="#888"/>
+    <line x1="154" y1="264" x2="166" y2="264" stroke="#888"/>
+    <text x="148" y="172" transform="rotate(-90 148 172)">46" wall</text>
+    <line x1="160" y1="264" x2="160" y2="432" stroke="#888"/>
+    <line x1="154" y1="432" x2="166" y2="432" stroke="#888"/>
+    <text x="148" y="348" transform="rotate(-90 148 348)">42" window</text>
+  </g>
+
+  <!-- Points -->
+  <g font-size="14" font-weight="700" fill="#c0392b">
+    <circle cx="200" cy="80" r="5"/><text x="214" y="85">A</text>
+    <circle cx="200" cy="264" r="5"/><text x="214" y="269">B</text>
+    <circle cx="200" cy="432" r="5"/><text x="214" y="437">C</text>
+  </g>
+</svg>
