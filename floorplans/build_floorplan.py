@@ -16,6 +16,7 @@ SEGMENTS = [
     ("S", 42, "window", "G"),
     ("S", 48, "wall", "H"),
     ("W", 46, "wall", "I"),
+    ("W", 24, "wall", "J"),
 ]
 
 MARGIN = 80
