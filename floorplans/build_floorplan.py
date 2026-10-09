@@ -26,6 +26,7 @@ SEGMENTS = [
     ("N", 41, "wall", "O", "N"),
     ("N", 48, "wall", "P"),
     ("N", 30, "wall", "Q"),
+    ("N", 96, "opening", "R"),
 ]
 
 MARGIN = 80
@@ -73,6 +74,11 @@ def build():
         seg_id = f"{kind}-{a[0]}{b[0]}"
         if kind == "wall":
             out.append(f'  <line id="{seg_id}" x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#2b2b2b" stroke-width="8"/>')
+        elif kind == "opening":
+            jx, jy = (6, 0) if vertical else (0, 6)
+            out.append(f'  <g id="{seg_id}" stroke="#2b2b2b"><line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#999" stroke-dasharray="6 5"/>'
+                       f'<line x1="{x1-jx}" y1="{y1-jy}" x2="{x1+jx}" y2="{y1+jy}" stroke-width="3"/>'
+                       f'<line x1="{x2-jx}" y1="{y2-jy}" x2="{x2+jx}" y2="{y2+jy}" stroke-width="3"/></g>')
         else:
             rx, ry = min(x1, x2) - (4 if vertical else 0), min(y1, y2) - (0 if vertical else 4)
             rw, rh = (8, abs(y2 - y1)) if vertical else (abs(x2 - x1), 8)
@@ -85,13 +91,13 @@ def build():
             mid = (y1 + y2) / 2
             out.append(f'  <g stroke="#888"><line x1="{dx_}" y1="{y1}" x2="{dx_}" y2="{y2}"/>'
                        f'<line x1="{dx_-6}" y1="{y1}" x2="{dx_+6}" y2="{y1}"/><line x1="{dx_-6}" y1="{y2}" x2="{dx_+6}" y2="{y2}"/></g>')
-            out.append(f'  <text x="{dx_+16*side}" y="{mid}" font-size="12" fill="#444" text-anchor="middle" transform="rotate({90*side} {dx_+16*side} {mid})">{length}" {kind}</text>')
+            out.append(f'  <text x="{dx_+16*side}" y="{mid}" font-size="12" fill="#444" text-anchor="middle" transform="rotate({90*side} {dx_+16*side} {mid})">{length}" {kind.replace("opening", "walkway opening")}</text>')
         else:
             dy_ = y1 + DIM_OFFSET
             mid = (x1 + x2) / 2
             out.append(f'  <g stroke="#888"><line x1="{x1}" y1="{dy_}" x2="{x2}" y2="{dy_}"/>'
                        f'<line x1="{x1}" y1="{dy_-6}" x2="{x1}" y2="{dy_+6}"/><line x1="{x2}" y1="{dy_-6}" x2="{x2}" y2="{dy_+6}"/></g>')
-            out.append(f'  <text x="{mid}" y="{dy_+16}" font-size="12" fill="#444" text-anchor="middle">{length}" {kind}</text>')
+            out.append(f'  <text x="{mid}" y="{dy_+16}" font-size="12" fill="#444" text-anchor="middle">{length}" {kind.replace("opening", "walkway opening")}</text>')
 
     out.append('  <g font-size="14" font-weight="700" fill="#c0392b">')
     for label, px, py in pts:
