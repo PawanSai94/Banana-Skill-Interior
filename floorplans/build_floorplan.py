@@ -43,9 +43,12 @@ TOTALS = [("D", "H"), ("H", "L")]
 # Countertops along walls: (points along the wall, depth in inches)
 COUNTERS = [(["D", "H", "L"], 26)]
 
-# Appliances against a wall: (label, from point, to point, width, depth).
+# Appliances against a wall: (label, from point, to point, width, depth[, note]).
 # Placed flush against the "to" point, projecting into the room.
-APPLIANCES = [("FRIDGE", "O", "N", 36, 30)]
+APPLIANCES = [
+    ("FRIDGE", "O", "N", 36, 30),
+    ("CONV. OVEN", "P", "Q", 30, 26, "microwave above"),  # stacked wall-oven tower
+]
 
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
 
@@ -107,7 +110,7 @@ def build():
             rot = f' transform="rotate(-90 {tx} {ty})"' if a[1] == b[1] else ""
             out.append(f'  <text x="{tx}" y="{ty + 4}" font-size="12" fill="#6b4f2a" text-anchor="middle"{rot}>{depth}" countertop</text>')
 
-    for name, a_lbl, b_lbl, w, dep in APPLIANCES:
+    for name, a_lbl, b_lbl, w, dep, *note in APPLIANCES:
         a, b = by_label[a_lbl], by_label[b_lbl]
         if a[1] == b[1]:  # vertical wall
             nx = 1 if cx_in > a[1] else -1
@@ -121,8 +124,10 @@ def build():
             ry = (a[2], a[2] + ny * dep)
         (x1, y1), (x2, y2) = P(min(rx), min(ry)), P(max(rx), max(ry))
         out.append(f'  <g id="appliance-{name.lower()}"><rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="#eef1f3" stroke="#333" stroke-width="1.5"/>'
-                   f'<text x="{(x1 + x2) / 2}" y="{(y1 + y2) / 2 - 2}" font-size="12" font-weight="700" fill="#333" text-anchor="middle">{name}</text>'
-                   f'<text x="{(x1 + x2) / 2}" y="{(y1 + y2) / 2 + 13}" font-size="10" fill="#555" text-anchor="middle">{w}" × {dep}"</text></g>')
+                   + "".join(f'<text x="{(x1 + x2) / 2}" y="{(y1 + y2) / 2 + 14 * (i - len(note) / 2)}" font-size="{12 if i == 0 else 10}"'
+                             f' font-weight="{700 if i == 0 else 400}" fill="#333" text-anchor="middle">{t}</text>'
+                             for i, t in enumerate([name, *note, f'{w}" × {dep}"']))
+                   + '</g>')
 
     for i, seg in enumerate(SEGMENTS):
         d, length, kind, label = seg[:4]
