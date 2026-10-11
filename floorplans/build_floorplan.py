@@ -56,10 +56,10 @@ NO_WINDOW = [("J", "K")]
 # Fixtures placed along a wall run, measured in inches from the first point:
 # (kind, label, from, to, offset, width, depth). kind: range | hood | sink | under
 FIXTURES = [
-    ("range", "RANGE", "D", "H", 51, 30, 26),  # centred on solid wall E-F; cook faces east
-    ("hood", "HOOD above", "D", "H", 51, 30, 20),  # vents straight out the exterior east wall
-    ("sink", "SINK", "D", "H", 96, 30, 22),  # centred on window F-G
-    ("under", "DW", "D", "H", 126, 24, 24),  # right of the sink, 4" filler before the corner
+    ("range", "RANGE", "D", "H", 48, 36, 26),  # centred on solid wall E-F; cook faces east
+    ("hood", "HOOD above", "D", "H", 48, 36, 20),  # vents straight out the exterior east wall
+    ("sink", "SINK", "D", "H", 93, 36, 22),  # centred on window F-G
+    ("under", "DW", "D", "H", 129, 24, 24),  # right of the sink, 1" filler before the corner
 ]
 
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
