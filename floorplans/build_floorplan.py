@@ -50,6 +50,9 @@ APPLIANCES = [
     ("CONV. OVEN", "P", "Q", 30, 26, "microwave above"),  # stacked wall-oven tower
 ]
 
+# Design constraints: segments (by end points) that must never be a window.
+NO_WINDOW = [("J", "K")]
+
 # Under-counter appliances, centred on a wall segment and drawn dashed: (label, from, to, width, depth)
 UNDER_COUNTER = [("DW", "K", "L", 24, 24)]
 
@@ -131,6 +134,14 @@ def build():
                              f' font-weight="{700 if i == 0 else 400}" fill="#333" text-anchor="middle">{t}</text>'
                              for i, t in enumerate([name, *note, f'{w}" × {dep}"']))
                    + '</g>')
+
+    for a_lbl, b_lbl in NO_WINDOW:
+        for i, seg in enumerate(SEGMENTS):
+            if {starts[i][0], seg[3]} == {a_lbl, b_lbl}:
+                assert not seg[2].startswith("window"), f"{a_lbl}-{b_lbl} must not be a window"
+        a, b = by_label[a_lbl], by_label[b_lbl]
+        tx, ty = P((a[1] + b[1]) / 2, (a[2] + b[2]) / 2)
+        out.append(f'  <text x="{tx}" y="{ty + 14}" font-size="10" font-style="italic" fill="#c0392b" text-anchor="middle">no window</text>')
 
     for name, a_lbl, b_lbl, w, dep in UNDER_COUNTER:
         a, b = by_label[a_lbl], by_label[b_lbl]
