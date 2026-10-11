@@ -50,6 +50,9 @@ APPLIANCES = [
     ("CONV. OVEN", "P", "Q", 30, 26, "microwave above"),  # stacked wall-oven tower
 ]
 
+# Under-counter appliances, centred on a wall segment and drawn dashed: (label, from, to, width, depth)
+UNDER_COUNTER = [("DW", "K", "L", 24, 24)]
+
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
 
 
@@ -128,6 +131,21 @@ def build():
                              f' font-weight="{700 if i == 0 else 400}" fill="#333" text-anchor="middle">{t}</text>'
                              for i, t in enumerate([name, *note, f'{w}" × {dep}"']))
                    + '</g>')
+
+    for name, a_lbl, b_lbl, w, dep in UNDER_COUNTER:
+        a, b = by_label[a_lbl], by_label[b_lbl]
+        if a[1] == b[1]:
+            nx = 1 if cx_in > a[1] else -1
+            mid = (a[2] + b[2]) / 2
+            rx, ry = (a[1], a[1] + nx * dep), (mid - w / 2, mid + w / 2)
+        else:
+            ny = 1 if cy_in > a[2] else -1
+            mid = (a[1] + b[1]) / 2
+            rx, ry = (mid - w / 2, mid + w / 2), (a[2], a[2] + ny * dep)
+        (x1, y1), (x2, y2) = P(min(rx), min(ry)), P(max(rx), max(ry))
+        out.append(f'  <g id="under-{name.lower()}"><rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#333" stroke-width="1.25" stroke-dasharray="5 3"/>'
+                   f'<text x="{(x1 + x2) / 2}" y="{(y1 + y2) / 2 + 1}" font-size="12" font-weight="700" fill="#333" text-anchor="middle">{name}</text>'
+                   f'<text x="{(x1 + x2) / 2}" y="{(y1 + y2) / 2 + 15}" font-size="10" fill="#555" text-anchor="middle">{w}"</text></g>')
 
     for i, seg in enumerate(SEGMENTS):
         d, length, kind, label = seg[:4]
