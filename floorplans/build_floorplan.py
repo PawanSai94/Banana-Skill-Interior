@@ -58,8 +58,8 @@ NO_WINDOW = [("J", "K")]
 FIXTURES = [
     ("range", "RANGE", "D", "H", 48, 36, 26),  # centred on solid wall E-F; cook faces east
     ("hood", "HOOD above", "D", "H", 48, 36, 20),  # vents straight out the exterior east wall
-    ("sink", "SINK", "D", "H", 93, 36, 22),  # centred on window F-G
-    ("under", "DW", "D", "H", 129, 24, 24),  # right of the sink, 1" filler before the corner
+    ("sink", "SINK", "H", "L", 40, 36, 22),  # centred on I-J (58" from H)
+    ("under", "DW", "H", "L", 76, 24, 24),  # immediately west of the sink
 ]
 
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
