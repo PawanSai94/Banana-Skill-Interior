@@ -53,8 +53,14 @@ APPLIANCES = [
 # Design constraints: segments (by end points) that must never be a window.
 NO_WINDOW = [("J", "K")]
 
-# Under-counter appliances, centred on a wall segment and drawn dashed: (label, from, to, width, depth)
-UNDER_COUNTER = [("DW", "K", "L", 24, 24)]
+# Fixtures placed along a wall run, measured in inches from the first point:
+# (kind, label, from, to, offset, width, depth). kind: range | hood | sink | under
+FIXTURES = [
+    ("range", "RANGE", "D", "H", 51, 30, 26),  # centred on solid wall E-F; cook faces east
+    ("hood", "HOOD above", "D", "H", 51, 30, 20),  # vents straight out the exterior east wall
+    ("sink", "SINK", "D", "H", 96, 30, 22),  # centred on window F-G
+    ("under", "DW", "D", "H", 126, 24, 24),  # right of the sink, 4" filler before the corner
+]
 
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
 
@@ -110,8 +116,11 @@ def build():
         out.append(f'  <path id="counter-{"".join(labels)}" d="{d_attr}" fill="#efe6d6" stroke="#8a6a3d" stroke-width="1.5"/>')
         for i, (a, b) in enumerate(zip(wall, wall[1:])):
             # label centred on each run, inside the counter
-            mx = (a[1] + b[1]) / 2 + normals[i][0] * depth / 2
-            my = (a[2] + b[2]) / 2 + normals[i][1] * depth / 2
+            # centre of the run, or of the free stretch before the first fixture on it
+            first = min((f[4] for f in FIXTURES if (f[2], f[3]) == (labels[i], labels[i + 1])), default=None)
+            t = 0.5 if first is None else first / 2 / (abs(b[1] - a[1]) + abs(b[2] - a[2]))
+            mx = a[1] + (b[1] - a[1]) * t + normals[i][0] * depth / 2
+            my = a[2] + (b[2] - a[2]) * t + normals[i][1] * depth / 2
             tx, ty = P(mx, my)
             rot = f' transform="rotate(-90 {tx} {ty})"' if a[1] == b[1] else ""
             out.append(f'  <text x="{tx}" y="{ty + 4}" font-size="12" fill="#6b4f2a" text-anchor="middle"{rot}>{depth}" countertop</text>')
@@ -143,20 +152,41 @@ def build():
         tx, ty = P((a[1] + b[1]) / 2, (a[2] + b[2]) / 2)
         out.append(f'  <text x="{tx}" y="{ty + 14}" font-size="10" font-style="italic" fill="#c0392b" text-anchor="middle">no window</text>')
 
-    for name, a_lbl, b_lbl, w, dep in UNDER_COUNTER:
+    for kind, name, a_lbl, b_lbl, off, w, dep in FIXTURES:
         a, b = by_label[a_lbl], by_label[b_lbl]
         if a[1] == b[1]:
             nx = 1 if cx_in > a[1] else -1
-            mid = (a[2] + b[2]) / 2
-            rx, ry = (a[1], a[1] + nx * dep), (mid - w / 2, mid + w / 2)
+            sy = 1 if b[2] > a[2] else -1
+            rx, ry = (a[1], a[1] + nx * dep), (a[2] + sy * off, a[2] + sy * (off + w))
         else:
             ny = 1 if cy_in > a[2] else -1
-            mid = (a[1] + b[1]) / 2
-            rx, ry = (mid - w / 2, mid + w / 2), (a[2], a[2] + ny * dep)
+            sx = 1 if b[1] > a[1] else -1
+            rx, ry = (a[1] + sx * off, a[1] + sx * (off + w)), (a[2], a[2] + ny * dep)
         (x1, y1), (x2, y2) = P(min(rx), min(ry)), P(max(rx), max(ry))
-        out.append(f'  <g id="under-{name.lower()}"><rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#333" stroke-width="1.25" stroke-dasharray="5 3"/>'
-                   f'<text x="{(x1 + x2) / 2}" y="{(y1 + y2) / 2 + 1}" font-size="12" font-weight="700" fill="#333" text-anchor="middle">{name}</text>'
-                   f'<text x="{(x1 + x2) / 2}" y="{(y1 + y2) / 2 + 15}" font-size="10" fill="#555" text-anchor="middle">{w}"</text></g>')
+        cx, cy = (x1 + x2) / 2, (y1 + y2) / 2
+        g = [f'  <g id="{kind}-{name.split()[0].lower()}">']
+        if kind == "range":
+            g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="#e9e9e9" stroke="#333" stroke-width="1.5"/>')
+            bw, bh = (x2 - x1) / 4, (y2 - y1) / 4
+            for fx in (1, 3):
+                for fy in (1, 3):
+                    g.append(f'<circle cx="{x1 + fx * bw}" cy="{y1 + fy * bh}" r="{min(bw, bh) * 0.7}" fill="none" stroke="#333"/>')
+        elif kind == "hood":
+            g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#c0392b" stroke-width="1.25" stroke-dasharray="6 4"/>')
+        elif kind == "sink":
+            g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" rx="10" fill="#fff" stroke="#333" stroke-width="1.5"/>'
+                     f'<rect x="{x1 + 8}" y="{y1 + 8}" width="{x2 - x1 - 16}" height="{y2 - y1 - 16}" rx="8" fill="none" stroke="#999"/>')
+        else:
+            g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#333" stroke-width="1.25" stroke-dasharray="5 3"/>')
+        if kind != "hood":
+            vertical = a[1] == b[1]
+            rot = f' transform="rotate(-90 {cx} {cy})"' if vertical and kind in ("range", "sink") else ""
+            g.append(f'<text x="{cx}" y="{cy + 4}" font-size="11" font-weight="700" fill="#333" text-anchor="middle"{rot}>{name} {w}"</text>')
+        else:
+            tx = x1 - 32 if a[1] == b[1] else cx
+            g.append(f'<text x="{tx}" y="{cy + 4}" font-size="10" fill="#c0392b" text-anchor="end">{name}</text>')
+        g.append('</g>')
+        out.append("".join(g))
 
     for i, seg in enumerate(SEGMENTS):
         d, length, kind, label = seg[:4]
