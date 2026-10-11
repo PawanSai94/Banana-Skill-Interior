@@ -58,8 +58,9 @@ NO_WINDOW = [("J", "K")]
 FIXTURES = [
     ("range", "RANGE", "D", "H", 48, 36, 26),  # centred on solid wall E-F; cook faces east
     ("hood", "HOOD above", "D", "H", 48, 36, 20),  # vents straight out the exterior east wall
-    ("sink", "SINK", "H", "L", 40, 36, 22),  # centred on I-J (58" from H)
-    ("under", "DW", "H", "L", 76, 24, 24),  # immediately west of the sink
+    ("sink", "SINK", "H", "L", 52, 36, 22),  # centred between I and K (on J); no window above
+    ("rack", "DISH DRYING RACK above sink (drips into sink)", "H", "L", 52, 36, 12),  # wall-mounted over the sink
+    ("under", "DW", "H", "L", 94, 24, 24),  # between K and L, tight to K beside the sink
 ]
 
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
@@ -173,18 +174,27 @@ def build():
                     g.append(f'<circle cx="{x1 + fx * bw}" cy="{y1 + fy * bh}" r="{min(bw, bh) * 0.7}" fill="none" stroke="#333"/>')
         elif kind == "hood":
             g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#c0392b" stroke-width="1.25" stroke-dasharray="6 4"/>')
+        elif kind == "rack":
+            g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#2e6f9e" stroke-width="1.25" stroke-dasharray="6 4"/>')
         elif kind == "sink":
             g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" rx="10" fill="#fff" stroke="#333" stroke-width="1.5"/>'
                      f'<rect x="{x1 + 8}" y="{y1 + 8}" width="{x2 - x1 - 16}" height="{y2 - y1 - 16}" rx="8" fill="none" stroke="#999"/>')
         else:
             g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#333" stroke-width="1.25" stroke-dasharray="5 3"/>')
-        if kind != "hood":
+        if kind not in ("hood", "rack"):
             vertical = a[1] == b[1]
             rot = f' transform="rotate(-90 {cx} {cy})"' if vertical and kind in ("range", "sink") else ""
             g.append(f'<text x="{cx}" y="{cy + 4}" font-size="11" font-weight="700" fill="#333" text-anchor="middle"{rot}>{name} {w}"</text>')
         else:
-            tx = x1 - 32 if a[1] == b[1] else cx
-            g.append(f'<text x="{tx}" y="{cy + 4}" font-size="10" fill="#c0392b" text-anchor="end">{name}</text>')
+            # overhead items: label just beyond the counter front, in the room
+            colour = "#c0392b" if kind == "hood" else "#2e6f9e"
+            if a[1] == b[1]:
+                tx, ty = P(a[1] + nx * 28, 0)[0], cy + 4
+                anchor = "end" if nx < 0 else "start"
+            else:
+                tx, ty = cx, P(0, a[2] + ny * 29)[1] + (4 if ny > 0 else 0)
+                anchor = "middle"
+            g.append(f'<text x="{tx}" y="{ty}" font-size="10" fill="{colour}" text-anchor="{anchor}">{name}</text>')
         g.append('</g>')
         out.append("".join(g))
 
