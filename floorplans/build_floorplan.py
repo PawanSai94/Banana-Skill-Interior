@@ -45,13 +45,13 @@ TOTALS = [("D", "H"), ("H", "L")]
 MM = 1 / 25.4
 # Tall corner pantry (2100 mm tall): corner, side along the N-S wall, side along the E-W wall, depth
 CORNER_PANTRY = ("H", 900 * MM, 800 * MM, 600 * MM)
-COUNTERS = [(["D", (0, 316 - 900 * MM)], 26), ([(-800 * MM, 316), "L"], 26)]
+COUNTERS = [(["D", (0, 316 - 900 * MM)], 26), ([(-800 * MM, 316), "L"], 26), (["P", "Q"], 26)]
 
 # Appliances against a wall: (label, from point, to point, width, depth[, note]).
 # Placed flush against the "to" point, projecting into the room.
 APPLIANCES = [
     ("FRIDGE", "O", "N", 36, 30),
-    ("CONV. OVEN", "P", "Q", 30, 26, "microwave above"),  # stacked wall-oven tower
+    ("TALL SHELVES", "P", "O", 48, 24, "floor–ceiling", "2 doors, LED"),  # appliance garage
 ]
 
 # Design constraints: segments (by end points) that must never be a window.
@@ -60,6 +60,7 @@ NO_WINDOW = [("J", "K")]
 # Fixtures placed along a wall run, measured in inches from the first point:
 # (kind, label, from, to, offset, width, depth). kind: range | hood | sink | under
 FIXTURES = [
+    ("onc", "CONV. OVEN|microwave on top", "Q", "P", 3, 24, 20),  # countertop appliances on the P-Q counter
     ("under", "", "D", "H", 48, 36, 24),  # 36" drawer base (pots & pans) under the cooktop
     ("range", "COOKTOP|36\" drawer base below", "D", "H", 48, 36, 22),  # centred on solid wall E-F; cook faces east
     ("hood", "HOOD above", "D", "H", 48, 36, 20),  # vents straight out the exterior east wall
@@ -216,6 +217,8 @@ def build():
                     g.append(f'<circle cx="{x1 + fx * bw}" cy="{y1 + fy * bh}" r="{min(bw, bh) * 0.45}" fill="none" stroke="#333"/>')
         elif kind == "hood":
             g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#c0392b" stroke-width="1.25" stroke-dasharray="6 4"/>')
+        elif kind == "onc":  # appliance sitting on the countertop
+            g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" rx="4" fill="#f7f7f7" stroke="#333" stroke-width="1.25"/>')
         elif kind == "rack":
             g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#2e6f9e" stroke-width="1.25" stroke-dasharray="6 4"/>')
         elif kind == "sink":
@@ -225,13 +228,13 @@ def build():
             g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#333" stroke-width="1.25" stroke-dasharray="5 3"/>')
         if kind not in ("hood", "rack"):
             vertical = a[1] == b[1]
-            rot = f' transform="rotate(-90 {cx} {cy})"' if vertical and kind in ("range", "sink") else ""
+            rot = f' transform="rotate(-90 {cx} {cy})"' if vertical and kind in ("range", "sink", "onc") else ""
             title, _, sub = name.partition("|")
             if title:
                 dy = -4 if sub else 4
                 tx_, ty_ = (cx + dy, cy) if rot else (cx, cy + dy)
                 rot_ = f' transform="rotate(-90 {tx_} {ty_})"' if rot else ""
-                g.append(f'<text x="{tx_}" y="{ty_}" font-size="11" font-weight="700" fill="#333" text-anchor="middle"{rot_}>{title} {w}"</text>')
+                g.append(f'<text x="{tx_}" y="{ty_}" font-size="11" font-weight="700" fill="#333" text-anchor="middle"{rot_}>{title}{"" if kind == "onc" else f" {w}\""}</text>')
             if sub:
                 tx_, ty_ = (cx + 12, cy) if rot else (cx, cy + 16)
                 rot_ = f' transform="rotate(-90 {tx_} {ty_})"' if rot else ""
