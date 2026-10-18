@@ -65,7 +65,7 @@ FIXTURES = [
     ("sink", "SINK", "H", "L", 52, 36, 22),  # centred between I and K (on J); no window above
     ("rack", "DISH DRYING RACK above sink (drips into sink)", "H", "L", 52, 36, 12),  # wall-mounted over the sink
     ("under", "DW", "H", "L", 94, 24, 24),  # between K and L, tight to K beside the sink
-    ("under", "TRASH", "H", "L", 34, 15, 24),  # 15" pull-out between pantry and 42" sink base (49-91")
+    ("under", "TRASH", "H", "L", 32.5, 18, 24),  # 18" full-height door base, double 35 qt pull-out; 39" sink base at 50.5-89.5"
 ]
 
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
