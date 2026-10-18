@@ -41,7 +41,11 @@ MARGIN = 80
 TOTALS = [("D", "H"), ("H", "L")]
 
 # Countertops along walls: (points along the wall, depth in inches)
-COUNTERS = [(["D", "H", "L"], 26)]
+# Points may be a label or an (x, y) position in inches.
+MM = 1 / 25.4
+CORNER_PANTRY = ("H", 900 * MM, 600 * MM)  # tall corner pantry: corner, side length, depth (2100 mm tall)
+_cp = 900 * MM
+COUNTERS = [(["D", (0, 316 - _cp)], 26), ([(-_cp, 316), "L"], 26)]
 
 # Appliances against a wall: (label, from point, to point, width, depth[, note]).
 # Placed flush against the "to" point, projecting into the room.
@@ -100,7 +104,7 @@ def build():
 
     cx_in, cy_in = (min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2
     for labels, depth in COUNTERS:
-        wall = [by_label[l] for l in labels]
+        wall = [by_label[l] if isinstance(l, str) else ("", *l) for l in labels]
         normals = []
         for a, b in zip(wall, wall[1:]):
             if a[1] == b[1]:  # vertical run: offset toward room centre in x
@@ -114,12 +118,31 @@ def build():
             inner.append((p[1] + nx * depth, p[2] + ny * depth))
         poly = [(p[1], p[2]) for p in wall] + inner[::-1]
         d_attr = " ".join(f"{'M' if i == 0 else 'L'} {P(x, y)[0]} {P(x, y)[1]}" for i, (x, y) in enumerate(poly)) + " Z"
-        out.append(f'  <path id="counter-{"".join(labels)}" d="{d_attr}" fill="#efe6d6" stroke="#8a6a3d" stroke-width="1.5"/>')
+        out.append(f'  <path id="counter-{"".join(l if isinstance(l, str) else "p" for l in labels)}" d="{d_attr}" fill="#efe6d6" stroke="#8a6a3d" stroke-width="1.5"/>')
         for i, (a, b) in enumerate(zip(wall, wall[1:])):
-            # label centred on each run, inside the counter
-            # centre of the run, or of the free stretch before the first fixture on it
-            first = min((f[4] for f in FIXTURES if (f[2], f[3]) == (labels[i], labels[i + 1])), default=None)
-            t = 0.5 if first is None else first / 2 / (abs(b[1] - a[1]) + abs(b[2] - a[2]))
+            # label at the middle of the longest stretch of this run not covered by a fixture
+            vertical = a[1] == b[1]
+            lo, hi = sorted((a[2], b[2]) if vertical else (a[1], b[1]))
+            taken = []
+            for f in FIXTURES:
+                fa, fb = by_label[f[2]], by_label[f[3]]
+                if (fa[1] == fb[1] == a[1]) if vertical else (fa[2] == fb[2] == a[2]):
+                    k = 2 if vertical else 1
+                    sgn = 1 if fb[k] > fa[k] else -1
+                    taken.append(tuple(sorted((fa[k] + sgn * f[4], fa[k] + sgn * (f[4] + f[5])))))
+            gaps, cur = [], lo
+            for t0, t1 in sorted(taken):
+                if t0 > cur:
+                    gaps.append((cur, min(t0, hi)))
+                cur = max(cur, t1)
+            if cur < hi:
+                gaps.append((cur, hi))
+            g0, g1 = max(gaps, key=lambda g: g[1] - g[0]) if gaps else (lo, hi)
+            if g1 - g0 < 30:  # not enough clear counter to fit the label
+                continue
+            pos = (g0 + g1) / 2
+            start = a[2] if vertical else a[1]
+            t = (pos - start) / ((b[2] if vertical else b[1]) - start)
             mx = a[1] + (b[1] - a[1]) * t + normals[i][0] * depth / 2
             my = a[2] + (b[2] - a[2]) * t + normals[i][1] * depth / 2
             tx, ty = P(mx, my)
@@ -144,6 +167,23 @@ def build():
                              f' font-weight="{700 if i == 0 else 400}" fill="#333" text-anchor="middle">{t}</text>'
                              for i, t in enumerate([name, *note, f'{w}" × {dep}"']))
                    + '</g>')
+
+    if CORNER_PANTRY:
+        c_lbl, side, dep = CORNER_PANTRY
+        c = by_label[c_lbl]
+        ix = 1 if cx_in > c[1] else -1
+        iy = 1 if cy_in > c[2] else -1
+        cp_pts = [(c[1], c[2]), (c[1], c[2] + iy * side), (c[1] + ix * dep, c[2] + iy * side),
+               (c[1] + ix * side, c[2] + iy * dep), (c[1] + ix * side, c[2])]
+        d_attr = " ".join(f"{'M' if i == 0 else 'L'} {P(x, y)[0]} {P(x, y)[1]}" for i, (x, y) in enumerate(cp_pts)) + " Z"
+        out.append(f'  <path id="corner-pantry" d="{d_attr}" fill="#dfe6ee" stroke="#333" stroke-width="1.5"/>')
+        # diagonal door
+        (dx1, dy1), (dx2, dy2) = P(*cp_pts[2]), P(*cp_pts[3])
+        out.append(f'  <line x1="{dx1}" y1="{dy1}" x2="{dx2}" y2="{dy2}" stroke="#8a6a3d" stroke-width="3"/>')
+        tx, ty = P(c[1] + ix * side * 0.42, c[2] + iy * side * 0.42)
+        out.append(f'  <text x="{tx}" y="{ty - 4}" font-size="10" font-weight="700" fill="#333" text-anchor="middle">CORNER</text>'
+                   f'<text x="{tx}" y="{ty + 8}" font-size="10" font-weight="700" fill="#333" text-anchor="middle">PANTRY</text>'
+                   f'<text x="{tx}" y="{ty + 20}" font-size="9" fill="#555" text-anchor="middle">900×900 · 2100 H</text>')
 
     for a_lbl, b_lbl in NO_WINDOW:
         for i, seg in enumerate(SEGMENTS):
