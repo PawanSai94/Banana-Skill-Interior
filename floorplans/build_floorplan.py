@@ -60,7 +60,8 @@ NO_WINDOW = [("J", "K")]
 # Fixtures placed along a wall run, measured in inches from the first point:
 # (kind, label, from, to, offset, width, depth). kind: range | hood | sink | under
 FIXTURES = [
-    ("range", "RANGE", "D", "H", 48, 36, 26),  # centred on solid wall E-F; cook faces east
+    ("under", "", "D", "H", 48, 36, 24),  # 36" drawer base (pots & pans) under the cooktop
+    ("range", "COOKTOP|36\" drawer base below", "D", "H", 48, 36, 22),  # centred on solid wall E-F; cook faces east
     ("hood", "HOOD above", "D", "H", 48, 36, 20),  # vents straight out the exterior east wall
     ("sink", "SINK", "H", "L", 52, 36, 22),  # centred between I and K (on J); no window above
     ("rack", "DISH DRYING RACK above sink (drips into sink)", "H", "L", 52, 36, 12),  # wall-mounted over the sink
@@ -206,13 +207,13 @@ def build():
             rx, ry = (a[1] + sx * off, a[1] + sx * (off + w)), (a[2], a[2] + ny * dep)
         (x1, y1), (x2, y2) = P(min(rx), min(ry)), P(max(rx), max(ry))
         cx, cy = (x1 + x2) / 2, (y1 + y2) / 2
-        g = [f'  <g id="{kind}-{name.split()[0].lower()}">']
+        g = [f'  <g id="{kind}-{(name.split() or ["base"])[0].split("|")[0].lower()}">']
         if kind == "range":
             g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="#e9e9e9" stroke="#333" stroke-width="1.5"/>')
             bw, bh = (x2 - x1) / 4, (y2 - y1) / 4
             for fx in (1, 3):
                 for fy in (1, 3):
-                    g.append(f'<circle cx="{x1 + fx * bw}" cy="{y1 + fy * bh}" r="{min(bw, bh) * 0.7}" fill="none" stroke="#333"/>')
+                    g.append(f'<circle cx="{x1 + fx * bw}" cy="{y1 + fy * bh}" r="{min(bw, bh) * 0.45}" fill="none" stroke="#333"/>')
         elif kind == "hood":
             g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#c0392b" stroke-width="1.25" stroke-dasharray="6 4"/>')
         elif kind == "rack":
@@ -225,7 +226,16 @@ def build():
         if kind not in ("hood", "rack"):
             vertical = a[1] == b[1]
             rot = f' transform="rotate(-90 {cx} {cy})"' if vertical and kind in ("range", "sink") else ""
-            g.append(f'<text x="{cx}" y="{cy + 4}" font-size="11" font-weight="700" fill="#333" text-anchor="middle"{rot}>{name} {w}"</text>')
+            title, _, sub = name.partition("|")
+            if title:
+                dy = -4 if sub else 4
+                tx_, ty_ = (cx + dy, cy) if rot else (cx, cy + dy)
+                rot_ = f' transform="rotate(-90 {tx_} {ty_})"' if rot else ""
+                g.append(f'<text x="{tx_}" y="{ty_}" font-size="11" font-weight="700" fill="#333" text-anchor="middle"{rot_}>{title} {w}"</text>')
+            if sub:
+                tx_, ty_ = (cx + 12, cy) if rot else (cx, cy + 16)
+                rot_ = f' transform="rotate(-90 {tx_} {ty_})"' if rot else ""
+                g.append(f'<text x="{tx_}" y="{ty_}" font-size="9" fill="#555" text-anchor="middle"{rot_}>{sub}</text>')
         else:
             # overhead items: label just beyond the counter front, in the room
             colour = "#c0392b" if kind == "hood" else "#2e6f9e"
