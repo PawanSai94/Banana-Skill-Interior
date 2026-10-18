@@ -60,7 +60,8 @@ NO_WINDOW = [("J", "K")]
 # Fixtures placed along a wall run, measured in inches from the first point:
 # (kind, label, from, to, offset, width, depth). kind: range | hood | sink | under
 FIXTURES = [
-    ("onc", "CONV. OVEN|microwave on top", "Q", "P", 3, 24, 20),  # countertop appliances on the P-Q counter
+    ("under", "CONV. OVEN", "Q", "P", 0, 30, 24),  # built-in oven under the P-Q counter, no base cabinet
+    ("rack", "MICROWAVE wall-mounted 21\" above counter", "Q", "P", 3, 24, 15),
     ("under", "", "D", "H", 48, 36, 24),  # 36" drawer base (pots & pans) under the cooktop
     ("range", "COOKTOP|36\" drawer base below", "D", "H", 48, 36, 22),  # centred on solid wall E-F; cook faces east
     ("hood", "HOOD above", "D", "H", 48, 36, 20),  # vents straight out the exterior east wall
@@ -140,7 +141,9 @@ def build():
                 cur = max(cur, t1)
             if cur < hi:
                 gaps.append((cur, hi))
-            g0, g1 = max(gaps, key=lambda g: g[1] - g[0]) if gaps else (lo, hi)
+            if not gaps:  # run fully covered by fixtures
+                continue
+            g0, g1 = max(gaps, key=lambda g: g[1] - g[0])
             if g1 - g0 < 30:  # not enough clear counter to fit the label
                 continue
             pos = (g0 + g1) / 2
@@ -228,7 +231,7 @@ def build():
             g.append(f'<rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#333" stroke-width="1.25" stroke-dasharray="5 3"/>')
         if kind not in ("hood", "rack"):
             vertical = a[1] == b[1]
-            rot = f' transform="rotate(-90 {cx} {cy})"' if vertical and kind in ("range", "sink", "onc") else ""
+            rot = f' transform="rotate(-90 {cx} {cy})"' if vertical and kind in ("range", "sink", "onc", "under") else ""
             title, _, sub = name.partition("|")
             if title:
                 dy = -4 if sub else 4
