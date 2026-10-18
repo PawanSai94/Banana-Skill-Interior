@@ -43,9 +43,9 @@ TOTALS = [("D", "H"), ("H", "L")]
 # Countertops along walls: (points along the wall, depth in inches)
 # Points may be a label or an (x, y) position in inches.
 MM = 1 / 25.4
-CORNER_PANTRY = ("H", 900 * MM, 600 * MM)  # tall corner pantry: corner, side length, depth (2100 mm tall)
-_cp = 900 * MM
-COUNTERS = [(["D", (0, 316 - _cp)], 26), ([(-_cp, 316), "L"], 26)]
+# Tall corner pantry (2100 mm tall): corner, side along the N-S wall, side along the E-W wall, depth
+CORNER_PANTRY = ("H", 900 * MM, 800 * MM, 600 * MM)
+COUNTERS = [(["D", (0, 316 - 900 * MM)], 26), ([(-800 * MM, 316), "L"], 26)]
 
 # Appliances against a wall: (label, from point, to point, width, depth[, note]).
 # Placed flush against the "to" point, projecting into the room.
@@ -65,6 +65,7 @@ FIXTURES = [
     ("sink", "SINK", "H", "L", 52, 36, 22),  # centred between I and K (on J); no window above
     ("rack", "DISH DRYING RACK above sink (drips into sink)", "H", "L", 52, 36, 12),  # wall-mounted over the sink
     ("under", "DW", "H", "L", 94, 24, 24),  # between K and L, tight to K beside the sink
+    ("under", "TRASH", "H", "L", 34, 15, 24),  # 15" pull-out between pantry and 42" sink base (49-91")
 ]
 
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
@@ -169,21 +170,21 @@ def build():
                    + '</g>')
 
     if CORNER_PANTRY:
-        c_lbl, side, dep = CORNER_PANTRY
+        c_lbl, side_v, side_h, dep = CORNER_PANTRY
         c = by_label[c_lbl]
         ix = 1 if cx_in > c[1] else -1
         iy = 1 if cy_in > c[2] else -1
-        cp_pts = [(c[1], c[2]), (c[1], c[2] + iy * side), (c[1] + ix * dep, c[2] + iy * side),
-               (c[1] + ix * side, c[2] + iy * dep), (c[1] + ix * side, c[2])]
+        cp_pts = [(c[1], c[2]), (c[1], c[2] + iy * side_v), (c[1] + ix * dep, c[2] + iy * side_v),
+                  (c[1] + ix * side_h, c[2] + iy * dep), (c[1] + ix * side_h, c[2])]
         d_attr = " ".join(f"{'M' if i == 0 else 'L'} {P(x, y)[0]} {P(x, y)[1]}" for i, (x, y) in enumerate(cp_pts)) + " Z"
         out.append(f'  <path id="corner-pantry" d="{d_attr}" fill="#dfe6ee" stroke="#333" stroke-width="1.5"/>')
         # diagonal door
         (dx1, dy1), (dx2, dy2) = P(*cp_pts[2]), P(*cp_pts[3])
         out.append(f'  <line x1="{dx1}" y1="{dy1}" x2="{dx2}" y2="{dy2}" stroke="#8a6a3d" stroke-width="3"/>')
-        tx, ty = P(c[1] + ix * side * 0.42, c[2] + iy * side * 0.42)
+        tx, ty = P(c[1] + ix * side_h * 0.45, c[2] + iy * side_v * 0.42)
         out.append(f'  <text x="{tx}" y="{ty - 4}" font-size="10" font-weight="700" fill="#333" text-anchor="middle">CORNER</text>'
                    f'<text x="{tx}" y="{ty + 8}" font-size="10" font-weight="700" fill="#333" text-anchor="middle">PANTRY</text>'
-                   f'<text x="{tx}" y="{ty + 20}" font-size="9" fill="#555" text-anchor="middle">900×900 · 2100 H</text>')
+                   f'<text x="{tx}" y="{ty + 20}" font-size="9" fill="#555" text-anchor="middle">900/800 · 2100 H</text>')
 
     for a_lbl, b_lbl in NO_WINDOW:
         for i, seg in enumerate(SEGMENTS):
