@@ -16,10 +16,10 @@ SEGMENTS = [
     ("S", 48, "wall", "F"),
     ("S", 42, "window", "G"),
     ("S", 48, "wall", "H"),
-    ("W", 46, "wall", "I"),
-    ("W", 24, "wall", "J"),
-    ("W", 24, "wall", "K"),
-    ("W", 30, "wall", "L"),
+    ("W", 44, "wall", "I"),
+    ("W", 19, "window", "J"),  # I-K is one 38" window; J marks its centre
+    ("W", 19, "window", "K"),
+    ("W", 42, "wall", "L"),
     ("W", 40, "wall", "M"),
     ("N", 60, "wall", "N"),
     ("E", 40, "wall", "N1"),
@@ -55,7 +55,7 @@ APPLIANCES = [
 ]
 
 # Design constraints: segments (by end points) that must never be a window.
-NO_WINDOW = [("J", "K")]
+NO_WINDOW = []
 
 # Fixtures placed along a wall run, measured in inches from the first point:
 # (kind, label, from, to, offset, width, depth). kind: range | hood | sink | under
@@ -65,10 +65,8 @@ FIXTURES = [
     ("under", "", "D", "H", 48, 36, 24),  # 36" drawer base (pots & pans) under the cooktop
     ("range", "COOKTOP|36\" drawer base below", "D", "H", 48, 36, 22),  # centred on solid wall E-F; cook faces east
     ("hood", "HOOD above", "D", "H", 48, 36, 20),  # vents straight out the exterior east wall
-    ("sink", "SINK", "H", "L", 52, 36, 22),  # centred between I and K (on J); no window above
-    ("rack", "DISH DRYING RACK above sink (drips into sink)", "H", "L", 52, 36, 12),  # wall-mounted over the sink
-    ("under", "DW", "H", "L", 94, 24, 24),  # between K and L, tight to K beside the sink
-    ("under", "TRASH", "H", "L", 32.5, 18, 24),  # 18" full-height door base, double 35 qt pull-out; 39" sink base at 50.5-89.5"
+    ("sink", "SINK", "H", "L", 45, 36, 22),  # centred on J, under the I-K window; 39" sink base at 43.5-82.5"
+    ("under", "DW", "H", "L", 83, 24, 24),  # between K and L, right after the sink base
 ]
 
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
