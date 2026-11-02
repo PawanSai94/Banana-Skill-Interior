@@ -44,8 +44,10 @@ TOTALS = [("D", "H"), ("H", "L")]
 # Points may be a label or an (x, y) position in inches.
 MM = 1 / 25.4
 # Tall corner pantry (2100 mm tall): corner, side along the N-S wall, side along the E-W wall, depth
-CORNER_PANTRY = ("H", 900 * MM, 800 * MM, 600 * MM)
-COUNTERS = [(["D", (0, 316 - 900 * MM)], 26), ([(-800 * MM, 316), "L"], 26), (["P", "Q"], 26)]
+CORNER_PANTRY = None
+# Base corner cabinet under the counter (lazy Susan): corner, size along each wall, cabinet depth
+CORNER_BASE = ("H", 36, 24)
+COUNTERS = [(["D", "H", "L"], 26), (["P", "Q"], 26)]
 
 # Appliances against a wall: (label, from point, to point, width, depth[, note]).
 # Placed flush against the "to" point, projecting into the room.
@@ -132,6 +134,12 @@ def build():
                     k = 2 if vertical else 1
                     sgn = 1 if fb[k] > fa[k] else -1
                     taken.append(tuple(sorted((fa[k] + sgn * f[4], fa[k] + sgn * (f[4] + f[5])))))
+            if CORNER_BASE:  # the corner cabinet also occupies the run near its corner
+                cc = by_label[CORNER_BASE[0]]
+                k = 2 if vertical else 1
+                if (cc[1] == a[1]) if vertical else (cc[2] == a[2]):
+                    sgn = 1 if (lo + hi) / 2 > cc[k] else -1
+                    taken.append(tuple(sorted((cc[k], cc[k] + sgn * CORNER_BASE[1]))))
             gaps, cur = [], lo
             for t0, t1 in sorted(taken):
                 if t0 > cur:
@@ -188,6 +196,19 @@ def build():
         out.append(f'  <text x="{tx}" y="{ty - 4}" font-size="10" font-weight="700" fill="#333" text-anchor="middle">CORNER</text>'
                    f'<text x="{tx}" y="{ty + 8}" font-size="10" font-weight="700" fill="#333" text-anchor="middle">PANTRY</text>'
                    f'<text x="{tx}" y="{ty + 20}" font-size="9" fill="#555" text-anchor="middle">900/800 · 2100 H</text>')
+
+    if CORNER_BASE:
+        c_lbl, size, dep = CORNER_BASE
+        c = by_label[c_lbl]
+        ix = 1 if cx_in > c[1] else -1
+        iy = 1 if cy_in > c[2] else -1
+        cb = [(c[1], c[2]), (c[1], c[2] + iy * size), (c[1] + ix * dep, c[2] + iy * size),
+              (c[1] + ix * dep, c[2] + iy * dep), (c[1] + ix * size, c[2] + iy * dep), (c[1] + ix * size, c[2])]
+        d_attr = " ".join(f"{'M' if i == 0 else 'L'} {P(x, y)[0]} {P(x, y)[1]}" for i, (x, y) in enumerate(cb)) + " Z"
+        out.append(f'  <path id="corner-base" d="{d_attr}" fill="none" stroke="#333" stroke-width="1.25" stroke-dasharray="5 3"/>')
+        tx, ty = P(c[1] + ix * dep * 0.55, c[2] + iy * dep * 0.55)
+        out.append(f'  <text x="{tx}" y="{ty - 2}" font-size="10" font-weight="700" fill="#333" text-anchor="middle">CORNER {size}"</text>'
+                   f'<text x="{tx}" y="{ty + 10}" font-size="9" fill="#555" text-anchor="middle">lazy Susan</text>')
 
     for a_lbl, b_lbl in NO_WINDOW:
         for i, seg in enumerate(SEGMENTS):
