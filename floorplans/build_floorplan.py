@@ -21,7 +21,7 @@ SEGMENTS = [
     ("W", 19, "window", "K"),
     ("W", 42, "wall", "L"),
     ("W", 40, "wall", "M"),
-    ("N", 60, "wall", "N"),
+    ("N", 68, "wall", "N"),
     ("E", 40, "wall", "N1"),
     ("N", 41, "wall", "O", "N"),
     ("N", 48, "wall", "P"),
