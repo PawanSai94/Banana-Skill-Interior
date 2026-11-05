@@ -2,7 +2,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 968 614" width="968" height="614" font-family="Helvetica, Arial, sans-serif">
   <rect width="968" height="614" fill="#fff"/>
   <text x="90" y="30" font-size="16" font-weight="700" fill="#222">East wall elevation (A–H), viewed from inside facing east</text>
-  <text x="90" y="50" font-size="11" fill="#555">Ceiling 96"" · counter 36" · scale 4 px = 1"</text>
+  <text x="90" y="50" font-size="11" fill="#555">Ceiling 96" · counter 36" · scale 4 px = 1"</text>
   <path d="M 90 464 L 90 80 L 798.0 80 L 798.0 464 Z" fill="#f7f4ee" stroke="#2b2b2b" stroke-width="3"/>
   <rect x="104.0" y="134.0" width="144.0" height="144" fill="#dceaf3" stroke="#4a6b80" stroke-width="2"/>
   <text x="176.0" y="206.0" font-size="11" fill="#2e4a5c" text-anchor="middle">WINDOW 36" × 36"</text>
