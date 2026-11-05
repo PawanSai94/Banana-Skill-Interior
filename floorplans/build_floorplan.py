@@ -490,9 +490,9 @@ ELEVATIONS = [
       "box_drawers": [("P", 0, 24), ("P", 24, 48), ("Q", 0, 30)],  # toe-kick drawers in the box front
       "openings": {"M": 80},  # opening height assumed
       "zones": [("O", "P", 0, 72, "FRIDGE (French door)", '41" space · 72" tall (assumed)'),
-                ("O", "P", 79, 99, "CABINET ABOVE FRIDGE", '36"W × 24"D × 20"H · fillers each side'),
-                ("P", "Q", 9, 99, "APPLIANCE GARAGE", "2 × 24\"W × 24\"D × 90\"H tall cabinets"),
-                ("Q", "R", 9, 37, "GE CONV. OVEN", "28\" tall, on the box"),
+                ("O", "P", 79, 99, "10 · CABINET ABOVE FRIDGE", '36"W × 24"D × 20"H · fillers each side'),
+                ("P", "Q", 9, 99, "11 + 12 · APPLIANCE GARAGE", "2 × 24\"W × 24\"D × 90\"H tall cabinets"),
+                ("Q", "R", 9, 37, "13 · GE CONV. OVEN", "28\" tall, on the box"),
                 ("Q", "R", 37, 38, "", ""),
                 ("Q", "R", 38, 56, "COFFEE", "counter at 38\""),
                 ("Q", "R", 56, 71, "MICROWAVE", "bottom at 56\""),
