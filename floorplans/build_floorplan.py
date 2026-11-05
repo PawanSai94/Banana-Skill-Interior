@@ -17,12 +17,21 @@ SEGMENTS = [
     ("S", 8.5, "wall", "F"),
     ("S", 36, "window", "G"),
     ("S", 48, "wall", "H"),
+    # South wall, H to K (east to west); 32" window centred over the 36" sink I-J
+    ("W", 45, "wall", "I"),
+    ("W", 2, "wall", "_w1"),
+    ("W", 32, "window", "_w2"),
+    ("W", 2, "wall", "J"),
+    ("W", 42.5, "wall", "K"),
 ]
+
+# Dimensions for runs whose segments use hidden "_" points: (from, to, text)
+SPANS = [("I", "J", '36" sink · 32" window centred')]
 
 LABELS = {"opening": "walkway opening"}
 MARGIN = 80
 # Overall run dimensions drawn outside the segment dimensions: (from label, to label)
-TOTALS = [("A", "H")]
+TOTALS = [("A", "H"), ("H", "K")]
 
 # Countertops along walls: (points along the wall, depth in inches)
 # Points may be a label or an (x, y) position in inches.
@@ -44,6 +53,7 @@ NO_WINDOW = []
 # (kind, label, from, to, offset, width, depth). kind: range | hood | sink | under
 FIXTURES = [
     ("range", "STOVETOP", "D", "E", 0, 36, 22),
+    ("sink", "SINK", "H", "K", 45, 36, 22),
 ]
 
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
@@ -249,6 +259,22 @@ def build():
         g.append('</g>')
         out.append("".join(g))
 
+    def seg_dim(x1, y1, x2, y2, vertical, text):
+        if vertical:
+            side = 1 if (x1 - ox) / SCALE >= (min(xs) + max(xs)) / 2 else -1  # keep dims outside the room
+            dx_ = x1 + side * (DIM_OFFSET + 30)
+            mid = (y1 + y2) / 2
+            out.append(f'  <g stroke="#888"><line x1="{dx_}" y1="{y1}" x2="{dx_}" y2="{y2}"/>'
+                       f'<line x1="{dx_-6}" y1="{y1}" x2="{dx_+6}" y2="{y1}"/><line x1="{dx_-6}" y1="{y2}" x2="{dx_+6}" y2="{y2}"/></g>')
+            out.append(f'  <text x="{dx_+16*side}" y="{mid}" font-size="12" fill="#444" text-anchor="middle" transform="rotate({90*side} {dx_+16*side} {mid})">{text}</text>')
+        else:
+            vside = 1 if (y1 - oy) / SCALE >= (min(ys) + max(ys)) / 2 else -1
+            dy_ = y1 + vside * DIM_OFFSET
+            mid = (x1 + x2) / 2
+            out.append(f'  <g stroke="#888"><line x1="{x1}" y1="{dy_}" x2="{x2}" y2="{dy_}"/>'
+                       f'<line x1="{x1}" y1="{dy_-6}" x2="{x1}" y2="{dy_+6}"/><line x1="{x2}" y1="{dy_-6}" x2="{x2}" y2="{dy_+6}"/></g>')
+            out.append(f'  <text x="{mid}" y="{dy_+(16 if vside > 0 else -8)}" font-size="12" fill="#444" text-anchor="middle">{text}</text>')
+
     for i, seg in enumerate(SEGMENTS):
         d, length, kind, label = seg[:4]
         kind, _, name = kind.partition(":")
@@ -276,21 +302,14 @@ def build():
             rw, rh = (8, abs(y2 - y1)) if vertical else (abs(x2 - x1), 8)
             out.append(f'  <g id="{seg_id}"><rect x="{rx}" y="{ry}" width="{rw}" height="{rh}" fill="#fff" stroke="#2b2b2b"/>'
                        f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#4a6b80" stroke-width="2"/></g>')
-        # dimension
-        if vertical:
-            side = 1 if (x1 - ox) / SCALE >= (min(xs) + max(xs)) / 2 else -1  # keep dims outside the room
-            dx_ = x1 + side * (DIM_OFFSET + 30)
-            mid = (y1 + y2) / 2
-            out.append(f'  <g stroke="#888"><line x1="{dx_}" y1="{y1}" x2="{dx_}" y2="{y2}"/>'
-                       f'<line x1="{dx_-6}" y1="{y1}" x2="{dx_+6}" y2="{y1}"/><line x1="{dx_-6}" y1="{y2}" x2="{dx_+6}" y2="{y2}"/></g>')
-            out.append(f'  <text x="{dx_+16*side}" y="{mid}" font-size="12" fill="#444" text-anchor="middle" transform="rotate({90*side} {dx_+16*side} {mid})">{length}" {name}</text>')
-        else:
-            vside = 1 if (y1 - oy) / SCALE >= (min(ys) + max(ys)) / 2 else -1
-            dy_ = y1 + vside * DIM_OFFSET
-            mid = (x1 + x2) / 2
-            out.append(f'  <g stroke="#888"><line x1="{x1}" y1="{dy_}" x2="{x2}" y2="{dy_}"/>'
-                       f'<line x1="{x1}" y1="{dy_-6}" x2="{x1}" y2="{dy_+6}"/><line x1="{x2}" y1="{dy_-6}" x2="{x2}" y2="{dy_+6}"/></g>')
-            out.append(f'  <text x="{mid}" y="{dy_+(16 if vside > 0 else -8)}" font-size="12" fill="#444" text-anchor="middle">{length}" {name}</text>')
+        # dimension (segments touching a hidden "_" point are dimensioned by SPANS instead)
+        if not (a[0].startswith("_") or b[0].startswith("_")):
+            seg_dim(x1, y1, x2, y2, vertical, f'{length}" {name}')
+
+    for a_lbl, b_lbl, text in SPANS:
+        a, b = by_label[a_lbl], by_label[b_lbl]
+        (x1, y1), (x2, y2) = P(a[1], a[2]), P(b[1], b[2])
+        seg_dim(x1, y1, x2, y2, x1 == x2, text)
 
     for a_lbl, b_lbl in TOTALS:
         a, b = by_label[a_lbl], by_label[b_lbl]
@@ -316,6 +335,8 @@ def build():
 
     out.append('  <g font-size="14" font-weight="700" fill="#c0392b">')
     for label, px, py in pts:
+        if label.startswith("_"):  # construction point, not shown
+            continue
         cx, cy = P(px, py)
         out.append(f'    <circle cx="{cx}" cy="{cy}" r="5"/><text x="{cx + 10}" y="{cy - 10}">{label}</text>')
     out.append("  </g>")
@@ -325,13 +346,19 @@ def build():
 
 
 # Wall elevations (viewed from inside the room). Heights in inches from the floor.
-CEILING = 96
-WINDOW_SILL, WINDOW_HEIGHT = 46.5, 36
+WINDOW_SILL, WINDOW_HEIGHT = 46.5, 36  # default for every window
+WINDOW_SIZES = {}  # per window, keyed by the window segment's end label: (sill, height)
 COUNTER_HEIGHT = 36
-ELEVATIONS = [("east_elevation.svg", "East wall elevation (A–H), viewed from inside facing east", ["A", "B", "C", "D", "E", "F", "G", "H"])]
+# (file, title, points along the wall in viewing order, ceiling height at first point, at last point)
+ELEVATIONS = [
+    ("east_elevation.svg", "East wall elevation (A–H), viewed from inside facing east",
+     ["A", "B", "C", "D", "E", "F", "G", "H"], 96, 96),
+    ("south_elevation.svg", "South wall elevation (H–K), viewed from inside facing south",
+     ["H", "I", "_w1", "_w2", "J", "K"], 96, 100),
+]
 
 
-def build_elevation(filename, title, labels):
+def build_elevation(filename, title, labels, ceil0, ceil1):
     pts = {START[0]: (START[1], START[2])}
     kinds = {}
     for seg in SEGMENTS:
@@ -340,53 +367,68 @@ def build_elevation(filename, title, labels):
         dx, dy = DIRS[d]
         pts[label] = (a[0] + dx * length, a[1] + dy * length)
         kinds[label] = kind
-    # distance along the wall from the first label
     along = [0.0]
     for p, q in zip(labels, labels[1:]):
         along.append(along[-1] + abs(pts[q][0] - pts[p][0]) + abs(pts[q][1] - pts[p][1]))
+    pos = dict(zip(labels, along))
     total = along[-1]
-    m, top = 90, 70
-    w = int(total * SCALE + 2 * m + 60)
-    h = int(CEILING * SCALE + top + 150)
+    hmax = max(ceil0, ceil1)
+    ceil = lambda t: ceil0 + (ceil1 - ceil0) * t / total
+    m, top = 90, 80
+    w = int(total * SCALE + 2 * m + 80)
+    h = int(hmax * SCALE + top + 150)
     X = lambda t: m + t * SCALE
-    Y = lambda z: top + (CEILING - z) * SCALE
+    Y = lambda z: top + (hmax - z) * SCALE
     o = ['<?xml version="1.0" encoding="UTF-8"?>',
          f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" font-family="Helvetica, Arial, sans-serif">',
          f'  <rect width="{w}" height="{h}" fill="#fff"/>',
          f'  <text x="{m}" y="30" font-size="16" font-weight="700" fill="#222">{title}</text>',
-         f'  <rect x="{X(0)}" y="{Y(CEILING)}" width="{total * SCALE}" height="{CEILING * SCALE}" fill="#f7f4ee" stroke="#2b2b2b" stroke-width="3"/>']
+         f'  <text x="{m}" y="50" font-size="11" fill="#555">Ceiling {ceil0:g}"{"" if ceil0 == ceil1 else f" rising to {ceil1:g}"}" · counter {COUNTER_HEIGHT}" · scale 4 px = 1"</text>',
+         f'  <path d="M {X(0)} {Y(0)} L {X(0)} {Y(ceil0)} L {X(total)} {Y(ceil1)} L {X(total)} {Y(0)} Z" fill="#f7f4ee" stroke="#2b2b2b" stroke-width="3"/>']
+    sills = set()
     for i, (p, q) in enumerate(zip(labels, labels[1:])):
-        kind, _, name = kinds[q].partition(":")
+        kind = kinds[q].partition(":")[0]
+        if kind != "window":
+            continue
+        sill, wh = WINDOW_SIZES.get(q, (WINDOW_SILL, WINDOW_HEIGHT))
+        sills.add((sill, wh))
         t0, t1 = along[i], along[i + 1]
-        if kind == "window":
-            o.append(f'  <rect x="{X(t0)}" y="{Y(WINDOW_SILL + WINDOW_HEIGHT)}" width="{(t1 - t0) * SCALE}" height="{WINDOW_HEIGHT * SCALE}" fill="#dceaf3" stroke="#4a6b80" stroke-width="2"/>')
-            cx = X((t0 + t1) / 2)
-            o.append(f'  <text x="{cx}" y="{Y(WINDOW_SILL + WINDOW_HEIGHT / 2)}" font-size="11" fill="#2e4a5c" text-anchor="middle">WINDOW {t1 - t0:g}" × {WINDOW_HEIGHT:g}"</text>')
-        if "stovetop" in name:
+        o.append(f'  <rect x="{X(t0)}" y="{Y(sill + wh)}" width="{(t1 - t0) * SCALE}" height="{wh * SCALE}" fill="#dceaf3" stroke="#4a6b80" stroke-width="2"/>')
+        o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(sill + wh / 2)}" font-size="11" fill="#2e4a5c" text-anchor="middle">WINDOW {t1 - t0:g}" × {wh:g}"</text>')
+    for kind, name, a_lbl, b_lbl, off, fw, dep in FIXTURES:
+        if a_lbl not in pos or b_lbl not in pos or kind not in ("range", "sink"):
+            continue
+        sgn = 1 if pos[b_lbl] > pos[a_lbl] else -1
+        t0, t1 = sorted((pos[a_lbl] + sgn * off, pos[a_lbl] + sgn * (off + fw)))
+        title_ = name.split("|")[0]
+        if kind == "range":
             o.append(f'  <rect x="{X(t0)}" y="{Y(COUNTER_HEIGHT) - 6}" width="{(t1 - t0) * SCALE}" height="6" fill="#555"/>')
-            o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(COUNTER_HEIGHT) - 12}" font-size="11" font-weight="700" fill="#333" text-anchor="middle">STOVETOP {t1 - t0:g}" (at {COUNTER_HEIGHT}" counter height)</text>')
-    # point markers and segment dimensions along the floor
-    for t, lbl in zip(along, labels):
+        else:  # sink bowl below the counter line
+            o.append(f'  <path d="M {X(t0)} {Y(COUNTER_HEIGHT)} L {X(t0) + 6} {Y(COUNTER_HEIGHT - 9)} L {X(t1) - 6} {Y(COUNTER_HEIGHT - 9)} L {X(t1)} {Y(COUNTER_HEIGHT)}" fill="#fff" stroke="#555" stroke-width="2"/>')
+        o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(COUNTER_HEIGHT) - 12}" font-size="11" font-weight="700" fill="#333" text-anchor="middle">{title_} {fw:g}" (at {COUNTER_HEIGHT}" counter height)</text>')
+    vis = [(t, l) for t, l in zip(along, labels) if not l.startswith("_")]
+    for t, lbl in vis:
         o.append(f'  <line x1="{X(t)}" y1="{Y(0)}" x2="{X(t)}" y2="{Y(0) + 40}" stroke="#aaa" stroke-dasharray="3 3"/>')
         o.append(f'  <text x="{X(t)}" y="{Y(0) + 56}" font-size="14" font-weight="700" fill="#c0392b" text-anchor="middle">{lbl}</text>')
-    for i in range(len(labels) - 1):
-        t0, t1 = along[i], along[i + 1]
+    for (t0, _), (t1, _) in zip(vis, vis[1:]):
         o.append(f'  <line x1="{X(t0)}" y1="{Y(0) + 24}" x2="{X(t1)}" y2="{Y(0) + 24}" stroke="#888"/>')
         o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(0) + 18}" font-size="11" fill="#444" text-anchor="middle">{t1 - t0:g}"</text>')
     o.append(f'  <line x1="{X(0)}" y1="{Y(0) + 80}" x2="{X(total)}" y2="{Y(0) + 80}" stroke="#c0392b"/>')
     o.append(f'  <text x="{X(total / 2)}" y="{Y(0) + 98}" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle">{labels[0]}–{labels[-1]}: {total:g}" ({int(total // 12)}′-{total % 12:g}″)</text>')
-    # height dimensions on the left
-    vx = X(0) - 40
-    for z0, z1, txt in [(0, CEILING, f'{CEILING}" floor to ceiling')]:
-        o.append(f'  <line x1="{vx}" y1="{Y(z0)}" x2="{vx}" y2="{Y(z1)}" stroke="#888"/>')
-        o.append(f'  <text x="{vx - 8}" y="{(Y(z0) + Y(z1)) / 2}" font-size="11" fill="#444" text-anchor="middle" transform="rotate(-90 {vx - 8} {(Y(z0) + Y(z1)) / 2})">{txt}</text>')
-    # window heights on the right
-    rx = X(total) + 30
-    for z0, z1 in [(0, WINDOW_SILL), (WINDOW_SILL, WINDOW_SILL + WINDOW_HEIGHT), (WINDOW_SILL + WINDOW_HEIGHT, CEILING)]:
-        o.append(f'  <line x1="{rx}" y1="{Y(z0)}" x2="{rx}" y2="{Y(z1)}" stroke="#888"/>'
-                 f'<line x1="{rx - 5}" y1="{Y(z1)}" x2="{rx + 5}" y2="{Y(z1)}" stroke="#888"/>')
-        o.append(f'  <text x="{rx + 14}" y="{(Y(z0) + Y(z1)) / 2}" font-size="11" fill="#444" text-anchor="middle" transform="rotate(90 {rx + 14} {(Y(z0) + Y(z1)) / 2})">{z1 - z0:g}"</text>')
-    o.append(f'  <text x="{m}" y="50" font-size="11" fill="#555">Ceiling {CEILING}" · window sill {WINDOW_SILL:g}" · window head {WINDOW_SILL + WINDOW_HEIGHT:g}" · scale 4 px = 1"</text>')
+    # ceiling heights at each end
+    for t, c, side in ((0, ceil0, -1), (total, ceil1, 1)):
+        vx = X(t) + side * 40
+        o.append(f'  <line x1="{vx}" y1="{Y(0)}" x2="{vx}" y2="{Y(c)}" stroke="#888"/>'
+                 f'<line x1="{vx - 5}" y1="{Y(c)}" x2="{vx + 5}" y2="{Y(c)}" stroke="#888"/>')
+        tx = vx + side * 12
+        o.append(f'  <text x="{tx}" y="{(Y(0) + Y(c)) / 2}" font-size="11" fill="#444" text-anchor="middle" transform="rotate({90 * side} {tx} {(Y(0) + Y(c)) / 2})">{c:g}" floor to ceiling</text>')
+    # window sill / head heights, just inside the first window
+    for sill, wh in sorted(sills):
+        rx = X(total) + 70
+        for z0, z1 in [(0, sill), (sill, sill + wh)]:
+            o.append(f'  <line x1="{rx}" y1="{Y(z0)}" x2="{rx}" y2="{Y(z1)}" stroke="#4a6b80"/>'
+                     f'<line x1="{rx - 5}" y1="{Y(z1)}" x2="{rx + 5}" y2="{Y(z1)}" stroke="#4a6b80"/>')
+            o.append(f'  <text x="{rx + 14}" y="{(Y(z0) + Y(z1)) / 2}" font-size="11" fill="#2e4a5c" text-anchor="middle" transform="rotate(90 {rx + 14} {(Y(z0) + Y(z1)) / 2})">{"sill " if z0 == 0 else "window "}{z1 - z0:g}"</text>')
     o.append(f'  <line x1="{X(0) - 10}" y1="{Y(0)}" x2="{X(total) + 10}" y2="{Y(0)}" stroke="#2b2b2b" stroke-width="4"/>')
     o.append("</svg>")
     Path(__file__).with_name(filename).write_text("\n".join(o) + "\n")
@@ -395,5 +437,5 @@ def build_elevation(filename, title, labels):
 
 if __name__ == "__main__":
     for spec in ELEVATIONS:
-        build_elevation(*spec)
+        print(spec[0], *build_elevation(*spec))
     print(*build())
