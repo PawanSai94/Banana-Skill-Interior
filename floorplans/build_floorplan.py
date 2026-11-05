@@ -403,7 +403,7 @@ ELEVATIONS = [
                 ("Q", "R", 37, 38, "", ""),
                 ("Q", "R", 38, 56, "COFFEE", "counter at 38\""),
                 ("Q", "R", 56, 71, "MICROWAVE", "bottom at 56\""),
-                ("Q", "R", 71, 99, "STORAGE", "doors")]}),]
+                ("Q", "R", 71, 99, "STORAGE DOORS", "from 71\" to 99\"")]}),]
 
 
 def build_elevation(filename, title, labels, ceil0, ceil1, opts=None):
