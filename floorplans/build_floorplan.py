@@ -58,9 +58,12 @@ COUNTERS = []
 # Centred on the wall segment between the two points, projecting into the room.
 APPLIANCES = [
     ("FRIDGE", "P", "O", 36, 30, "French door", '41" space'),
-    ("APPLIANCE", "Q", "P", 48, 24, "GARAGE", "2 × 24\" tall cab.", "on 9\" platform"),
-    ("OVEN+MW", "R", "Q", 30, 24, "coffee gap", "on 9\" platform"),
+    ("APPLIANCE", "Q", "P", 48, 24, "GARAGE", "2 × 24\" tall cab.", "on 9\" box"),
+    ("OVEN+MW", "R", "Q", 30, 24, "coffee gap", "on 9\" box"),
 ]
+
+# Raised floor boxes against a wall: (from, to, depth, step depth, label). Drawn as a dashed outline.
+PLATFORMS = [("P", "R", 24.75, 11, '9" box · flush 24¾" · 3 toe-kick drawers')]
 
 # Design constraints: segments (by end points) that must never be a window.
 NO_WINDOW = []
@@ -221,6 +224,20 @@ def build():
         tx, ty = P((a[1] + b[1]) / 2, (a[2] + b[2]) / 2)
         out.append(f'  <text x="{tx}" y="{ty + 14}" font-size="10" font-style="italic" fill="#c0392b" text-anchor="middle">no window</text>')
 
+    for a_lbl, b_lbl, dep, step, txt in PLATFORMS:
+        a, b = by_label[a_lbl], by_label[b_lbl]
+        if a[1] == b[1]:
+            nx = 1 if cx_in > a[1] else -1
+            (x1, y1), (x2, y2) = P(min(a[1], a[1] + nx * dep), min(a[2], b[2])), P(max(a[1], a[1] + nx * dep), max(a[2], b[2]))
+            sx = P(a[1] + nx * step, 0)[0]
+            out.append(f'  <line x1="{sx}" y1="{y1}" x2="{sx}" y2="{y2}" stroke="#8a6a3d" stroke-width="1" stroke-dasharray="2 3"/>')
+            tx = P(a[1] + nx * (dep + 3), 0)[0]
+            out.append(f'  <text x="{tx}" y="{(y1 + y2) / 2}" font-size="10" fill="#6b4f2a" text-anchor="middle" transform="rotate(-90 {tx} {(y1 + y2) / 2})">{txt}</text>')
+        else:
+            ny = 1 if cy_in > a[2] else -1
+            (x1, y1), (x2, y2) = P(min(a[1], b[1]), min(a[2], a[2] + ny * dep)), P(max(a[1], b[1]), max(a[2], a[2] + ny * dep))
+        out.append(f'  <rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#8a6a3d" stroke-width="1.5" stroke-dasharray="6 3"/>')
+
     for kind, name, a_lbl, b_lbl, off, w, dep in FIXTURES:
         a, b = by_label[a_lbl], by_label[b_lbl]
         if a[1] == b[1]:
@@ -377,7 +394,8 @@ ELEVATIONS = [
     ("west_elevation.svg", "West wall elevation (K–R), viewed from inside facing west",
      ["K", "L", "M", "N", "O", "P", "Q", "R"], 100, 100,
      {"project": True,  # N-O is a return wall: O-R sits 40.5" further west
-      "platforms": [("P", "R", 9, "9\" raised box (on 11\" concrete step), 24\" deep")],
+      "platforms": [("P", "R", 9, "")],
+      "box_drawers": [("P", 0, 24), ("P", 24, 48), ("Q", 0, 30)],  # toe-kick drawers in the box front
       "openings": {"M": 80},  # opening height assumed
       "zones": [("O", "P", 0, 70, "FRIDGE (French door)", '41" space · height approx.'),
                 ("P", "Q", 9, 99, "APPLIANCE GARAGE", "2 × 24\"W × 24\"D × 90\"H tall cabinets"),
@@ -437,10 +455,16 @@ def build_elevation(filename, title, labels, ceil0, ceil1, opts=None):
             o.append(f'  <rect x="{X(t0)}" y="{Y(oh)}" width="{(t1 - t0) * SCALE}" height="{oh * SCALE}" fill="#fff" stroke="#999" stroke-dasharray="6 4"/>')
             o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(oh / 2)}" font-size="11" fill="#555" text-anchor="middle">OPENING {t1 - t0:g}"</text>'
                      f'<text x="{X((t0 + t1) / 2)}" y="{Y(oh / 2) + 14}" font-size="9" fill="#777" text-anchor="middle">no door · {oh}" high (assumed)</text>')
-    for a_lbl, b_lbl, ph, txt in opts.get("platforms", []):
+    for a_lbl, b_lbl, ph, txt in opts.get("platforms", []):  # raised floor box
         t0, t1 = sorted((pos[a_lbl], pos[b_lbl]))
         o.append(f'  <rect x="{X(t0)}" y="{Y(ph)}" width="{(t1 - t0) * SCALE}" height="{ph * SCALE}" fill="#d9c3a0" stroke="#8a6a3d" stroke-width="1.5"/>')
         o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(ph / 2) + 4}" font-size="10" fill="#5a4320" text-anchor="middle">{txt}</text>')
+    for lbl, d0, d1 in opts.get("box_drawers", []):
+        ph = opts["platforms"][0][2]
+        sgn = 1 if along[-1] > pos[lbl] else -1
+        t0, t1 = sorted((pos[lbl] + sgn * d0, pos[lbl] + sgn * d1))
+        o.append(f'  <rect x="{X(t0) + 2}" y="{Y(ph) + 3}" width="{(t1 - t0) * SCALE - 4}" height="{ph * SCALE - 6}" fill="#e6d3b3" stroke="#8a6a3d"/>')
+        o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(ph / 2) + 4}" font-size="9" fill="#5a4320" text-anchor="middle">{t1 - t0:g}" drawer</text>')
     for a_lbl, b_lbl, z0, z1, ztitle, zsub in opts.get("zones", []):
         t0, t1 = sorted((pos[a_lbl], pos[b_lbl]))
         o.append(f'  <rect x="{X(t0) + 3}" y="{Y(z1) + 3}" width="{(t1 - t0) * SCALE - 6}" height="{(z1 - z0) * SCALE - 6}" fill="#eef1f3" fill-opacity="0.6" stroke="#333" stroke-width="1.25" stroke-dasharray="6 4"/>')
