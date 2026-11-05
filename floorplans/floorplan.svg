@@ -62,6 +62,12 @@
   <line id="wall-QR" x1="160.0" y1="200.0" x2="160.0" y2="80.0" stroke="#2b2b2b" stroke-width="8"/>
   <g stroke="#888"><line x1="90.0" y1="200.0" x2="90.0" y2="80.0"/><line x1="84.0" y1="200.0" x2="96.0" y2="200.0"/><line x1="84.0" y1="80.0" x2="96.0" y2="80.0"/></g>
   <text x="74.0" y="140.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 74.0 140.0)">30" oven + microwave</text>
+  <line id="wall-KK1" x1="322.0" y1="818.0" x2="160.0" y2="818.0" stroke="#2b2b2b" stroke-width="8"/>
+  <g stroke="#888"><line x1="322.0" y1="858.0" x2="160.0" y2="858.0"/><line x1="322.0" y1="852.0" x2="322.0" y2="864.0"/><line x1="160.0" y1="852.0" x2="160.0" y2="864.0"/></g>
+  <text x="241.0" y="874.0" font-size="12" fill="#444" text-anchor="middle">40.5" wall</text>
+  <line id="wall-K1O" x1="160.0" y1="818.0" x2="160.0" y2="556.0" stroke="#2b2b2b" stroke-width="8"/>
+  <g stroke="#888"><line x1="90.0" y1="818.0" x2="90.0" y2="556.0"/><line x1="84.0" y1="818.0" x2="96.0" y2="818.0"/><line x1="84.0" y1="556.0" x2="96.0" y2="556.0"/></g>
+  <text x="74.0" y="687.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 74.0 687.0)">65.5" wall</text>
   <g stroke="#888"><line x1="636.0" y1="858.0" x2="492.0" y2="858.0"/><line x1="636.0" y1="852.0" x2="636.0" y2="864.0"/><line x1="492.0" y1="852.0" x2="492.0" y2="864.0"/></g>
   <text x="564.0" y="874.0" font-size="12" fill="#444" text-anchor="middle">36" sink · 32" window centred</text>
   <g stroke="#c0392b"><line x1="946.0" y1="110.0" x2="946.0" y2="818.0"/><line x1="938.0" y1="110.0" x2="954.0" y2="110.0"/><line x1="938.0" y1="818.0" x2="954.0" y2="818.0"/></g>
@@ -72,6 +78,7 @@
   <text x="470.0" y="687.0" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" transform="rotate(90 470.0 687.0)">K–N: 5.46 linear ft (5′-5.5″)</text>
   <g stroke="#c0392b"><line x1="30.0" y1="556.0" x2="30.0" y2="80.0"/><line x1="22.0" y1="556.0" x2="38.0" y2="556.0"/><line x1="22.0" y1="80.0" x2="38.0" y2="80.0"/></g>
   <text x="12.0" y="318.0" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" transform="rotate(-90 12.0 318.0)">O–R: 9.92 linear ft (9′-11″)</text>
+  <text x="241.0" y="687.0" font-size="14" font-weight="700" fill="#555" text-anchor="middle" letter-spacing="2">PANTRY</text><text x="241.0" y="703.0" font-size="11" fill="#777" text-anchor="middle">3′ × 5′ (walk-in)</text>
   <g font-size="14" font-weight="700" fill="#c0392b">
     <circle cx="816.0" cy="110.0" r="5"/><text x="826.0" y="100.0">A</text>
     <circle cx="816.0" cy="124.0" r="5"/><text x="826.0" y="114.0">B</text>
@@ -91,5 +98,6 @@
     <circle cx="160.0" cy="392.0" r="5"/><text x="170.0" y="382.0">P</text>
     <circle cx="160.0" cy="200.0" r="5"/><text x="170.0" y="190.0">Q</text>
     <circle cx="160.0" cy="80.0" r="5"/><text x="170.0" y="70.0">R</text>
+    <circle cx="160.0" cy="818.0" r="5"/><text x="170.0" y="808.0">K1</text>
   </g>
 </svg>

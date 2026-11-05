@@ -31,7 +31,13 @@ SEGMENTS = [
     ("N", 41, "wall:fridge space", "P"),
     ("N", 48, "wall:appliance garage", "Q"),
     ("N", 30, "wall:oven + microwave", "R"),
+    # Pantry K-K1-O-N (walk-in, entered through the L-M opening)
+    ("W", 40.5, "wall", "K1", "K"),
+    ("N", 65.5, "wall", "O", "K1"),
 ]
+
+# Room labels: (title, subtitle, points whose centre the label sits at)
+ROOMS = [("PANTRY", "3′ × 5′ (walk-in)", ["K", "K1", "O", "N"])]
 
 # Force dimension side for walls whose outside is cluttered, keyed by segment end label
 # (1 = east/south of the wall, -1 = west/north). Totals use "A-B" keys.
@@ -369,10 +375,19 @@ def build():
                        f'<line x1="{x1}" y1="{dy_-8}" x2="{x1}" y2="{dy_+8}"/><line x1="{x2}" y1="{dy_-8}" x2="{x2}" y2="{dy_+8}"/></g>')
             out.append(f'  <text x="{mid}" y="{dy_+(18 if vside > 0 else -8)}" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle">{text}</text>')
 
+    for title, sub, lbls in ROOMS:
+        cxr = sum(by_label[l][1] for l in lbls) / len(lbls)
+        cyr = sum(by_label[l][2] for l in lbls) / len(lbls)
+        tx, ty = P(cxr, cyr)
+        out.append(f'  <text x="{tx}" y="{ty}" font-size="14" font-weight="700" fill="#555" text-anchor="middle" letter-spacing="2">{title}</text>'
+                   f'<text x="{tx}" y="{ty + 16}" font-size="11" fill="#777" text-anchor="middle">{sub}</text>')
+
     out.append('  <g font-size="14" font-weight="700" fill="#c0392b">')
+    drawn = set()
     for label, px, py in pts:
-        if label.startswith("_"):  # construction point, not shown
+        if label.startswith("_") or label in drawn:  # construction point, or already drawn
             continue
+        drawn.add(label)
         cx, cy = P(px, py)
         out.append(f'    <circle cx="{cx}" cy="{cy}" r="5"/><text x="{cx + 10}" y="{cy - 10}">{label}</text>')
     out.append("  </g>")
