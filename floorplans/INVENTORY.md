@@ -120,7 +120,30 @@ Base cabinets are 24" deep × 30" tall on legs (counter ≈ 36"); wall cabinets 
 (24", 24", 30" wide) · 3 pairs 12" full-extension slides (75–100 lb) · 3 push-to-open latches ·
 3 drawer fronts ≈ 8" tall to match the doors · shims, screws, glue, floor-edge sealer
 
-## 11. Electrical
+## 11. Pantry shelving (walk-in, ≈ 36" × 61" inside — see `pantry_layout.svg`)
+
+Adjustable wall-standard system (e.g. IKEA BOAXEL) on three walls; aisle ≈ 20" × 43".
+
+| Item | Qty | Notes |
+|---|---|---|
+| Wall uprights / standards, ≈ 84–96" | 7 | Back wall 3, south side 2, north side 2 — screw into studs |
+| Shelf brackets 16" | 12 | Back wall: 6 levels × 2 per shelf span |
+| Shelves 16" deep × ≈ 60" | 6 | Back wall at 24, 36, 48, 60, 72, 84" (adjustable) |
+| Shelf brackets 12" | 8 | South side |
+| Shelves 12" deep × ≈ 20" | 4 | South side — cookware (wet grinder low, pressure cookers mid) |
+| Shelf brackets 6" | 8 | North side |
+| Shelves 6" deep × ≈ 20" | 4 | North side — spice refills, small packets (stays clear of the opening) |
+| Slatted bag platform ≈ 60" × 16" × 6" high | 1 | DIY 1×4 slats or wire shelf on short legs — unopened rice/atta bags |
+| Rolling airtight rice/atta bins, 25–40 lb (≤ 12" W × 14" D × 16" H) | 2 | Under the 24" shelf, south end of the back wall |
+| Clear airtight containers, 1–3 L (square) | 20–30 | Dals, rava, poha, sugar, tea, besan |
+| Pegboard ≈ 20" × 24" + hooks | 1 | South side, above the cookware shelves — tawa, kadai, sieves, chakla-belan |
+| Wall hooks | 4–6 | Entrance wall beside the opening — broom, mop, step stool |
+| Motion-sensor LED strips | 3–4 | Under the back-wall shelves |
+| Folding step stool | 1 | For the 84"+ shelf |
+
+Keep any bag over 20 lb on the platform or in the floor bins, not on bracket shelves.
+
+## 12. Electrical
 
 | Location | Circuit |
 |---|---|
