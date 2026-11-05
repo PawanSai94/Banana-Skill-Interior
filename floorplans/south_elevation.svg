@@ -6,8 +6,14 @@
   <path d="M 90 480 L 90 96 L 584.0 80 L 584.0 480 Z" fill="#f7f4ee" stroke="#2b2b2b" stroke-width="3"/>
   <rect x="278.0" y="150.0" width="128.0" height="144" fill="#dceaf3" stroke="#4a6b80" stroke-width="2"/>
   <text x="342.0" y="222.0" font-size="11" fill="#2e4a5c" text-anchor="middle">WINDOW 32" × 36"</text>
-  <path d="M 270.0 336 L 276.0 372 L 408.0 372 L 414.0 336" fill="#fff" stroke="#555" stroke-width="2"/>
-  <text x="342.0" y="324" font-size="11" font-weight="700" fill="#333" text-anchor="middle">SINK 36" (at 36" counter height)</text>
+  <rect x="271.0" y="342.0" width="142.0" height="120.0" fill="#f1ede6" stroke="#333" stroke-dasharray="5 3"/>
+  <text x="342.0" y="411.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">SINK BASE</text><text x="342.0" y="425.0" font-size="10" fill="#555" text-anchor="middle">36"</text>
+  <path d="M 276.0 336 L 282.0 372 L 402.0 372 L 408.0 336" fill="#fff" stroke="#555" stroke-width="2"/>
+  <text x="342.0" y="324" font-size="11" font-weight="700" fill="#333" text-anchor="middle">SINK 33" (at 36" counter height)</text>
+  <rect x="415.0" y="342.0" width="70.0" height="120.0" fill="#f1ede6" stroke="#333" stroke-dasharray="5 3"/>
+  <text x="450.0" y="411.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">TRASH</text><text x="450.0" y="425.0" font-size="10" fill="#555" text-anchor="middle">18"</text>
+  <rect x="487.0" y="342.0" width="94.0" height="120.0" fill="#f1ede6" stroke="#333" stroke-dasharray="5 3"/>
+  <text x="534.0" y="411.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">DW</text><text x="534.0" y="425.0" font-size="10" fill="#555" text-anchor="middle">24"</text>
   <line x1="90.0" y1="480" x2="90.0" y2="520" stroke="#aaa" stroke-dasharray="3 3"/>
   <text x="90.0" y="536" font-size="14" font-weight="700" fill="#c0392b" text-anchor="middle">H</text>
   <line x1="270.0" y1="480" x2="270.0" y2="520" stroke="#aaa" stroke-dasharray="3 3"/>

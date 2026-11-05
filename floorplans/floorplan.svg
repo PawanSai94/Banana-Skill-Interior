@@ -10,7 +10,10 @@
   <text x="271.0" y="236.0" font-size="10" fill="#6b4f2a" text-anchor="middle" transform="rotate(-90 271.0 236.0)">9" box · flush 24¾" · 3 toe-kick drawers</text>
   <rect x="160.0" y="80.0" width="99.0" height="312.0" fill="none" stroke="#8a6a3d" stroke-width="1.5" stroke-dasharray="6 3"/>
   <g id="range-stovetop"><rect x="728.0" y="304.0" width="88.0" height="144.0" fill="#e9e9e9" stroke="#333" stroke-width="1.5"/><circle cx="750.0" cy="340.0" r="9.9" fill="none" stroke="#333"/><circle cx="750.0" cy="412.0" r="9.9" fill="none" stroke="#333"/><circle cx="794.0" cy="340.0" r="9.9" fill="none" stroke="#333"/><circle cx="794.0" cy="412.0" r="9.9" fill="none" stroke="#333"/><text x="776.0" y="376.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle" transform="rotate(-90 776.0 376.0)">STOVETOP 36"</text></g>
-  <g id="sink-sink"><rect x="492.0" y="730.0" width="144.0" height="88.0" rx="10" fill="#fff" stroke="#333" stroke-width="1.5"/><rect x="500.0" y="738.0" width="128.0" height="72.0" rx="8" fill="none" stroke="#999"/><text x="564.0" y="778.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">SINK 36"</text></g>
+  <g id="under-sink"><rect x="492.0" y="722.0" width="144.0" height="96.0" fill="none" stroke="#333" stroke-width="1.25" stroke-dasharray="5 3"/><text x="564.0" y="774.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">SINK BASE 36"</text></g>
+  <g id="sink-sink"><rect x="498.0" y="730.0" width="132.0" height="88.0" rx="10" fill="#fff" stroke="#333" stroke-width="1.5"/><rect x="506.0" y="738.0" width="116.0" height="72.0" rx="8" fill="none" stroke="#999"/><text x="564.0" y="778.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">SINK 33"</text></g>
+  <g id="under-trash"><rect x="420.0" y="722.0" width="72.0" height="96.0" fill="none" stroke="#333" stroke-width="1.25" stroke-dasharray="5 3"/><text x="456.0" y="774.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">TRASH 18"</text></g>
+  <g id="under-dw"><rect x="324.0" y="722.0" width="96.0" height="96.0" fill="none" stroke="#333" stroke-width="1.25" stroke-dasharray="5 3"/><text x="372.0" y="774.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">DW 24"</text></g>
   <line id="wall-AB" x1="816.0" y1="110.0" x2="816.0" y2="124.0" stroke="#2b2b2b" stroke-width="8"/>
   <g stroke="#888"><line x1="886.0" y1="110.0" x2="886.0" y2="124.0"/><line x1="880.0" y1="110.0" x2="892.0" y2="110.0"/><line x1="880.0" y1="124.0" x2="892.0" y2="124.0"/></g>
   <text x="902.0" y="117.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(90 902.0 117.0)">3.5"</text>
@@ -42,14 +45,14 @@
   <g stroke="#888"><line x1="492.0" y1="858.0" x2="322.0" y2="858.0"/><line x1="492.0" y1="852.0" x2="492.0" y2="864.0"/><line x1="322.0" y1="852.0" x2="322.0" y2="864.0"/></g>
   <text x="407.0" y="874.0" font-size="12" fill="#444" text-anchor="middle">42.5" wall</text>
   <line id="wall-KL" x1="322.0" y1="818.0" x2="322.0" y2="704.0" stroke="#2b2b2b" stroke-width="8"/>
-  <g stroke="#888"><line x1="392.0" y1="818.0" x2="392.0" y2="704.0"/><line x1="386.0" y1="818.0" x2="398.0" y2="818.0"/><line x1="386.0" y1="704.0" x2="398.0" y2="704.0"/></g>
-  <text x="408.0" y="761.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(90 408.0 761.0)">28.5" wall</text>
+  <g stroke="#888"><line x1="292.0" y1="818.0" x2="292.0" y2="704.0"/><line x1="286.0" y1="818.0" x2="298.0" y2="818.0"/><line x1="286.0" y1="704.0" x2="298.0" y2="704.0"/></g>
+  <text x="276.0" y="761.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 276.0 761.0)">28.5" wall</text>
   <g id="opening-LM" stroke="#2b2b2b"><line x1="322.0" y1="704.0" x2="322.0" y2="588.0" stroke="#999" stroke-dasharray="6 5"/><line x1="316.0" y1="704.0" x2="328.0" y2="704.0" stroke-width="3"/><line x1="316.0" y1="588.0" x2="328.0" y2="588.0" stroke-width="3"/></g>
-  <g stroke="#888"><line x1="392.0" y1="704.0" x2="392.0" y2="588.0"/><line x1="386.0" y1="704.0" x2="398.0" y2="704.0"/><line x1="386.0" y1="588.0" x2="398.0" y2="588.0"/></g>
-  <text x="408.0" y="646.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(90 408.0 646.0)">29" opening</text>
+  <g stroke="#888"><line x1="292.0" y1="704.0" x2="292.0" y2="588.0"/><line x1="286.0" y1="704.0" x2="298.0" y2="704.0"/><line x1="286.0" y1="588.0" x2="298.0" y2="588.0"/></g>
+  <text x="276.0" y="646.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 276.0 646.0)">29" opening</text>
   <line id="wall-MN" x1="322.0" y1="588.0" x2="322.0" y2="556.0" stroke="#2b2b2b" stroke-width="8"/>
-  <g stroke="#888"><line x1="392.0" y1="588.0" x2="392.0" y2="556.0"/><line x1="386.0" y1="588.0" x2="398.0" y2="588.0"/><line x1="386.0" y1="556.0" x2="398.0" y2="556.0"/></g>
-  <text x="408.0" y="572.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(90 408.0 572.0)">8"</text>
+  <g stroke="#888"><line x1="292.0" y1="588.0" x2="292.0" y2="556.0"/><line x1="286.0" y1="588.0" x2="298.0" y2="588.0"/><line x1="286.0" y1="556.0" x2="298.0" y2="556.0"/></g>
+  <text x="276.0" y="572.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 276.0 572.0)">8"</text>
   <line id="wall-NO" x1="322.0" y1="556.0" x2="160.0" y2="556.0" stroke="#2b2b2b" stroke-width="8"/>
   <g stroke="#888"><line x1="322.0" y1="596.0" x2="160.0" y2="596.0"/><line x1="322.0" y1="590.0" x2="322.0" y2="602.0"/><line x1="160.0" y1="590.0" x2="160.0" y2="602.0"/></g>
   <text x="241.0" y="612.0" font-size="12" fill="#444" text-anchor="middle">40.5" wall</text>
@@ -69,16 +72,14 @@
   <g stroke="#888"><line x1="90.0" y1="818.0" x2="90.0" y2="556.0"/><line x1="84.0" y1="818.0" x2="96.0" y2="818.0"/><line x1="84.0" y1="556.0" x2="96.0" y2="556.0"/></g>
   <text x="74.0" y="687.0" font-size="12" fill="#444" text-anchor="middle" transform="rotate(-90 74.0 687.0)">65.5" wall</text>
   <g stroke="#888"><line x1="636.0" y1="858.0" x2="492.0" y2="858.0"/><line x1="636.0" y1="852.0" x2="636.0" y2="864.0"/><line x1="492.0" y1="852.0" x2="492.0" y2="864.0"/></g>
-  <text x="564.0" y="874.0" font-size="12" fill="#444" text-anchor="middle">36" sink · 32" window centred</text>
+  <text x="564.0" y="874.0" font-size="12" fill="#444" text-anchor="middle">36" sink base · 32" window centred</text>
   <g stroke="#c0392b"><line x1="946.0" y1="110.0" x2="946.0" y2="818.0"/><line x1="938.0" y1="110.0" x2="954.0" y2="110.0"/><line x1="938.0" y1="818.0" x2="954.0" y2="818.0"/></g>
   <text x="964.0" y="464.0" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" transform="rotate(90 964.0 464.0)">A–H: 14.75 linear ft (14′-9″)</text>
   <g stroke="#c0392b"><line x1="816.0" y1="908.0" x2="322.0" y2="908.0"/><line x1="816.0" y1="900.0" x2="816.0" y2="916.0"/><line x1="322.0" y1="900.0" x2="322.0" y2="916.0"/></g>
   <text x="569.0" y="926.0" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle">H–K: 10.29 linear ft (10′-3.5″)</text>
-  <g stroke="#c0392b"><line x1="452.0" y1="818.0" x2="452.0" y2="556.0"/><line x1="444.0" y1="818.0" x2="460.0" y2="818.0"/><line x1="444.0" y1="556.0" x2="460.0" y2="556.0"/></g>
-  <text x="470.0" y="687.0" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" transform="rotate(90 470.0 687.0)">K–N: 5.46 linear ft (5′-5.5″)</text>
   <g stroke="#c0392b"><line x1="30.0" y1="556.0" x2="30.0" y2="80.0"/><line x1="22.0" y1="556.0" x2="38.0" y2="556.0"/><line x1="22.0" y1="80.0" x2="38.0" y2="80.0"/></g>
   <text x="12.0" y="318.0" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle" transform="rotate(-90 12.0 318.0)">O–R: 9.92 linear ft (9′-11″)</text>
-  <text x="241.0" y="687.0" font-size="14" font-weight="700" fill="#555" text-anchor="middle" letter-spacing="2">PANTRY</text><text x="241.0" y="703.0" font-size="11" fill="#777" text-anchor="middle">3′ × 5′ (walk-in)</text>
+  <text x="217.0" y="687.0" font-size="14" font-weight="700" fill="#555" text-anchor="middle" letter-spacing="2">PANTRY</text><text x="217.0" y="703.0" font-size="11" fill="#777" text-anchor="middle">3′ × 5′ (walk-in)</text>
   <g font-size="14" font-weight="700" fill="#c0392b">
     <circle cx="816.0" cy="110.0" r="5"/><text x="826.0" y="100.0">A</text>
     <circle cx="816.0" cy="124.0" r="5"/><text x="826.0" y="114.0">B</text>

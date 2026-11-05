@@ -37,19 +37,19 @@ SEGMENTS = [
 ]
 
 # Room labels: (title, subtitle, points whose centre the label sits at)
-ROOMS = [("PANTRY", "3′ × 5′ (walk-in)", ["K", "K1", "O", "N"])]
+ROOMS = [("PANTRY", "3′ × 5′ (walk-in)", ["K", "K1", "O", "N"], -6)]  # last: x shift in inches
 
 # Force dimension side for walls whose outside is cluttered, keyed by segment end label
 # (1 = east/south of the wall, -1 = west/north). Totals use "A-B" keys.
-DIM_SIDE = {"L": 1, "M": 1, "N": 1, "K-N": 1}
+DIM_SIDE = {"L": -1, "M": -1, "N": -1}  # K-N dims sit inside the pantry, clear of the south-wall cabinets
 
 # Dimensions for runs whose segments use hidden "_" points: (from, to, text)
-SPANS = [("I", "J", '36" sink · 32" window centred')]
+SPANS = [("I", "J", '36" sink base · 32" window centred')]
 
 LABELS = {"opening": "walkway opening"}
 MARGIN = 80
 # Overall run dimensions drawn outside the segment dimensions: (from label, to label)
-TOTALS = [("A", "H"), ("H", "K"), ("K", "N"), ("O", "R")]
+TOTALS = [("A", "H"), ("H", "K"), ("O", "R")]
 
 # Countertops along walls: (points along the wall, depth in inches)
 # Points may be a label or an (x, y) position in inches.
@@ -78,7 +78,10 @@ NO_WINDOW = []
 # (kind, label, from, to, offset, width, depth). kind: range | hood | sink | under
 FIXTURES = [
     ("range", "STOVETOP", "D", "E", 0, 36, 22),
-    ("sink", "SINK", "H", "K", 45, 36, 22),
+    ("under", "SINK BASE", "H", "K", 45, 36, 24),  # IKEA 36" sink base
+    ("sink", "SINK", "H", "K", 46.5, 33, 22),  # 33" sink centred on the base (and under the 32" window)
+    ("under", "TRASH", "H", "K", 81, 18, 24),  # 18" cabinet, double 35 qt pull-out
+    ("under", "DW", "H", "K", 99, 24, 24),  # dishwasher against wall K, 0.5" filler
 ]
 
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
@@ -303,7 +306,7 @@ def build():
     def seg_dim(x1, y1, x2, y2, vertical, text, force=None):
         if vertical:
             side = force or (1 if (x1 - ox) / SCALE >= (min(xs) + max(xs)) / 2 else -1)  # keep dims outside the room
-            dx_ = x1 + side * (DIM_OFFSET + 30)
+            dx_ = x1 + side * (30 if force else DIM_OFFSET + 30)  # forced dims hug the wall
             mid = (y1 + y2) / 2
             out.append(f'  <g stroke="#888"><line x1="{dx_}" y1="{y1}" x2="{dx_}" y2="{y2}"/>'
                        f'<line x1="{dx_-6}" y1="{y1}" x2="{dx_+6}" y2="{y1}"/><line x1="{dx_-6}" y1="{y2}" x2="{dx_+6}" y2="{y2}"/></g>')
@@ -375,8 +378,8 @@ def build():
                        f'<line x1="{x1}" y1="{dy_-8}" x2="{x1}" y2="{dy_+8}"/><line x1="{x2}" y1="{dy_-8}" x2="{x2}" y2="{dy_+8}"/></g>')
             out.append(f'  <text x="{mid}" y="{dy_+(18 if vside > 0 else -8)}" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle">{text}</text>')
 
-    for title, sub, lbls in ROOMS:
-        cxr = sum(by_label[l][1] for l in lbls) / len(lbls)
+    for title, sub, lbls, shift in ROOMS:
+        cxr = sum(by_label[l][1] for l in lbls) / len(lbls) + shift
         cyr = sum(by_label[l][2] for l in lbls) / len(lbls)
         tx, ty = P(cxr, cyr)
         out.append(f'  <text x="{tx}" y="{ty}" font-size="14" font-weight="700" fill="#555" text-anchor="middle" letter-spacing="2">{title}</text>'
@@ -487,7 +490,17 @@ def build_elevation(filename, title, labels, ceil0, ceil1, opts=None):
         o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(zc)}" font-size="11" font-weight="700" fill="#333" text-anchor="middle">{ztitle}</text>'
                  f'<text x="{X((t0 + t1) / 2)}" y="{Y(zc) + 14}" font-size="9" fill="#555" text-anchor="middle">{zsub}</text>')
     for kind, name, a_lbl, b_lbl, off, fw, dep in FIXTURES:
-        if a_lbl not in pos or b_lbl not in pos or kind not in ("range", "sink"):
+        if a_lbl not in pos or b_lbl not in pos or kind not in ("range", "sink", "under"):
+            continue
+        if kind == "under":
+            if not name:
+                continue
+            sgn = 1 if pos[b_lbl] > pos[a_lbl] else -1
+            t0, t1 = sorted((pos[a_lbl] + sgn * off, pos[a_lbl] + sgn * (off + fw)))
+            ch = COUNTER_HEIGHT - 1.5  # cabinet top, under a 1.5" countertop
+            o.append(f'  <rect x="{X(t0) + 1}" y="{Y(ch)}" width="{(t1 - t0) * SCALE - 2}" height="{(ch - 4.5) * SCALE}" fill="#f1ede6" stroke="#333" stroke-dasharray="5 3"/>')
+            o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(ch / 2)}" font-size="11" font-weight="700" fill="#333" text-anchor="middle">{name}</text>'
+                     f'<text x="{X((t0 + t1) / 2)}" y="{Y(ch / 2) + 14}" font-size="10" fill="#555" text-anchor="middle">{fw:g}"</text>')
             continue
         sgn = 1 if pos[b_lbl] > pos[a_lbl] else -1
         t0, t1 = sorted((pos[a_lbl] + sgn * off, pos[a_lbl] + sgn * (off + fw)))
