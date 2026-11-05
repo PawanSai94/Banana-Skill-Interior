@@ -399,12 +399,11 @@ ELEVATIONS = [
       "openings": {"M": 80},  # opening height assumed
       "zones": [("O", "P", 0, 70, "FRIDGE (French door)", '41" space · height approx.'),
                 ("P", "Q", 9, 99, "APPLIANCE GARAGE", "2 × 24\"W × 24\"D × 90\"H tall cabinets"),
-                ("Q", "R", 9, 21, "DRAWER", "12\""),
-                ("Q", "R", 21, 36, "CONV. OVEN", "on pull-out shelf"),
-                ("Q", "R", 36, 37, "", ""),
-                ("Q", "R", 37, 55, "COFFEE", "counter at 37\""),
-                ("Q", "R", 55, 70, "MICROWAVE", "bottom at 55\""),
-                ("Q", "R", 70, 99, "STORAGE", "doors")]}),]
+                ("Q", "R", 9, 37, "GE CONV. OVEN", "28\" tall, on the box"),
+                ("Q", "R", 37, 38, "", ""),
+                ("Q", "R", 38, 56, "COFFEE", "counter at 38\""),
+                ("Q", "R", 56, 71, "MICROWAVE", "bottom at 56\""),
+                ("Q", "R", 71, 99, "STORAGE", "doors")]}),]
 
 
 def build_elevation(filename, title, labels, ceil0, ceil1, opts=None):
