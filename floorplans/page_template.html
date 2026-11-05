@@ -1,0 +1,167 @@
+<title>Kitchen Cabinet Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a drafting set — title block, key facts, then drawing sheets, then the cabinet schedule. */
+:root {
+  --paper: #f4f5f2;
+  --sheet: #ffffff;
+  --ink: #1d2226;
+  --ink-soft: #545d63;
+  --rule: #d5d9d4;
+  --blue: #2e6f9e;
+  --blue-soft: #e3eef5;
+  --wood: #8a6a3d;
+  --wood-soft: #f1e8d8;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #14181b; --sheet: #1c2226; --ink: #e6e9e6; --ink-soft: #a3acb1; --rule: #343c41;
+    --blue: #7db4d9; --blue-soft: #1f3341; --wood: #d3b07c; --wood-soft: #33291b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #14181b; --sheet: #1c2226; --ink: #e6e9e6; --ink-soft: #a3acb1; --rule: #343c41;
+  --blue: #7db4d9; --blue-soft: #1f3341; --wood: #d3b07c; --wood-soft: #33291b; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.55;
+}
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 64px;
+  display: grid; gap: 40px;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; margin: 0; letter-spacing: 0.01em; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.02; font-weight: 700; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.3rem; }
+p { margin: 0; }
+code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
+a { color: var(--blue); }
+a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+/* title block */
+.titleblock { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; border-bottom: 2px solid var(--ink); padding-bottom: 20px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+.lede { color: var(--ink-soft); max-width: 62ch; margin-top: 10px; }
+.stamp { font-family: var(--font-mono); font-size: 12px; color: var(--ink-soft); border: 1px solid var(--rule); background: var(--sheet); padding: 10px 14px; display: grid; gap: 2px; min-width: 0; }
+.stamp b { color: var(--ink); font-weight: 500; }
+@media (max-width: 720px) { .titleblock { grid-template-columns: minmax(0, 1fr); } }
+
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--font-mono); font-size: 13px; }
+nav.toc a { text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 2px; }
+
+/* key facts */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.fact { background: var(--sheet); padding: 16px 18px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.fact .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
+.fact .v { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.fact .d { font-size: 13px; color: var(--ink-soft); }
+
+.decisions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
+@media (max-width: 720px) { .decisions { grid-template-columns: minmax(0, 1fr); } }
+.decisions ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 4px; }
+.decisions li::marker { color: var(--wood); }
+
+/* drawing sheets */
+.sheets { display: grid; gap: 28px; }
+.sheet { margin: 0; background: var(--sheet); border: 1px solid var(--rule); display: grid; }
+.sheet figcaption { padding: 14px 18px; border-bottom: 1px solid var(--rule); display: grid; gap: 4px; }
+.sheet figcaption p { color: var(--ink-soft); font-size: 14px; }
+.drawing { overflow-x: auto; background: #ffffff; padding: 12px; }
+.drawing svg { display: block; width: 100%; height: auto; min-width: 640px; max-width: 1100px; margin: 0 auto; }
+@media (max-width: 720px) { .drawing svg { min-width: 560px; } }
+
+/* inventory */
+.inv-grid { display: grid; gap: 28px; }
+.inv { display: grid; gap: 10px; min-width: 0; }
+.inv h3 { display: flex; gap: 10px; align-items: baseline; }
+.inv h3 .num { font-family: var(--font-mono); font-size: 13px; color: var(--blue); font-weight: 500; }
+.inv p, .inv ol { max-width: 75ch; color: var(--ink); }
+.inv ol { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.tbl { overflow-x: auto; border: 1px solid var(--rule); background: var(--sheet); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; vertical-align: top; padding: 8px 12px; border-bottom: 1px solid var(--rule); }
+th { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); background: var(--paper); white-space: nowrap; }
+td:first-child { font-family: var(--font-mono); font-weight: 500; white-space: nowrap; color: var(--blue); }
+tr:last-child td { border-bottom: 0; }
+tr.total td { background: var(--wood-soft); font-weight: 600; }
+.note { border-left: 3px solid var(--wood); background: var(--wood-soft); padding: 12px 16px; font-size: 14px; }
+footer { color: var(--ink-soft); font-size: 13px; border-top: 1px solid var(--rule); padding-top: 16px; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+</style>
+
+<div class="wrap">
+  <header class="titleblock">
+    <div>
+      <div class="eyebrow">Kitchen remodel · IKEA SEKTION planning set</div>
+      <h1>Kitchen Cabinet Plan</h1>
+      <p class="lede">Measured floor plan, wall elevations and a numbered cabinet schedule for an L-shaped kitchen with a tall appliance wall and a walk-in pantry. Every cabinet number on the drawings matches a row in the schedule below.</p>
+    </div>
+    <div class="stamp">
+      <span><b>Units</b> inches</span>
+      <span><b>Counter</b> 36" high · 25⅝" deep</span>
+      <span><b>Ceiling</b> 96–100"</span>
+      <span><b>System</b> IKEA SEKTION (US)</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sections">
+    <a href="#summary">Summary</a><a href="#plan">Floor plan</a><a href="#east">East wall</a><a href="#south">South wall</a><a href="#west">West wall</a><a href="#pantry">Pantry</a><a href="#inventory">Cabinet schedule</a>
+  </nav>
+
+  <section id="summary" class="decisions" aria-label="Summary">
+    <div class="facts" style="grid-column: 1 / -1">
+      <div class="fact"><span class="k">East run A → H</span><span class="v">177"</span><span class="d">14′-9″ · stovetop + 2 windows</span></div>
+      <div class="fact"><span class="k">South run H → K</span><span class="v">123.5"</span><span class="d">10′-3½″ · sink under 32" window</span></div>
+      <div class="fact"><span class="k">IKEA frames</span><span class="v">24</span><span class="d">9 base · 3 tall · 12 wall</span></div>
+      <div class="fact"><span class="k">Drawers · lift-ups</span><span class="v">18 · 10</span><span class="d">MAXIMERA drawers · lift-up hinges</span></div>
+    </div>
+    <div>
+      <h2>Fixed decisions</h2>
+      <ul>
+        <li>36" stovetop over a 36" two-drawer base, centred on the D–E wall (cook faces east)</li>
+        <li>36" under-cabinet hood, vented straight out the east exterior wall</li>
+        <li>33" sink in a 36" sink base, centred under the 32" window</li>
+        <li>Sink → 18" trash pull-out → 24" dishwasher, to the right of the sink</li>
+        <li>47" blind corner base at H, with a 26" × 26" glass-door corner wall cabinet above</li>
+        <li>Wall cabinets: glass lift-up fronts on the lower row, solid lift-ups above</li>
+      </ul>
+    </div>
+    <div>
+      <h2>West wall &amp; pantry</h2>
+      <ul>
+        <li>French-door fridge, ≤ 36" wide and ≤ 76" tall, in a 41" alcove; 20" cabinet above</li>
+        <li>48" appliance garage: two 24" × 24" × 90" tall cabinets with pull-out shelves</li>
+        <li>30" tall cabinet: GE 28" convection oven, coffee counter at 38", microwave at 56"</li>
+        <li>Tall cabinets sit on a 9" raised box (flush, 24¾" deep) with three toe-kick drawers</li>
+        <li>Walk-in pantry, 36" × 61": U-shaped shelving, rolling rice and atta bins</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sheets" aria-label="Drawings">
+    <h2>Drawings</h2>
+    {{DRAWINGS}}
+  </section>
+
+  <section id="inventory" aria-label="Cabinet schedule" style="display:grid; gap: 20px">
+    <h2>Cabinet schedule</h2>
+    <p class="note">East wall positions are measured south from point A, south wall west from point H, west wall north from point P. Base cabinets are 24" deep × 30" high on legs; wall cabinets are 15" deep.</p>
+    <div class="inv-grid">
+      {{INVENTORY}}
+    </div>
+  </section>
+
+  <footer>Prepared for an IKEA kitchen planning appointment. Confirm final widths, fronts and fittings in the IKEA Kitchen Planner before ordering.</footer>
+</div>
