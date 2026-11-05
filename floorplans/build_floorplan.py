@@ -94,8 +94,8 @@ FIXTURES = [
     ("under", "2 DRAWERS", "A", "H", 24.5, 24, 24),
     ("under", "3 COOKTOP BASE", "A", "H", 48.5, 36, 24),  # 36" drawer base under the stovetop, D-E
     ("range", "STOVETOP|3 · 36\" drawer base below", "D", "E", 0, 36, 22),
-    ("under", "4 DRAWERS", "A", "H", 84.5, 30, 24),
-    ("under", "5 PULL-OUT", "A", "H", 114.5, 15, 24),  # 0.5" filler to the corner cabinet
+    ("under", "4 PULL-OUT", "A", "H", 84.5, 15, 24),  # next to the stovetop: oils, ladles
+    ("under", "5 DRAWERS", "A", "H", 99.5, 30, 24),  # 0.5" filler to the corner cabinet
     ("under", "6 CORNER", "A", "H", 130, 47, 24),  # 47" blind corner base, blind end at H
     # South wall, measured west from H (0-24" is the corner cabinet's blind end)
     ("under", "7 DRAWERS", "H", "K", 27, 18, 24),  # after a 3" filler off the corner cabinet

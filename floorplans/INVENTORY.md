@@ -11,8 +11,8 @@ Base cabinets are 24" deep × 30" tall on legs (counter ≈ 36"); wall cabinets 
 | 1 | East | A + 0.5 → 24.5" | 24" | Base frame + 3 MAXIMERA drawers | Foil/wraps, towels |
 | 2 | East | 24.5 → 48.5" | 24" | Base frame + 3 MAXIMERA drawers | Utensils, spices (beside stovetop) |
 | 3 | East | 48.5 → 84.5" (D–E) | 36" | Base frame + 2 high MAXIMERA drawers (cooktop base) | Pots & pans |
-| 4 | East | 84.5 → 114.5" | 30" | Base frame + 3 MAXIMERA drawers | Prep tools, lids, bakeware |
-| 5 | East | 114.5 → 129.5" | 15" | Base frame + pull-out fitting | Oils / trays & boards |
+| 4 | East | 84.5 → 99.5" | 15" | Base frame + pull-out fitting | Oils and ladles, right beside the stovetop |
+| 5 | East | 99.5 → 129.5" | 30" | Base frame + 3 MAXIMERA drawers | Prep tools, lids, bakeware |
 | 6 | East | 130 → 177" (to H) | 47" | Blind corner base frame + UTRUSTA corner fittings | Big Instant Pot, bulky items |
 | 7 | South | H + 27 → 45" | 18" | Base frame + 3 MAXIMERA drawers | Cutlery, containers |
 | 8 | South | 45 → 81" (I–J) | 36" | Sink base frame + 2 doors | 33" sink, cleaning supplies |
@@ -43,10 +43,10 @@ Base cabinets are 24" deep × 30" tall on legs (counter ≈ 36"); wall cabinets 
 
 | Frame | Qty | For |
 |---|---|---|
-| Base 15" | 1 | #5 |
+| Base 15" | 1 | #4 |
 | Base 18" | 2 | #7, #9 |
 | Base 24" | 2 | #1, #2 |
-| Base 30" | 1 | #4 |
+| Base 30" | 1 | #5 |
 | Base 36" | 1 | #3 |
 | Sink base 36" | 1 | #8 |
 | Blind corner base 47" | 1 | #6 |
@@ -63,9 +63,9 @@ Base cabinets are 24" deep × 30" tall on legs (counter ≈ 36"); wall cabinets 
 
 | Item | Qty |
 |---|---|
-| MAXIMERA drawers (base) | 14 (#1 ×3, #2 ×3, #3 ×2 high, #4 ×3, #7 ×3) |
+| MAXIMERA drawers (base) | 14 (#1 ×3, #2 ×3, #3 ×2 high, #5 ×3, #7 ×3) |
 | MAXIMERA high drawers (tall) | 4 (#11 ×2, #12 ×2) |
-| Pull-out fitting 15" | 1 (#5) |
+| Pull-out fitting 15" | 1 (#4) |
 | UTRUSTA blind-corner fittings | 1 set (#6) |
 | Pull-out appliance shelves | 2 (#11, #12) |
 | Shelves (tall + wall) | ≈ 12 (glass shelves in glass cabinets) |
@@ -80,7 +80,7 @@ Base cabinets are 24" deep × 30" tall on legs (counter ≈ 36"); wall cabinets 
 |---|---|
 | Drawer fronts, base | 14 |
 | Drawer fronts, tall (#11, #12) | 4 |
-| Doors, base (#5 pull-out front, #6, #8 ×2, #9) | 5 |
+| Doors, base (#4 pull-out front, #6, #8 ×2, #9) | 5 |
 | Doors, tall (#11, #12 ×2–3 each; #13 storage) | ≈ 5–7 |
 | Glass lift-up fronts (18" ×3, 24" ×1) | 4 |
 | Solid lift-up fronts (18" ×3, 24" ×1, 36" ×2 incl. #10) | 6 |
