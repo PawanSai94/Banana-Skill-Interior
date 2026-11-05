@@ -71,6 +71,18 @@ APPLIANCES = [
 # Raised floor boxes against a wall: (from, to, depth, step depth, label). Drawn as a dashed outline.
 PLATFORMS = [("P", "R", 24.75, 11, '9" box · flush 24¾" · 3 toe-kick drawers')]
 
+# Wall (upper) cabinets, 15" deep, drawn dotted on the plan: (label, from, to, offset, width)
+UPPERS = [
+    ("U1", "A", "H", 133, 18),   # east, between window F-G and the corner unit
+    ("U3", "A", "H", 48.5, 36),  # east, above the hood (D-E)
+    ("U4", "H", "K", 26, 18),    # south, corner unit to the sink window
+    ("U5", "H", "K", 81, 24),    # south, right of the sink window
+    ("U6", "H", "K", 105, 18),
+]
+UPPER_DEPTH = 15
+# L-shaped corner wall cabinet: (label, corner, size along each wall)
+UPPER_CORNER = ("U2", "H", 26)
+
 # Design constraints: segments (by end points) that must never be a window.
 NO_WINDOW = []
 
@@ -256,6 +268,37 @@ def build():
             (x1, y1), (x2, y2) = P(min(a[1], b[1]), min(a[2], a[2] + ny * dep)), P(max(a[1], b[1]), max(a[2], a[2] + ny * dep))
         out.append(f'  <rect x="{x1}" y="{y1}" width="{x2 - x1}" height="{y2 - y1}" fill="none" stroke="#8a6a3d" stroke-width="1.5" stroke-dasharray="6 3"/>')
 
+    def upper_rect(lbl_a, lbl_b, off, w, dep):
+        a, b = by_label[lbl_a], by_label[lbl_b]
+        if a[1] == b[1]:
+            nx = 1 if cx_in > a[1] else -1
+            sy = 1 if b[2] > a[2] else -1
+            return (a[1], a[1] + nx * dep), (a[2] + sy * off, a[2] + sy * (off + w))
+        ny = 1 if cy_in > a[2] else -1
+        sx = 1 if b[1] > a[1] else -1
+        return (a[1] + sx * off, a[1] + sx * (off + w)), (a[2], a[2] + ny * dep)
+
+    def emit_upper(points, lbl, tx, ty):
+        d_attr = " ".join(f"{'M' if i == 0 else 'L'} {P(x, y)[0]} {P(x, y)[1]}" for i, (x, y) in enumerate(points)) + " Z"
+        out.append(f'  <path d="{d_attr}" fill="none" stroke="#2e6f9e" stroke-width="1.25" stroke-dasharray="2 2"/>')
+        cx_, cy_ = P(tx, ty)
+        out.append(f'  <text x="{cx_}" y="{cy_ + 4}" font-size="10" font-weight="700" fill="#2e6f9e" text-anchor="middle">{lbl}</text>')
+
+    upper_labels = []
+    for lbl, a_lbl, b_lbl, off, w in UPPERS:
+        rx, ry = upper_rect(a_lbl, b_lbl, off, w, UPPER_DEPTH)
+        pts4 = [(rx[0], ry[0]), (rx[1], ry[0]), (rx[1], ry[1]), (rx[0], ry[1])]
+        upper_labels.append((pts4, lbl, (rx[0] + rx[1]) / 2, (ry[0] + ry[1]) / 2))
+    if UPPER_CORNER:
+        lbl, c_lbl, size = UPPER_CORNER
+        c = by_label[c_lbl]
+        ix = 1 if cx_in > c[1] else -1
+        iy = 1 if cy_in > c[2] else -1
+        dp = UPPER_DEPTH
+        pts6 = [(c[1], c[2]), (c[1], c[2] + iy * size), (c[1] + ix * dp, c[2] + iy * size),
+                (c[1] + ix * dp, c[2] + iy * dp), (c[1] + ix * size, c[2] + iy * dp), (c[1] + ix * size, c[2])]
+        upper_labels.append((pts6, lbl, c[1] + ix * dp * 0.5, c[2] + iy * dp * 0.5))
+
     for kind, name, a_lbl, b_lbl, off, w, dep in FIXTURES:
         a, b = by_label[a_lbl], by_label[b_lbl]
         if a[1] == b[1]:
@@ -316,6 +359,9 @@ def build():
             g.append(f'<text x="{tx}" y="{ty}" font-size="10" fill="{colour}" text-anchor="{anchor}">{name}</text>')
         g.append('</g>')
         out.append("".join(g))
+
+    for pts_, lbl, tx, ty in upper_labels:
+        emit_upper(pts_, lbl, tx, ty)
 
     def seg_dim(x1, y1, x2, y2, vertical, text, force=None):
         if vertical:
@@ -420,9 +466,23 @@ COUNTER_HEIGHT = 36
 # (file, title, points along the wall in viewing order, ceiling height at first point, at last point)
 ELEVATIONS = [
     ("east_elevation.svg", "East wall elevation (A–H), viewed from inside facing east",
-     ["A", "B", "C", "D", "E", "F", "G", "H"], 96, 96),
+     ["A", "B", "C", "D", "E", "F", "G", "H"], 96, 96,
+     {"uppers": [  # (from point, offset start, offset end, bottom, top, title, subtitle, glass)
+         ("A", 48.5, 84.5, 66, 73, "HOOD 36\"", "under-cabinet, vents out east wall", False),
+         ("A", 48.5, 84.5, 74, 94, "U3 · 36\" LIFT-UP", "solid front (grease)", False),
+         ("A", 133, 151, 54, 74, "U1", "glass lift-up", True),
+         ("A", 133, 151, 74, 94, "U1", "lift-up", False),
+         ("A", 151, 177, 54, 94, "U2 CORNER", "glass doors", True)]}),
     ("south_elevation.svg", "South wall elevation (H–K), viewed from inside facing south",
-     ["H", "I", "_w1", "_w2", "J", "K"], 96, 100),
+     ["H", "I", "_w1", "_w2", "J", "K"], 96, 100,
+     {"uppers": [
+         ("H", 0, 26, 54, 94, "U2 CORNER", "glass doors", True),
+         ("H", 26, 44, 54, 74, "U4", "glass lift-up", True),
+         ("H", 26, 44, 74, 94, "U4", "lift-up", False),
+         ("H", 81, 105, 54, 74, "U5", "glass lift-up", True),
+         ("H", 81, 105, 74, 94, "U5", "lift-up", False),
+         ("H", 105, 123, 54, 74, "U6", "glass lift-up", True),
+         ("H", 105, 123, 74, 94, "U6", "lift-up", False)]}),
     ("west_elevation.svg", "West wall elevation (K–R), viewed from inside facing west",
      ["K", "L", "M", "N", "O", "P", "Q", "R"], 100, 100,
      {"project": True,  # N-O is a return wall: O-R sits 40.5" further west
@@ -491,6 +551,17 @@ def build_elevation(filename, title, labels, ceil0, ceil1, opts=None):
         t0, t1 = sorted((pos[a_lbl], pos[b_lbl]))
         o.append(f'  <rect x="{X(t0)}" y="{Y(ph)}" width="{(t1 - t0) * SCALE}" height="{ph * SCALE}" fill="#d9c3a0" stroke="#8a6a3d" stroke-width="1.5"/>')
         o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(ph / 2) + 4}" font-size="10" fill="#5a4320" text-anchor="middle">{txt}</text>')
+    for lbl, d0, d1, z0, z1, ttl, sub, glass in opts.get("uppers", []):
+        sgn = 1 if along[-1] > pos[lbl] else -1
+        t0, t1 = sorted((pos[lbl] + sgn * d0, pos[lbl] + sgn * d1))
+        fill = "#d6e8f2" if glass else "#efe9df"
+        o.append(f'  <rect x="{X(t0) + 1}" y="{Y(z1)}" width="{(t1 - t0) * SCALE - 2}" height="{(z1 - z0) * SCALE}" fill="{fill}" stroke="#2e6f9e" stroke-width="1.25"/>')
+        if glass:
+            o.append(f'  <rect x="{X(t0) + 7}" y="{Y(z1) + 6}" width="{(t1 - t0) * SCALE - 14}" height="{(z1 - z0) * SCALE - 12}" fill="none" stroke="#7fa7c0"/>')
+        zc = (z0 + z1) / 2
+        o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(zc)}" font-size="10" font-weight="700" fill="#1f4e6b" text-anchor="middle">{ttl}</text>')
+        if (t1 - t0) * SCALE > len(sub) * 5.2:
+            o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(zc) + 12}" font-size="9" fill="#2e4a5c" text-anchor="middle">{sub}</text>')
     for lbl, d0, d1 in opts.get("box_drawers", []):
         ph = opts["platforms"][0][2]
         sgn = 1 if along[-1] > pos[lbl] else -1
