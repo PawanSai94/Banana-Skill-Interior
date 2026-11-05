@@ -32,13 +32,13 @@
   <text x="546.0" y="144.0" font-size="10" font-weight="700" fill="#1f4e6b" text-anchor="middle">U6</text>
   <text x="546.0" y="156.0" font-size="9" fill="#2e4a5c" text-anchor="middle">lift-up</text>
   <rect x="199.0" y="342.0" width="70.0" height="120.0" fill="#f1ede6" stroke="#333" stroke-dasharray="5 3"/>
-  <text x="234.0" y="411.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">7 DRAWERS</text><text x="234.0" y="425.0" font-size="10" fill="#555" text-anchor="middle">18"</text>
+  <text x="234.0" y="411.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">7 TRASH</text><text x="234.0" y="425.0" font-size="10" fill="#555" text-anchor="middle">18"</text>
   <rect x="271.0" y="342.0" width="142.0" height="120.0" fill="#f1ede6" stroke="#333" stroke-dasharray="5 3"/>
   <text x="342.0" y="411.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">8 SINK BASE</text><text x="342.0" y="425.0" font-size="10" fill="#555" text-anchor="middle">36"</text>
   <path d="M 276.0 336 L 282.0 372 L 402.0 372 L 408.0 336" fill="#fff" stroke="#555" stroke-width="2"/>
   <text x="342.0" y="324" font-size="11" font-weight="700" fill="#333" text-anchor="middle">SINK 33" (at 36" counter height)</text>
   <rect x="415.0" y="342.0" width="70.0" height="120.0" fill="#f1ede6" stroke="#333" stroke-dasharray="5 3"/>
-  <text x="450.0" y="411.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">9 TRASH</text><text x="450.0" y="425.0" font-size="10" fill="#555" text-anchor="middle">18"</text>
+  <text x="450.0" y="411.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">9 DRAWERS</text><text x="450.0" y="425.0" font-size="10" fill="#555" text-anchor="middle">18"</text>
   <rect x="487.0" y="342.0" width="94.0" height="120.0" fill="#f1ede6" stroke="#333" stroke-dasharray="5 3"/>
   <text x="534.0" y="411.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">DW</text><text x="534.0" y="425.0" font-size="10" fill="#555" text-anchor="middle">24"</text>
   <line x1="90.0" y1="480" x2="90.0" y2="520" stroke="#aaa" stroke-dasharray="3 3"/>

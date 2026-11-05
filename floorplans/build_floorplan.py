@@ -98,10 +98,10 @@ FIXTURES = [
     ("under", "5 DRAWERS", "A", "H", 99.5, 30, 24),  # 0.5" filler to the corner cabinet
     ("under", "6 CORNER", "A", "H", 130, 47, 24),  # 47" blind corner base, blind end at H
     # South wall, measured west from H (0-24" is the corner cabinet's blind end)
-    ("under", "7 DRAWERS", "H", "K", 27, 18, 24),  # after a 3" filler off the corner cabinet
+    ("under", "7 TRASH", "H", "K", 27, 18, 24),  # double 35 qt pull-out, prep side of the sink; after a 3" filler off the corner
     ("under", "8 SINK BASE", "H", "K", 45, 36, 24),  # IKEA 36" sink base
     ("sink", "SINK", "H", "K", 46.5, 33, 22),  # 33" sink centred on the base (and under the 32" window)
-    ("under", "9 TRASH", "H", "K", 81, 18, 24),  # 18" cabinet, double 35 qt pull-out
+    ("under", "9 DRAWERS", "H", "K", 81, 18, 24),  # cutlery drawer right beside the dishwasher
     ("under", "DW", "H", "K", 99, 24, 24),  # dishwasher against wall K, 0.5" filler
 ]
 
