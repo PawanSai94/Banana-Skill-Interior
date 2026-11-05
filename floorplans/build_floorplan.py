@@ -8,37 +8,12 @@ DIRS = {"N": (0, -1), "S": (0, 1), "E": (1, 0), "W": (-1, 0)}
 
 # (direction, length in inches, kind, end label[, start label])
 # Start label defaults to the previous segment's end point.
-SEGMENTS = [
-    ("S", 46, "wall", "B"),
-    ("S", 42, "window", "C"),
-    ("S", 48, "wall", "D"),
-    ("S", 42, "window", "E"),
-    ("S", 48, "wall", "F"),
-    ("S", 42, "window", "G"),
-    ("S", 48, "wall", "H"),
-    ("W", 44, "wall", "I"),
-    ("W", 19, "window", "J"),  # I-K is one 38" window; J marks its centre
-    ("W", 19, "window", "K"),
-    ("W", 42, "wall", "L"),
-    ("W", 40, "wall", "M"),
-    ("N", 68, "wall", "N"),
-    ("E", 40, "wall", "N1"),
-    ("N", 41, "wall", "O", "N"),
-    ("N", 48, "wall", "P"),
-    ("N", 30, "wall", "Q"),
-    ("N", 96, "opening", "R"),
-    ("N", 36, "wall", "S"),
-    ("E", 23, "wall", "T"),
-    ("E", 32, "door:laundry door", "U"),  # hinged at T, swings north into the laundry
-    ("E", 61, "wall", "V"),
-    ("E", 36, "door", "W"),  # swings open inside
-    ("E", 10, "wall", "X"),
-]
+SEGMENTS = []
 
 LABELS = {"opening": "walkway opening"}
 MARGIN = 80
 # Overall run dimensions drawn outside the segment dimensions: (from label, to label)
-TOTALS = [("D", "H"), ("H", "L")]
+TOTALS = []
 
 # Countertops along walls: (points along the wall, depth in inches)
 # Points may be a label or an (x, y) position in inches.
@@ -46,30 +21,19 @@ MM = 1 / 25.4
 # Tall corner pantry (2100 mm tall): corner, side along the N-S wall, side along the E-W wall, depth
 CORNER_PANTRY = None
 # Base corner cabinet under the counter (lazy Susan): corner, size along each wall, cabinet depth
-CORNER_BASE = ("H", 36, 24)
-COUNTERS = [(["D", "H", "L"], 26), (["P", "Q"], 26)]
+CORNER_BASE = None
+COUNTERS = []
 
 # Appliances against a wall: (label, from point, to point, width, depth[, note]).
 # Placed flush against the "to" point, projecting into the room.
-APPLIANCES = [
-    ("FRIDGE", "O", "N", 36, 30),
-    ("TALL SHELVES", "P", "O", 48, 24, "floor–ceiling", "2 doors, LED"),  # appliance garage
-]
+APPLIANCES = []
 
 # Design constraints: segments (by end points) that must never be a window.
 NO_WINDOW = []
 
 # Fixtures placed along a wall run, measured in inches from the first point:
 # (kind, label, from, to, offset, width, depth). kind: range | hood | sink | under
-FIXTURES = [
-    ("under", "CONV. OVEN", "Q", "P", 0, 30, 24),  # built-in oven under the P-Q counter, no base cabinet
-    ("rack", "MICROWAVE wall-mounted 21\" above counter", "Q", "P", 3, 24, 15),
-    ("under", "", "D", "H", 48, 36, 24),  # 36" drawer base (pots & pans) under the cooktop
-    ("range", "COOKTOP|36\" drawer base below", "D", "H", 48, 36, 22),  # centred on solid wall E-F; cook faces east
-    ("hood", "HOOD above", "D", "H", 48, 36, 20),  # vents straight out the exterior east wall
-    ("sink", "SINK", "H", "L", 45, 36, 22),  # centred on J, under the I-K window; 39" sink base at 43.5-82.5"
-    ("under", "DW", "H", "L", 83, 24, 24),  # between K and L, right after the sink base
-]
+FIXTURES = []
 
 DIM_OFFSET = 40  # px, dimension line offset to the left/top of the segment
 
