@@ -58,7 +58,7 @@ MM = 1 / 25.4
 CORNER_PANTRY = None
 # Base corner cabinet under the counter (lazy Susan): corner, size along each wall, cabinet depth
 CORNER_BASE = None
-COUNTERS = []
+COUNTERS = [(["A", "H", "K"], 25.625)]  # IKEA countertop depth 25 5/8"
 
 # Appliances against a wall: (label, from point, to point, width, depth[, note]).
 # Centred on the wall segment between the two points, projecting into the room.
@@ -77,10 +77,19 @@ NO_WINDOW = []
 # Fixtures placed along a wall run, measured in inches from the first point:
 # (kind, label, from, to, offset, width, depth). kind: range | hood | sink | under
 FIXTURES = [
-    ("range", "STOVETOP", "D", "E", 0, 36, 22),
-    ("under", "SINK BASE", "H", "K", 45, 36, 24),  # IKEA 36" sink base
+    # East wall base cabinets (IKEA SEKTION, 24" deep), measured south from A
+    ("under", "1 DRAWERS", "A", "H", 0.5, 24, 24),  # 0.5" filler / cover panel at A
+    ("under", "2 DRAWERS", "A", "H", 24.5, 24, 24),
+    ("under", "3 COOKTOP BASE", "A", "H", 48.5, 36, 24),  # 36" drawer base under the stovetop, D-E
+    ("range", "STOVETOP|3 · 36\" drawer base below", "D", "E", 0, 36, 22),
+    ("under", "4 DRAWERS", "A", "H", 84.5, 30, 24),
+    ("under", "5 PULL-OUT", "A", "H", 114.5, 15, 24),  # 0.5" filler to the corner cabinet
+    ("under", "6 CORNER", "A", "H", 130, 47, 24),  # 47" blind corner base, blind end at H
+    # South wall, measured west from H (0-24" is the corner cabinet's blind end)
+    ("under", "7 DRAWERS", "H", "K", 27, 18, 24),  # after a 3" filler off the corner cabinet
+    ("under", "8 SINK BASE", "H", "K", 45, 36, 24),  # IKEA 36" sink base
     ("sink", "SINK", "H", "K", 46.5, 33, 22),  # 33" sink centred on the base (and under the 32" window)
-    ("under", "TRASH", "H", "K", 81, 18, 24),  # 18" cabinet, double 35 qt pull-out
+    ("under", "9 TRASH", "H", "K", 81, 18, 24),  # 18" cabinet, double 35 qt pull-out
     ("under", "DW", "H", "K", 99, 24, 24),  # dishwasher against wall K, 0.5" filler
 ]
 
@@ -281,6 +290,11 @@ def build():
             vertical = a[1] == b[1]
             rot = f' transform="rotate(-90 {cx} {cy})"' if vertical and kind in ("range", "sink", "onc", "under") else ""
             title, _, sub = name.partition("|")
+            if kind == "under" and title and not sub:
+                # fit the label inside the box: drop the description if it is too long
+                room_px = (y2 - y1) if vertical else (x2 - x1)
+                if len(f'{title} {w}"') * 6.6 > room_px - 6:
+                    title = title.split()[0]
             if title:
                 dy = -4 if sub else 4
                 tx_, ty_ = (cx + dy, cy) if rot else (cx, cy + dy)
@@ -499,7 +513,8 @@ def build_elevation(filename, title, labels, ceil0, ceil1, opts=None):
             t0, t1 = sorted((pos[a_lbl] + sgn * off, pos[a_lbl] + sgn * (off + fw)))
             ch = COUNTER_HEIGHT - 1.5  # cabinet top, under a 1.5" countertop
             o.append(f'  <rect x="{X(t0) + 1}" y="{Y(ch)}" width="{(t1 - t0) * SCALE - 2}" height="{(ch - 4.5) * SCALE}" fill="#f1ede6" stroke="#333" stroke-dasharray="5 3"/>')
-            o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(ch / 2)}" font-size="11" font-weight="700" fill="#333" text-anchor="middle">{name}</text>'
+            label = name if len(name) * 6.6 < (t1 - t0) * SCALE - 6 else name.split()[0]
+            o.append(f'  <text x="{X((t0 + t1) / 2)}" y="{Y(ch / 2)}" font-size="11" font-weight="700" fill="#333" text-anchor="middle">{label}</text>'
                      f'<text x="{X((t0 + t1) / 2)}" y="{Y(ch / 2) + 14}" font-size="10" fill="#555" text-anchor="middle">{fw:g}"</text>')
             continue
         sgn = 1 if pos[b_lbl] > pos[a_lbl] else -1
