@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 898 670" width="898" height="670" font-family="Helvetica, Arial, sans-serif">
+<rect width="898" height="670" fill="#fff"/>
+<text x="40" y="40" font-size="18" font-weight="700" fill="#222">Pantry layout</text>
+<text x="40" y="62" font-size="11" fill="#555">Walk-in, about 36" × 61" inside · entrance from the kitchen through the 29" L–M opening · ceiling 100"</text>
+<text x="40" y="88" font-size="13" font-weight="700" fill="#333">PLAN (north up)</text>
+<rect x="38.5" y="78.5" width="315.0" height="490.0" fill="#2b2b2b"/>
+<rect x="70" y="110" width="252" height="427" fill="#f7f4ee"/>
+<rect x="321" y="148.5" width="33.5" height="203.0" fill="#fff"/>
+<text x="361.5" y="250.0" font-size="11" fill="#555" transform="rotate(90 361.5 250.0)" text-anchor="middle">29" opening from kitchen →</text>
+<rect x="70" y="110" width="112" height="427" fill="#e9d8b8" stroke="#8a6a3d" stroke-width="1.5"/>
+<text x="122.0" y="229.0" font-size="11" font-weight="700" fill="#5a4320" text-anchor="middle" transform="rotate(-90 122.0 229.0)">BACK WALL SHELVES · 16" deep</text><text x="138.0" y="229.0" font-size="9" fill="#6b4f2a" text-anchor="middle" transform="rotate(-90 138.0 229.0)">staples at eye level · bins on the floor</text>
+<rect x="182" y="110" width="140" height="42" fill="#f1e6d0" stroke="#8a6a3d" stroke-width="1.5"/>
+<text x="252.0" y="135.0" font-size="11" font-weight="700" fill="#5a4320" text-anchor="middle">SPICES 6"</text>
+<rect x="182" y="453" width="140" height="84" fill="#f1e6d0" stroke="#8a6a3d" stroke-width="1.5"/>
+<text x="252.0" y="493.0" font-size="11" font-weight="700" fill="#5a4320" text-anchor="middle">COOKWARE 12"</text>
+<text x="252.0" y="507.0" font-size="9" fill="#6b4f2a" text-anchor="middle">grinder · cookers · pegboard</text>
+<rect x="77" y="348" width="98" height="84" fill="#dceaf3" fill-opacity="0.5" stroke="#2e6f9e" stroke-dasharray="4 3"/>
+<rect x="77" y="446" width="98" height="84" fill="#dceaf3" fill-opacity="0.5" stroke="#2e6f9e" stroke-dasharray="4 3"/>
+<text x="126" y="393" font-size="9" fill="#1f4e6b" text-anchor="middle">ATTA bin</text><text x="126" y="491" font-size="9" fill="#1f4e6b" text-anchor="middle">RICE bin</text>
+<text x="252.0" y="295.5" font-size="11" fill="#777" text-anchor="middle">standing</text><text x="252.0" y="309.5" font-size="11" fill="#777" text-anchor="middle">aisle</text><text x="252.0" y="330.5" font-size="10" fill="#999" text-anchor="middle">20" × 43"</text>
+<circle cx="316" cy="372.5" r="4" fill="#555"/>
+<circle cx="316" cy="400.5" r="4" fill="#555"/>
+<circle cx="316" cy="428.5" r="4" fill="#555"/>
+<text x="308" y="404.5" font-size="9" fill="#555" text-anchor="end">hooks: broom · mop · stool</text>
+<line x1="70" y1="586.5" x2="322" y2="586.5" stroke="#888"/><text x="196.0" y="602.5" font-size="11" fill="#444" text-anchor="middle">36" inside</text>
+<line x1="20.5" y1="110" x2="20.5" y2="537" stroke="#888"/><text x="12.5" y="323.5" font-size="11" fill="#444" text-anchor="middle" transform="rotate(-90 12.5 323.5)">61" inside</text>
+<text x="473.5" y="88" font-size="13" font-weight="700" fill="#333">BACK WALL ELEVATION (facing west, 61" wide)</text>
+<rect x="473.5" y="110" width="305" height="500" fill="#f7f4ee" stroke="#2b2b2b" stroke-width="3"/>
+<text x="626.0" y="598.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">BAG PLATFORM</text>
+<text x="693.5" y="533.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">ROLLING BINS</text>
+<text x="693.5" y="547.0" font-size="9" fill="#555" text-anchor="middle">25–40 lb each · oil tins · jaggery</text>
+<text x="626.0" y="458.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">DAILY STAPLES</text>
+<text x="626.0" y="472.0" font-size="9" fill="#555" text-anchor="middle">dals · spice refills · tea · sugar · rava · poha · besan</text>
+<text x="626.0" y="278.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">WEEKLY</text>
+<text x="626.0" y="292.0" font-size="9" fill="#555" text-anchor="middle">namkeen · biscuits · pickles · ghee · papad · dry fruits</text>
+<text x="626.0" y="148.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">OCCASIONAL</text>
+<text x="626.0" y="162.0" font-size="9" fill="#555" text-anchor="middle">big pressure cooker · large kadai · festival &amp; puja items</text>
+<rect x="548.5" y="500" width="60" height="80" rx="6" fill="#dceaf3" stroke="#2e6f9e"/>
+<text x="578.5" y="545" font-size="9" fill="#1f4e6b" text-anchor="middle">ATTA</text>
+<rect x="478.5" y="500" width="60" height="80" rx="6" fill="#dceaf3" stroke="#2e6f9e"/>
+<text x="508.5" y="545" font-size="9" fill="#1f4e6b" text-anchor="middle">RICE</text>
+<rect x="473.5" y="577" width="305" height="6" fill="#b08a55"/>
+<text x="788.5" y="584" font-size="10" fill="#444">6"</text>
+<rect x="473.5" y="487" width="305" height="6" fill="#b08a55"/>
+<text x="788.5" y="494" font-size="10" fill="#444">24"</text>
+<rect x="473.5" y="427" width="305" height="6" fill="#b08a55"/>
+<text x="788.5" y="434" font-size="10" fill="#444">36"</text>
+<rect x="473.5" y="367" width="305" height="6" fill="#b08a55"/>
+<text x="788.5" y="374" font-size="10" fill="#444">48"</text>
+<rect x="473.5" y="307" width="305" height="6" fill="#b08a55"/>
+<text x="788.5" y="314" font-size="10" fill="#444">60"</text>
+<rect x="473.5" y="247" width="305" height="6" fill="#b08a55"/>
+<text x="788.5" y="254" font-size="10" fill="#444">72"</text>
+<rect x="473.5" y="187" width="305" height="6" fill="#b08a55"/>
+<text x="788.5" y="194" font-size="10" fill="#444">84"</text>
+<line x1="473.5" y1="610" x2="778.5" y2="610" stroke="#2b2b2b" stroke-width="4"/>
+<text x="788.5" y="120" font-size="10" fill="#444">100" ceiling</text>
+<text x="473.5" y="628" font-size="10" fill="#666">← south (cookware side)</text><text x="778.5" y="628" font-size="10" fill="#666" text-anchor="end">north (spice side) →</text>
+<text x="473.5" y="646" font-size="10" fill="#666">Shelves 16" deep, adjustable. Keep heavy bags on the platform or in the bins.</text>
+</svg>

@@ -632,7 +632,116 @@ def build_elevation(filename, title, labels, ceil0, ceil1, opts=None):
     return w, h
 
 
+# Pantry layout: plan + back-wall elevation (inside dimensions, walls ~4.5" thick)
+PANTRY_CEILING = 100
+PANTRY_SHELVES = [6, 24, 36, 48, 60, 72, 84]  # back-wall shelf heights; 6" = slatted bag platform
+PANTRY_ZONES = [  # (bottom, top, title, items)
+    (0, 6, "BAG PLATFORM", "unopened 20–40 lb rice & atta bags, slatted"),
+    (6, 24, "ROLLING BINS", "rice bin · atta bin (25–40 lb) · oil tins · jaggery"),
+    (24, 60, "DAILY STAPLES", "dals · spice refills · tea · sugar · rava · poha · besan"),
+    (60, 84, "WEEKLY", "namkeen · biscuits · pickles · ghee · papad · dry fruits"),
+    (84, 100, "OCCASIONAL", "big pressure cooker · large kadai · festival & puja items"),
+]
+
+
+BIN_Y = (34, 48)  # plan: bins 12" along the back wall, measured from the north inside face
+
+
+def build_pantry():
+    S = 7  # px per inch for this sheet
+    wall = 4.5
+    W_in, D_in = 36, 61  # inside: east-west, north-south
+    back, side_s, side_n = 16, 12, 6  # shelf depths: back (west), south side, north side
+    ox, oy = 70, 110
+    X = lambda x: ox + x * S   # x: inches from inside face of west (back) wall, eastward
+    Yp = lambda y: oy + y * S  # y: inches from inside face of north wall, southward
+    o = []
+    # --- plan ---
+    o.append(f'<text x="{ox - 30}" y="40" font-size="18" font-weight="700" fill="#222">Pantry layout</text>')
+    o.append(f'<text x="{ox - 30}" y="62" font-size="11" fill="#555">Walk-in, about 36" × 61" inside · entrance from the kitchen through the 29" L–M opening · ceiling {PANTRY_CEILING}"</text>')
+    o.append(f'<text x="{ox - 30}" y="{oy - 22}" font-size="13" font-weight="700" fill="#333">PLAN (north up)</text>')
+    t = wall * S
+    o.append(f'<rect x="{X(-wall)}" y="{Yp(-wall)}" width="{(W_in + 2 * wall) * S}" height="{(D_in + 2 * wall) * S}" fill="#2b2b2b"/>')
+    o.append(f'<rect x="{X(0)}" y="{Yp(0)}" width="{W_in * S}" height="{D_in * S}" fill="#f7f4ee"/>')
+    # opening in east wall: 29" wide, starting ~6" south of the inside north face (8" stub minus wall)
+    op0, op1 = 8 - wall / 2 - 0.25, 8 - wall / 2 - 0.25 + 29
+    o.append(f'<rect x="{X(W_in) - 1}" y="{Yp(op0)}" width="{t + 2}" height="{(op1 - op0) * S}" fill="#fff"/>')
+    o.append(f'<text x="{X(W_in) + t + 8}" y="{Yp((op0 + op1) / 2)}" font-size="11" fill="#555" transform="rotate(90 {X(W_in) + t + 8} {Yp((op0 + op1) / 2)})" text-anchor="middle">29" opening from kitchen →</text>')
+    # shelves
+    def shelf(x0, y0, x1, y1, fill, label, sub=""):
+        o.append(f'<rect x="{X(x0)}" y="{Yp(y0)}" width="{(x1 - x0) * S}" height="{(y1 - y0) * S}" fill="{fill}" stroke="#8a6a3d" stroke-width="1.5"/>')
+        cx, cy = X((x0 + x1) / 2), Yp((y0 + y1) / 2)
+        vert = (y1 - y0) > (x1 - x0) * 1.5
+        rot = f' transform="rotate(-90 {cx} {cy})"' if vert else ""
+        o.append(f'<text x="{cx}" y="{cy - (2 if sub else -4)}" font-size="11" font-weight="700" fill="#5a4320" text-anchor="middle"{rot}>{label}</text>')
+        if sub:
+            cx2, cy2 = (cx + 13, cy) if vert else (cx, cy + 12)
+            rot2 = f' transform="rotate(-90 {cx2} {cy2})"' if vert else ""
+            o.append(f'<text x="{cx2}" y="{cy2}" font-size="9" fill="#6b4f2a" text-anchor="middle"{rot2}>{sub}</text>')
+    o.append(f'<rect x="{X(0)}" y="{Yp(0)}" width="{back * S}" height="{D_in * S}" fill="#e9d8b8" stroke="#8a6a3d" stroke-width="1.5"/>')
+    lx, ly = X(back / 2), Yp(BIN_Y[0] / 2)
+    o.append(f'<text x="{lx - 4}" y="{ly}" font-size="11" font-weight="700" fill="#5a4320" text-anchor="middle" transform="rotate(-90 {lx - 4} {ly})">BACK WALL SHELVES · 16" deep</text>'
+             f'<text x="{lx + 12}" y="{ly}" font-size="9" fill="#6b4f2a" text-anchor="middle" transform="rotate(-90 {lx + 12} {ly})">staples at eye level · bins on the floor</text>')
+    shelf(back, 0, W_in, side_n, "#f1e6d0", 'SPICES 6"')
+    shelf(back, D_in - side_s, W_in, D_in, "#f1e6d0", 'COOKWARE 12"', "grinder · cookers · pegboard")
+    # rolling bins (plan, dashed) on the floor zone of the back wall
+    for y0 in (BIN_Y[0], BIN_Y[1]):
+        o.append(f'<rect x="{X(1)}" y="{Yp(y0)}" width="{14 * S}" height="{12 * S}" fill="#dceaf3" fill-opacity="0.5" stroke="#2e6f9e" stroke-dasharray="4 3"/>')
+    o.append(f'<text x="{X(8)}" y="{Yp(BIN_Y[0] + 6) + 3}" font-size="9" fill="#1f4e6b" text-anchor="middle">ATTA bin</text>'
+             f'<text x="{X(8)}" y="{Yp(BIN_Y[1] + 6) + 3}" font-size="9" fill="#1f4e6b" text-anchor="middle">RICE bin</text>')
+    # aisle + hooks
+    o.append(f'<text x="{X((back + W_in) / 2)}" y="{Yp(D_in / 2 - 4)}" font-size="11" fill="#777" text-anchor="middle">standing</text>'
+             f'<text x="{X((back + W_in) / 2)}" y="{Yp(D_in / 2 - 2)}" font-size="11" fill="#777" text-anchor="middle">aisle</text>'
+             f'<text x="{X((back + W_in) / 2)}" y="{Yp(D_in / 2 + 1)}" font-size="10" fill="#999" text-anchor="middle">{W_in - back}" × {D_in - side_s - side_n}"</text>')
+    for y in (op1 + 3, op1 + 7, op1 + 11):
+        o.append(f'<circle cx="{X(W_in) - 6}" cy="{Yp(y)}" r="4" fill="#555"/>')
+    o.append(f'<text x="{X(W_in) - 14}" y="{Yp(op1 + 7) + 4}" font-size="9" fill="#555" text-anchor="end">hooks: broom · mop · stool</text>')
+    # plan dims
+    o.append(f'<line x1="{X(0)}" y1="{Yp(D_in + wall) + 18}" x2="{X(W_in)}" y2="{Yp(D_in + wall) + 18}" stroke="#888"/>'
+             f'<text x="{X(W_in / 2)}" y="{Yp(D_in + wall) + 34}" font-size="11" fill="#444" text-anchor="middle">{W_in}" inside</text>')
+    o.append(f'<line x1="{X(-wall) - 18}" y1="{Yp(0)}" x2="{X(-wall) - 18}" y2="{Yp(D_in)}" stroke="#888"/>'
+             f'<text x="{X(-wall) - 26}" y="{Yp(D_in / 2)}" font-size="11" fill="#444" text-anchor="middle" transform="rotate(-90 {X(-wall) - 26} {Yp(D_in / 2)})">{D_in}" inside</text>')
+    # --- back-wall elevation ---
+    E = 5  # px per inch
+    ex, ey = X(W_in + wall) + 120, oy
+    EX = lambda t: ex + t * E
+    EY = lambda z: ey + (PANTRY_CEILING - z) * E
+    o.append(f'<text x="{ex}" y="{oy - 22}" font-size="13" font-weight="700" fill="#333">BACK WALL ELEVATION (facing west, 61" wide)</text>')
+    o.append(f'<rect x="{EX(0)}" y="{EY(PANTRY_CEILING)}" width="{D_in * E}" height="{PANTRY_CEILING * E}" fill="#f7f4ee" stroke="#2b2b2b" stroke-width="3"/>')
+    bins_t = [D_in - y - 12 for y in BIN_Y]  # viewed facing west, south is on the left
+    for z0, z1, ttl, items in PANTRY_ZONES:
+        cuts = sorted({z0, z1, *[z for z in PANTRY_SHELVES if z0 < z < z1]})
+        g0, g1 = max(zip(cuts, cuts[1:]), key=lambda g: g[1] - g[0])
+        zc = (g0 + g1) / 2
+        tx = EX(D_in / 2)
+        if ttl == "ROLLING BINS":  # text beside the bins
+            tx = EX((max(bins_t) + 12 + D_in) / 2)
+            items = items.replace("rice bin · atta bin (25–40 lb) · ", "25–40 lb each · ")
+        o.append(f'<text x="{tx}" y="{EY(zc) - (2 if g1 - g0 > 8 else -3)}" font-size="11" font-weight="700" fill="#333" text-anchor="middle">{ttl}</text>')
+        if g1 - g0 > 8:
+            o.append(f'<text x="{tx}" y="{EY(zc) + 12}" font-size="9" fill="#555" text-anchor="middle">{items}</text>')
+    for t0, name in zip(bins_t, ("ATTA", "RICE")):
+        o.append(f'<rect x="{EX(t0)}" y="{EY(22)}" width="{12 * E}" height="{16 * E}" rx="6" fill="#dceaf3" stroke="#2e6f9e"/>')
+        o.append(f'<text x="{EX(t0 + 6)}" y="{EY(13)}" font-size="9" fill="#1f4e6b" text-anchor="middle">{name}</text>')
+    for z in PANTRY_SHELVES:
+        o.append(f'<rect x="{EX(0)}" y="{EY(z) - 3}" width="{D_in * E}" height="6" fill="#b08a55"/>')
+        o.append(f'<text x="{EX(D_in) + 10}" y="{EY(z) + 4}" font-size="10" fill="#444">{z}"</text>')
+    o.append(f'<line x1="{EX(0)}" y1="{EY(0)}" x2="{EX(D_in)}" y2="{EY(0)}" stroke="#2b2b2b" stroke-width="4"/>')
+    o.append(f'<text x="{EX(D_in) + 10}" y="{EY(PANTRY_CEILING) + 10}" font-size="10" fill="#444">{PANTRY_CEILING}" ceiling</text>')
+    o.append(f'<text x="{EX(0)}" y="{EY(0) + 18}" font-size="10" fill="#666">← south (cookware side)</text>'
+             f'<text x="{EX(D_in)}" y="{EY(0) + 18}" font-size="10" fill="#666" text-anchor="end">north (spice side) →</text>')
+    o.append(f'<text x="{EX(0)}" y="{EY(0) + 36}" font-size="10" fill="#666">Shelves 16" deep, adjustable. Keep heavy bags on the platform or in the bins.</text>')
+    w = int(EX(D_in) + 120)
+    h = int(max(Yp(D_in + wall) + 60, EY(0) + 60))
+    svg = [f'<?xml version="1.0" encoding="UTF-8"?>',
+           f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" font-family="Helvetica, Arial, sans-serif">',
+           f'<rect width="{w}" height="{h}" fill="#fff"/>', *o, '</svg>']
+    Path(__file__).with_name("pantry_layout.svg").write_text("\n".join(svg).replace(" & ", " &amp; ") + "\n")
+    return w, h
+
+
 if __name__ == "__main__":
     for spec in ELEVATIONS:
         print(spec[0], *build_elevation(*spec))
+    print("pantry_layout.svg", *build_pantry())
     print(*build())
