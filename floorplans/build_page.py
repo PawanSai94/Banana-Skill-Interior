@@ -74,7 +74,13 @@ fig = []
 for did, ttl, cap, fn in drawings:
     fig.append(f'<figure class="sheet" id="{did}"><figcaption><h3>{html.escape(ttl)}</h3><p>{html.escape(cap)}</p></figcaption><div class="drawing">{svg(fn)}</div></figure>')
 
+us_html = []
+for sct in md_sections((F / "US_CABINET_ORDER.md").read_text()):
+    num, _, name = sct["title"].partition(". ")
+    if not name: num, name = "", sct["title"]
+    us_html.append(f'<section class="inv" id="us-{sec_id(sct["title"])[4:]}"><h3><span class="num">{inline(num)}</span>{inline(name)}</h3>{"".join(sct["body"])}</section>')
+
 page = Path(sys.argv[2]).read_text()
-page = page.replace("{{DRAWINGS}}", "\n".join(fig)).replace("{{INVENTORY}}", "\n".join(inv_html))
+page = page.replace("{{DRAWINGS}}", "\n".join(fig)).replace("{{INVENTORY}}", "\n".join(inv_html)).replace("{{US_ORDER}}", "\n".join(us_html))
 out.write_text(page)
 print(len(page))

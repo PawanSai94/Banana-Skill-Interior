@@ -117,7 +117,7 @@ html { scroll-behavior: smooth; }
   </header>
 
   <nav class="toc" aria-label="Sections">
-    <a href="#summary">Summary</a><a href="#plan">Floor plan</a><a href="#east">East wall</a><a href="#south">South wall</a><a href="#west">West wall</a><a href="#pantry">Pantry</a><a href="#inventory">Cabinet schedule</a>
+    <a href="#summary">Summary</a><a href="#plan">Floor plan</a><a href="#east">East wall</a><a href="#south">South wall</a><a href="#west">West wall</a><a href="#pantry">Pantry</a><a href="#inventory">Cabinet schedule</a><a href="#us-order">US cabinet codes</a>
   </nav>
 
   <section id="summary" class="decisions" aria-label="Summary">
@@ -130,10 +130,10 @@ html { scroll-behavior: smooth; }
     <div>
       <h2>Fixed decisions</h2>
       <ul>
-        <li>36" stovetop over a 36" two-drawer base, centred on the D–E wall (cook faces east)</li>
+        <li>36" stovetop over a 36" two-drawer base, centred on the D–E wall (cook faces east), with a 15" oil-and-ladle pull-out beside it</li>
         <li>36" under-cabinet hood, vented straight out the east exterior wall</li>
         <li>33" sink in a 36" sink base, centred under the 32" window</li>
-        <li>Sink → 18" trash pull-out → 24" dishwasher, to the right of the sink</li>
+        <li>18" trash pull-out → sink → 18" cutlery drawers → 24" dishwasher (trash on the prep side)</li>
         <li>47" blind corner base at H, with a 26" × 26" glass-door corner wall cabinet above</li>
         <li>Wall cabinets: glass lift-up fronts on the lower row, solid lift-ups above</li>
       </ul>
@@ -160,6 +160,14 @@ html { scroll-behavior: smooth; }
     <p class="note">East wall positions are measured south from point A, south wall west from point H, west wall north from point P. Base cabinets are 24" deep × 30" high on legs; wall cabinets are 15" deep.</p>
     <div class="inv-grid">
       {{INVENTORY}}
+    </div>
+  </section>
+
+  <section id="us-order" aria-label="US cabinet codes" style="display:grid; gap: 20px">
+    <h2>US standard cabinet codes</h2>
+    <p class="note">The same layout and numbering translated to US standard cabinet codes (DB24, SB36, W1818 …) for quotes from Wayfair, RTA cabinet sites, Home Depot / Lowe's cabinet desks or a local shop. Base cabinets 34½" H × 24" D, wall cabinets 12" D, tall cabinets 24" D.</p>
+    <div class="inv-grid">
+      {{US_ORDER}}
     </div>
   </section>
 
