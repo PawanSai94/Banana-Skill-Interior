@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1002 630" width="1002" height="630" font-family="Helvetica, Arial, sans-serif">
-  <rect width="1002" height="630" fill="#fff"/>
-  <text x="90" y="30" font-size="16" font-weight="700" fill="#222">West wall elevation (K–S), viewed from inside facing west</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 998 630" width="998" height="630" font-family="Helvetica, Arial, sans-serif">
+  <rect width="998" height="630" fill="#fff"/>
+  <text x="90" y="30" font-size="16" font-weight="700" fill="#222">West wall elevation (K–R), viewed from inside facing west</text>
   <text x="90" y="50" font-size="11" fill="#555">Ceiling 100" · counter 36" · scale 4 px = 1"</text>
-  <path d="M 90 480 L 90 80 L 832.0 80 L 832.0 480 Z" fill="#f7f4ee" stroke="#2b2b2b" stroke-width="3"/>
+  <path d="M 90 480 L 90 80 L 828.0 80 L 828.0 480 Z" fill="#f7f4ee" stroke="#2b2b2b" stroke-width="3"/>
   <rect x="204.0" y="160" width="116.0" height="320" fill="#fff" stroke="#999" stroke-dasharray="6 4"/>
   <text x="262.0" y="320.0" font-size="11" fill="#555" text-anchor="middle">OPENING 29"</text><text x="262.0" y="334.0" font-size="9" fill="#777" text-anchor="middle">no door · 80" high (assumed)</text>
-  <rect x="516.0" y="444" width="316.0" height="36" fill="#d9c3a0" stroke="#8a6a3d" stroke-width="1.5"/>
-  <text x="674.0" y="466.0" font-size="10" fill="#5a4320" text-anchor="middle">raised floor (wooden box) 9"</text>
+  <rect x="516.0" y="444" width="312.0" height="36" fill="#d9c3a0" stroke="#8a6a3d" stroke-width="1.5"/>
+  <text x="672.0" y="466.0" font-size="10" fill="#5a4320" text-anchor="middle">9" raised box (on 11" concrete step), 24" deep</text>
   <rect x="355.0" y="203" width="158.0" height="274" fill="#eef1f3" fill-opacity="0.6" stroke="#333" stroke-width="1.25" stroke-dasharray="6 4"/>
   <text x="434.0" y="340.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">FRIDGE (French door)</text><text x="434.0" y="354.0" font-size="9" fill="#555" text-anchor="middle">41" space · height approx.</text>
-  <rect x="547.0" y="83" width="138.0" height="358" fill="#eef1f3" fill-opacity="0.6" stroke="#333" stroke-width="1.25" stroke-dasharray="6 4"/>
-  <text x="616.0" y="262.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">APPLIANCE GARAGE</text><text x="616.0" y="276.0" font-size="9" fill="#555" text-anchor="middle">36" (could take 12" from R–S)</text>
-  <rect x="691.0" y="83" width="138.0" height="358" fill="#eef1f3" fill-opacity="0.6" stroke="#333" stroke-width="1.25" stroke-dasharray="6 4"/>
-  <text x="760.0" y="262.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">OVEN + MICROWAVE</text><text x="760.0" y="276.0" font-size="9" fill="#555" text-anchor="middle">stacked, coffee counter between</text>
+  <rect x="519.0" y="87" width="186.0" height="354" fill="#eef1f3" fill-opacity="0.6" stroke="#333" stroke-width="1.25" stroke-dasharray="6 4"/>
+  <text x="612.0" y="264.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">APPLIANCE GARAGE</text><text x="612.0" y="278.0" font-size="9" fill="#555" text-anchor="middle">2 × 24"W × 24"D × 90"H tall cabinets</text>
+  <rect x="711.0" y="399" width="114.0" height="42" fill="#eef1f3" fill-opacity="0.6" stroke="#333" stroke-width="1.25" stroke-dasharray="6 4"/>
+  <text x="768.0" y="420.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">DRAWER</text><text x="768.0" y="434.0" font-size="9" fill="#555" text-anchor="middle">12"</text>
+  <rect x="711.0" y="339" width="114.0" height="54" fill="#eef1f3" fill-opacity="0.6" stroke="#333" stroke-width="1.25" stroke-dasharray="6 4"/>
+  <text x="768.0" y="366.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">CONV. OVEN</text><text x="768.0" y="380.0" font-size="9" fill="#555" text-anchor="middle">on pull-out shelf</text>
+  <rect x="711.0" y="335" width="114.0" height="-2" fill="#eef1f3" fill-opacity="0.6" stroke="#333" stroke-width="1.25" stroke-dasharray="6 4"/>
+  <text x="768.0" y="334.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle"></text><text x="768.0" y="348.0" font-size="9" fill="#555" text-anchor="middle"></text>
+  <rect x="711.0" y="263" width="114.0" height="66" fill="#eef1f3" fill-opacity="0.6" stroke="#333" stroke-width="1.25" stroke-dasharray="6 4"/>
+  <text x="768.0" y="296.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">COFFEE</text><text x="768.0" y="310.0" font-size="9" fill="#555" text-anchor="middle">counter at 37"</text>
+  <rect x="711.0" y="203" width="114.0" height="54" fill="#eef1f3" fill-opacity="0.6" stroke="#333" stroke-width="1.25" stroke-dasharray="6 4"/>
+  <text x="768.0" y="230.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">MICROWAVE</text><text x="768.0" y="244.0" font-size="9" fill="#555" text-anchor="middle">bottom at 55"</text>
+  <rect x="711.0" y="87" width="114.0" height="110" fill="#eef1f3" fill-opacity="0.6" stroke="#333" stroke-width="1.25" stroke-dasharray="6 4"/>
+  <text x="768.0" y="142.0" font-size="11" font-weight="700" fill="#333" text-anchor="middle">STORAGE</text><text x="768.0" y="156.0" font-size="9" fill="#555" text-anchor="middle">doors</text>
   <line x1="90.0" y1="480" x2="90.0" y2="520" stroke="#aaa" stroke-dasharray="3 3"/>
   <text x="90.0" y="536" font-size="14" font-weight="700" fill="#c0392b" text-anchor="middle">K</text>
   <line x1="204.0" y1="480" x2="204.0" y2="520" stroke="#aaa" stroke-dasharray="3 3"/>
@@ -24,12 +34,10 @@
   <text x="352.0" y="536" font-size="14" font-weight="700" fill="#c0392b" text-anchor="middle">N/O</text>
   <line x1="516.0" y1="480" x2="516.0" y2="520" stroke="#aaa" stroke-dasharray="3 3"/>
   <text x="516.0" y="536" font-size="14" font-weight="700" fill="#c0392b" text-anchor="middle">P</text>
-  <line x1="544.0" y1="480" x2="544.0" y2="520" stroke="#aaa" stroke-dasharray="3 3"/>
-  <text x="544.0" y="536" font-size="14" font-weight="700" fill="#c0392b" text-anchor="middle">Q</text>
-  <line x1="688.0" y1="480" x2="688.0" y2="520" stroke="#aaa" stroke-dasharray="3 3"/>
-  <text x="688.0" y="536" font-size="14" font-weight="700" fill="#c0392b" text-anchor="middle">R</text>
-  <line x1="832.0" y1="480" x2="832.0" y2="520" stroke="#aaa" stroke-dasharray="3 3"/>
-  <text x="832.0" y="536" font-size="14" font-weight="700" fill="#c0392b" text-anchor="middle">S</text>
+  <line x1="708.0" y1="480" x2="708.0" y2="520" stroke="#aaa" stroke-dasharray="3 3"/>
+  <text x="708.0" y="536" font-size="14" font-weight="700" fill="#c0392b" text-anchor="middle">Q</text>
+  <line x1="828.0" y1="480" x2="828.0" y2="520" stroke="#aaa" stroke-dasharray="3 3"/>
+  <text x="828.0" y="536" font-size="14" font-weight="700" fill="#c0392b" text-anchor="middle">R</text>
   <line x1="90.0" y1="504" x2="204.0" y2="504" stroke="#888"/>
   <text x="147.0" y="498" font-size="11" fill="#444" text-anchor="middle">28.5"</text>
   <line x1="204.0" y1="504" x2="320.0" y2="504" stroke="#888"/>
@@ -38,17 +46,15 @@
   <text x="336.0" y="498" font-size="11" fill="#444" text-anchor="middle">8"</text>
   <line x1="352.0" y1="504" x2="516.0" y2="504" stroke="#888"/>
   <text x="434.0" y="498" font-size="11" fill="#444" text-anchor="middle">41"</text>
-  <line x1="516.0" y1="504" x2="544.0" y2="504" stroke="#888"/>
-  <text x="530.0" y="498" font-size="11" fill="#444" text-anchor="middle">7"</text>
-  <line x1="544.0" y1="504" x2="688.0" y2="504" stroke="#888"/>
-  <text x="616.0" y="498" font-size="11" fill="#444" text-anchor="middle">36"</text>
-  <line x1="688.0" y1="504" x2="832.0" y2="504" stroke="#888"/>
-  <text x="760.0" y="498" font-size="11" fill="#444" text-anchor="middle">36"</text>
-  <line x1="90" y1="560" x2="832.0" y2="560" stroke="#c0392b"/>
-  <text x="461.0" y="578" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle">K–S: 185.5" (15′-5.5″)</text>
+  <line x1="516.0" y1="504" x2="708.0" y2="504" stroke="#888"/>
+  <text x="612.0" y="498" font-size="11" fill="#444" text-anchor="middle">48"</text>
+  <line x1="708.0" y1="504" x2="828.0" y2="504" stroke="#888"/>
+  <text x="768.0" y="498" font-size="11" fill="#444" text-anchor="middle">30"</text>
+  <line x1="90" y1="560" x2="828.0" y2="560" stroke="#c0392b"/>
+  <text x="459.0" y="578" font-size="13" font-weight="700" fill="#c0392b" text-anchor="middle">K–R: 184.5" (15′-4.5″)</text>
   <line x1="50" y1="480" x2="50" y2="80" stroke="#888"/><line x1="45" y1="80" x2="55" y2="80" stroke="#888"/>
   <text x="38" y="280.0" font-size="11" fill="#444" text-anchor="middle" transform="rotate(-90 38 280.0)">100" floor to ceiling</text>
-  <line x1="872.0" y1="480" x2="872.0" y2="80" stroke="#888"/><line x1="867.0" y1="80" x2="877.0" y2="80" stroke="#888"/>
-  <text x="884.0" y="280.0" font-size="11" fill="#444" text-anchor="middle" transform="rotate(90 884.0 280.0)">100" floor to ceiling</text>
-  <line x1="80" y1="480" x2="842.0" y2="480" stroke="#2b2b2b" stroke-width="4"/>
+  <line x1="868.0" y1="480" x2="868.0" y2="80" stroke="#888"/><line x1="863.0" y1="80" x2="873.0" y2="80" stroke="#888"/>
+  <text x="880.0" y="280.0" font-size="11" fill="#444" text-anchor="middle" transform="rotate(90 880.0 280.0)">100" floor to ceiling</text>
+  <line x1="80" y1="480" x2="838.0" y2="480" stroke="#2b2b2b" stroke-width="4"/>
 </svg>

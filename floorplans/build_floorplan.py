@@ -29,9 +29,8 @@ SEGMENTS = [
     ("N", 8, "wall", "N"),
     ("W", 40.5, "wall", "O"),
     ("N", 41, "wall:fridge space", "P"),
-    ("N", 7, "wall", "Q"),
-    ("N", 36, "wall:appliance garage", "R"),
-    ("N", 36, "wall:oven + microwave", "S"),
+    ("N", 48, "wall:appliance garage", "Q"),
+    ("N", 30, "wall:oven + microwave", "R"),
 ]
 
 # Force dimension side for walls whose outside is cluttered, keyed by segment end label
@@ -44,7 +43,7 @@ SPANS = [("I", "J", '36" sink · 32" window centred')]
 LABELS = {"opening": "walkway opening"}
 MARGIN = 80
 # Overall run dimensions drawn outside the segment dimensions: (from label, to label)
-TOTALS = [("A", "H"), ("H", "K"), ("K", "N"), ("O", "S")]
+TOTALS = [("A", "H"), ("H", "K"), ("K", "N"), ("O", "R")]
 
 # Countertops along walls: (points along the wall, depth in inches)
 # Points may be a label or an (x, y) position in inches.
@@ -59,8 +58,8 @@ COUNTERS = []
 # Centred on the wall segment between the two points, projecting into the room.
 APPLIANCES = [
     ("FRIDGE", "P", "O", 36, 30, "French door", '41" space'),
-    ("APPLIANCE", "R", "Q", 36, 24, "GARAGE", "on 9\" platform"),
-    ("OVEN + MW", "S", "R", 36, 24, "stacked, coffee", "counter between"),
+    ("APPLIANCE", "Q", "P", 48, 24, "GARAGE", "2 × 24\" tall cab.", "on 9\" platform"),
+    ("OVEN+MW", "R", "Q", 30, 24, "coffee gap", "on 9\" platform"),
 ]
 
 # Design constraints: segments (by end points) that must never be a window.
@@ -375,15 +374,19 @@ ELEVATIONS = [
      ["A", "B", "C", "D", "E", "F", "G", "H"], 96, 96),
     ("south_elevation.svg", "South wall elevation (H–K), viewed from inside facing south",
      ["H", "I", "_w1", "_w2", "J", "K"], 96, 100),
-    ("west_elevation.svg", "West wall elevation (K–S), viewed from inside facing west",
-     ["K", "L", "M", "N", "O", "P", "Q", "R", "S"], 100, 100,
-     {"project": True,  # N-O is a return wall: O-S sits 40.5" further west
-      "platforms": [("P", "S", 9, "raised floor (wooden box) 9\"")],
+    ("west_elevation.svg", "West wall elevation (K–R), viewed from inside facing west",
+     ["K", "L", "M", "N", "O", "P", "Q", "R"], 100, 100,
+     {"project": True,  # N-O is a return wall: O-R sits 40.5" further west
+      "platforms": [("P", "R", 9, "9\" raised box (on 11\" concrete step), 24\" deep")],
       "openings": {"M": 80},  # opening height assumed
       "zones": [("O", "P", 0, 70, "FRIDGE (French door)", '41" space · height approx.'),
-                ("Q", "R", 9, 100, "APPLIANCE GARAGE", "36\" (could take 12\" from R–S)"),
-                ("R", "S", 9, 100, "OVEN + MICROWAVE", "stacked, coffee counter between")]}),
-]
+                ("P", "Q", 9, 99, "APPLIANCE GARAGE", "2 × 24\"W × 24\"D × 90\"H tall cabinets"),
+                ("Q", "R", 9, 21, "DRAWER", "12\""),
+                ("Q", "R", 21, 36, "CONV. OVEN", "on pull-out shelf"),
+                ("Q", "R", 36, 37, "", ""),
+                ("Q", "R", 37, 55, "COFFEE", "counter at 37\""),
+                ("Q", "R", 55, 70, "MICROWAVE", "bottom at 55\""),
+                ("Q", "R", 70, 99, "STORAGE", "doors")]}),]
 
 
 def build_elevation(filename, title, labels, ceil0, ceil1, opts=None):
