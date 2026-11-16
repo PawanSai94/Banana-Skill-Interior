@@ -18,13 +18,13 @@
     <g id="furniture" font-family="Arial,Helvetica,sans-serif">
         <!-- walkway: vestibule/hallway -> living room -> master bedroom door, branch east to dining -->
         <rect x="236" y="-190" width="54" height="288" fill="#e8f5e9" opacity="0.7"/>
-        <rect x="290" y="30" width="203" height="45" fill="#e8f5e9" opacity="0.7"/>
+        <rect x="290" y="-20" width="203" height="80" fill="#e8f5e9" opacity="0.7"/>
         <line x1="262" y1="-185" x2="271" y2="80" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="5,4"/>
         <polygon points="271,90 266,78 276,78" fill="#2e7d32"/>
-        <line x1="268" y1="52" x2="475" y2="52" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="5,4"/>
-        <polygon points="485,52 473,47 473,57" fill="#2e7d32"/>
+        <line x1="268" y1="0" x2="475" y2="0" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <polygon points="485,0 473,-5 473,5" fill="#2e7d32"/>
         <text x="252" y="-60" font-size="8" fill="#2e7d32" font-weight="bold" text-anchor="middle" transform="rotate(-90 252 -60)">MAIN WALKWAY from entry (keep clear)</text>
-        <text x="380" y="66" font-size="7" fill="#2e7d32" font-weight="bold" text-anchor="middle">to dining</text>
+        <text x="380" y="14" font-size="7" fill="#2e7d32" font-weight="bold" text-anchor="middle">to dining</text>
 
         <!-- rug 8'x10' -->
         <rect x="63" y="-150" width="160" height="200" fill="#fff8e1" stroke="#bfa76f" stroke-width="1" stroke-dasharray="4,3"/>
@@ -52,11 +52,23 @@
         <rect x="175" y="-115" width="50" height="50" rx="8" fill="#d7ccc8" stroke="#5d4037" stroke-width="1.2" transform="rotate(30 200 -90)"/>
         <text x="200" y="-87" font-size="7" fill="#3e2723" text-anchor="middle">chair</text>
 
-        <!-- m14-m15 stub: candidate for removal -->
-        <rect x="282" y="-115" width="12" height="67" fill="none" stroke="#d32f2f" stroke-width="1.2" stroke-dasharray="3,2"/>
-        <line x1="282" y1="-115" x2="294" y2="-48" stroke="#d32f2f" stroke-width="1"/>
-        <line x1="294" y1="-115" x2="282" y2="-48" stroke="#d32f2f" stroke-width="1"/>
-        <text x="296" y="-36" font-size="7" fill="#d32f2f" font-weight="bold">remove? (check structure)</text>
+        <!-- m14-m15 stub replaced by a see-through, double-sided trophy display (if not load-bearing) -->
+        <rect x="279.67" y="-115" width="16.67" height="66.67" fill="#fff59d" stroke="#f9a825" stroke-width="1.5"/>
+        <line x1="279.67" y1="-98.3" x2="296.33" y2="-98.3" stroke="#f9a825" stroke-width="0.8"/>
+        <line x1="279.67" y1="-81.7" x2="296.33" y2="-81.7" stroke="#f9a825" stroke-width="0.8"/>
+        <line x1="279.67" y1="-65" x2="296.33" y2="-65" stroke="#f9a825" stroke-width="0.8"/>
+        <text x="300" y="-38" font-size="7" fill="#f57f17" font-weight="bold">TROPHY DISPLAY 40"&#215;10"</text>
+        <text x="300" y="-29" font-size="6.5" fill="#f57f17">see-through, replaces m14-m15 wall</text>
+
+        <!-- library wall on m68c-m68a: ~105" long x 14" deep, floor to ceiling -->
+        <rect x="310" y="77.67" width="175" height="23.33" fill="#d7ccc8" stroke="#4e342e" stroke-width="1.2"/>
+        <text x="397.5" y="92" font-size="7.5" fill="#3e2723" font-weight="bold" text-anchor="middle">LIBRARY WALL ~8'9" &#215; 14"</text>
+
+        <!-- reading chair + floor lamp -->
+        <rect x="300" y="-96" width="45" height="45" rx="8" fill="#d7ccc8" stroke="#5d4037" stroke-width="1.2"/>
+        <text x="322.5" y="-75" font-size="7" fill="#3e2723" text-anchor="middle">reading</text>
+        <text x="322.5" y="-67" font-size="7" fill="#3e2723" text-anchor="middle">chair</text>
+        <circle cx="356" cy="-92" r="5" fill="#fff9c4" stroke="#f9a825" stroke-width="1"/>
 
         <!-- mandir prayer space -->
         <rect x="371" y="-115" width="80" height="66.67" fill="#f3e5f5" opacity="0.5" stroke="#7b1fa2" stroke-width="1" stroke-dasharray="3,3"/>
@@ -184,12 +196,7 @@
     <line x1="290" y1="-297" x2="286" y2="-297" stroke="#333" stroke-width="2"/>
     <text x="300" y="-206" font-size="10" fill="#333" text-anchor="start">109" (m14-m25 overall)</text>
 
-    <!-- m14 -> m15 : wall South 40" -->
-    <line x1="290" y1="-115" x2="290" y2="-48" stroke="#333" stroke-width="3"/>
-    <line x1="286" y1="-115" x2="286" y2="-48" stroke="#333" stroke-width="2"/>
-    <line x1="290" y1="-115" x2="286" y2="-115" stroke="#333" stroke-width="2"/>
-    <line x1="290" y1="-48" x2="286" y2="-48" stroke="#333" stroke-width="2"/>
-    <text x="300" y="-78" font-size="9" fill="#333" text-anchor="start">40"</text>
+    <!-- m14 -> m15 : wall South 40" - replaced by trophy display in this concept -->
 
     <!-- m13 -> m14 : wall West 3' -->
     <line x1="350" y1="-115" x2="290" y2="-115" stroke="#333" stroke-width="3"/>
@@ -250,7 +257,7 @@
     <text x="398" y="120" font-size="9" fill="#333" text-anchor="middle">&#8776;9'8" (scaled)</text>
 
     <circle cx="241.33" cy="101" r="3" fill="#ff6b6b"/><text x="236" y="94" font-size="10" fill="#ff6b6b" font-weight="bold" text-anchor="end">m68b</text>
-    <circle cx="301.33" cy="101" r="3" fill="#ff6b6b"/><text x="306.5" y="94" font-size="10" fill="#ff6b6b" font-weight="bold">m68c</text>
+    <circle cx="301.33" cy="101" r="3" fill="#ff6b6b"/><text x="306.5" y="117" font-size="10" fill="#ff6b6b" font-weight="bold">m68c</text>
 
     <circle cx="495" cy="101" r="4" fill="#ff6b6b"/><text x="505.5" y="106.1" font-size="12" fill="#ff6b6b" font-weight="bold">m68a</text>
 
@@ -335,6 +342,8 @@
         <text x="240" y="196" fill="#7b1fa2">Mandir</text>
         <line x1="300" y1="192" x2="325" y2="192" stroke="#999" stroke-width="1.5" stroke-dasharray="2,4"/>
         <text x="330" y="196" fill="#999">Open (no wall)</text>
+        <rect x="-5" y="186" width="25" height="12" fill="#fff59d" stroke="#f9a825" stroke-width="1.5"/>
+        <text x="25" y="196" fill="#f57f17">Trophy display</text>
         <line x1="210" y1="155" x2="235" y2="155" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
         <text x="240" y="158" fill="#e91e63">Section cut (real wall, continues to an excluded point)</text>
         <text x="210" y="173" fill="#777" font-style="italic">(wall end) = confirmed dead end in the original source, not a cut</text>
