@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 0 880 500" width="1760" height="1000" style="background:#fff;font-family:Arial,Helvetica,sans-serif;">
+<defs>
+  <radialGradient id="warm" cx="50%" cy="40%" r="70%"><stop offset="0%" stop-color="#fff3c4"/><stop offset="100%" stop-color="#f6d9a8"/></radialGradient>
+  <radialGradient id="glow" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#ffe082"/><stop offset="100%" stop-color="#ffe082" stop-opacity="0"/></radialGradient>
+</defs>
+<text x="430" y="26" font-size="15" font-weight="bold" fill="#111" text-anchor="middle">Mandir Corner &#8211; Wall Elevations (concept)</text>
+<text x="430" y="42" font-size="8" fill="#666" text-anchor="middle">Scale: 3 units = 1 inch. Furniture sizes are suggestions to refine with your carpenter.</text>
+<text x="224.5" y="58" font-size="11" fill="#111" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round" font-weight="bold">NORTH WALL &#8211; m14 to m11a (looking north)</text>
+<rect x="40" y="92" width="369" height="288" fill="#fafafa" stroke="#333" stroke-width="1.5" />
+<line x1="30" y1="380" x2="419" y2="380" stroke="#333" stroke-width="2"/>
+<text x="40" y="88" font-size="8" fill="#ff6b6b" text-anchor="start" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round" font-weight="bold">m14</text>
+<text x="409" y="88" font-size="8" fill="#ff6b6b" text-anchor="end" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round" font-weight="bold">m11a</text>
+<text x="224.5" y="102" font-size="6.5" fill="#888" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">8' ceiling assumed</text>
+<rect x="40" y="128" width="108" height="252" fill="#efe6d8" stroke="#5d4037" stroke-width="1.2" />
+<rect x="43" y="293" width="49.5" height="84" fill="#e3d5c0" stroke="#5d4037" stroke-width="0.8" />
+<rect x="95.5" y="293" width="49.5" height="84" fill="#e3d5c0" stroke="#5d4037" stroke-width="0.8" />
+<rect x="44.5" y="131" width="99.0" height="156" fill="#fffde7" stroke="#9e9e9e" stroke-width="0.8" />
+<line x1="44.5" y1="246.5" x2="143.5" y2="246.5" stroke="#f9a825" stroke-width="1.6"/>
+<line x1="44.5" y1="206" x2="143.5" y2="206" stroke="#f9a825" stroke-width="1.6"/>
+<line x1="44.5" y1="165.5" x2="143.5" y2="165.5" stroke="#f9a825" stroke-width="1.6"/>
+<rect x="58" y="260" width="15" height="27" fill="#ffd54f" stroke="#f57f17" stroke-width="0.6" />
+<rect x="82" y="266" width="12" height="21" fill="#ffd54f" stroke="#f57f17" stroke-width="0.6" />
+<rect x="106" y="257" width="18" height="30" fill="#ffd54f" stroke="#f57f17" stroke-width="0.6" />
+<rect x="127" y="263" width="12" height="24" fill="#ffd54f" stroke="#f57f17" stroke-width="0.6" />
+<rect x="55" y="222.5" width="18" height="24.0" fill="#ffd54f" stroke="#f57f17" stroke-width="0.6" />
+<rect x="88" y="228.5" width="24" height="18.0" fill="#ffd54f" stroke="#f57f17" stroke-width="0.6" />
+<rect x="121" y="219.5" width="15" height="27.0" fill="#ffd54f" stroke="#f57f17" stroke-width="0.6" />
+<rect x="64" y="185" width="15" height="21" fill="#ffd54f" stroke="#f57f17" stroke-width="0.6" />
+<rect x="100" y="179" width="21" height="27" fill="#ffd54f" stroke="#f57f17" stroke-width="0.6" />
+<rect x="67" y="141.5" width="18" height="24.0" fill="#ffd54f" stroke="#f57f17" stroke-width="0.6" />
+<rect x="106" y="147.5" width="18" height="18.0" fill="#ffd54f" stroke="#f57f17" stroke-width="0.6" />
+<text x="94" y="116" font-size="7.5" fill="#5d4037" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round" font-weight="bold">TROPHY CABINET</text>
+<text x="94" y="338" font-size="6.5" fill="#5d4037" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">books / storage</text>
+<rect x="175" y="290" width="144" height="90" fill="#efe6d8" stroke="#5d4037" stroke-width="1.2" />
+<rect x="178" y="293" width="67.5" height="18" fill="#e3d5c0" stroke="#5d4037" stroke-width="0.8" />
+<rect x="248.5" y="293" width="67.5" height="18" fill="#e3d5c0" stroke="#5d4037" stroke-width="0.8" />
+<rect x="178" y="314" width="67.5" height="63" fill="#e3d5c0" stroke="#5d4037" stroke-width="0.8" />
+<rect x="248.5" y="314" width="67.5" height="63" fill="#e3d5c0" stroke="#5d4037" stroke-width="0.8" />
+<circle cx="211" cy="302" r="1.5" fill="#5d4037"/>
+<circle cx="283" cy="302" r="1.5" fill="#5d4037"/>
+<text x="247" y="347" font-size="7.5" fill="#5d4037" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round" font-weight="bold">POOJA CONSOLE</text>
+<text x="247" y="357" font-size="6" fill="#5d4037" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">lamps &#183; incense &#183; festival items</text>
+<path d="M196,290 l3,-9 l3,9 z" fill="#ffb300"/>
+<circle cx="200.5" cy="274" r="1.6" fill="#ff7043"/>
+<rect x="295" y="272" width="15" height="18" fill="#a1887f"/><circle cx="302.5" cy="260" r="9" fill="#81c784"/>
+<rect x="193" y="146" width="108" height="108" fill="#fff3e0" stroke="#8d6e63" stroke-width="1.2" />
+<circle cx="202" cy="245" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="202" cy="227" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="202" cy="209" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="202" cy="191" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="202" cy="173" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="202" cy="155" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="220" cy="245" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="220" cy="227" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="220" cy="209" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="220" cy="191" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="220" cy="173" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="220" cy="155" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="238" cy="245" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="238" cy="227" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="238" cy="209" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="238" cy="191" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="238" cy="173" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="238" cy="155" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="256" cy="245" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="256" cy="227" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="256" cy="209" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="256" cy="191" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="256" cy="173" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="256" cy="155" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="274" cy="245" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="274" cy="227" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="274" cy="209" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="274" cy="191" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="274" cy="173" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="274" cy="155" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="292" cy="245" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="292" cy="227" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="292" cy="209" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="292" cy="191" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="292" cy="173" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<circle cx="292" cy="155" r="6" fill="none" stroke="#bf8f5f" stroke-width="0.8"/>
+<rect x="193" y="146" width="108" height="108" fill="url(#glow)" opacity="0.5"/>
+<text x="247" y="138" font-size="7" fill="#6d4c41" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round" font-weight="bold">backlit jali / deity art 36"&#215;36"</text>
+<rect x="337" y="290" width="72" height="90" fill="#efe6d8" stroke="#5d4037" stroke-width="1.2" />
+<rect x="337" y="284" width="72" height="6" fill="#eceff1" stroke="#78909c" stroke-width="1" />
+<rect x="397" y="164" width="12" height="120" fill="#e8d5b7" stroke="#5d4037" stroke-width="1" />
+<polygon points="337,164 409,164 409,128 349,128" fill="#d7b98e" stroke="#5d4037" stroke-width="1"/>
+<line x1="337" y1="284" x2="337" y2="164" stroke="#5d4037" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="373" y="224" font-size="7.5" fill="#7b1fa2" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round" font-weight="bold">MANDIR</text>
+<text x="373" y="233" font-size="6.5" fill="#7b1fa2" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">(side)</text>
+<line x1="40" y1="394" x2="148" y2="394" stroke="#666" stroke-width="0.8"/>
+<line x1="40" y1="390" x2="40" y2="398" stroke="#666" stroke-width="0.8"/>
+<line x1="148" y1="390" x2="148" y2="398" stroke="#666" stroke-width="0.8"/>
+<text x="94.0" y="405" font-size="7.5" fill="#555" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">36"</text>
+<line x1="148" y1="394" x2="175" y2="394" stroke="#666" stroke-width="0.8"/>
+<line x1="148" y1="390" x2="148" y2="398" stroke="#666" stroke-width="0.8"/>
+<line x1="175" y1="390" x2="175" y2="398" stroke="#666" stroke-width="0.8"/>
+<text x="161.5" y="405" font-size="7.5" fill="#555" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">9"</text>
+<line x1="175" y1="394" x2="319" y2="394" stroke="#666" stroke-width="0.8"/>
+<line x1="175" y1="390" x2="175" y2="398" stroke="#666" stroke-width="0.8"/>
+<line x1="319" y1="390" x2="319" y2="398" stroke="#666" stroke-width="0.8"/>
+<text x="247.0" y="405" font-size="7.5" fill="#555" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">48"</text>
+<line x1="319" y1="394" x2="337" y2="394" stroke="#666" stroke-width="0.8"/>
+<line x1="319" y1="390" x2="319" y2="398" stroke="#666" stroke-width="0.8"/>
+<line x1="337" y1="390" x2="337" y2="398" stroke="#666" stroke-width="0.8"/>
+<text x="328.0" y="405" font-size="7.5" fill="#555" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">6"</text>
+<line x1="337" y1="394" x2="409" y2="394" stroke="#666" stroke-width="0.8"/>
+<line x1="337" y1="390" x2="337" y2="398" stroke="#666" stroke-width="0.8"/>
+<line x1="409" y1="390" x2="409" y2="398" stroke="#666" stroke-width="0.8"/>
+<text x="373.0" y="405" font-size="7.5" fill="#555" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">24"</text>
+<line x1="40" y1="414" x2="409" y2="414" stroke="#666" stroke-width="0.8"/>
+<line x1="40" y1="410" x2="40" y2="418" stroke="#666" stroke-width="0.8"/>
+<line x1="409" y1="410" x2="409" y2="418" stroke="#666" stroke-width="0.8"/>
+<text x="224.5" y="425" font-size="7.5" fill="#555" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">10'3" (m14 &#8211; m11a)</text>
+<line x1="28" y1="380" x2="28" y2="290" stroke="#666" stroke-width="0.8"/>
+<line x1="24" y1="380" x2="32" y2="380" stroke="#666" stroke-width="0.8"/>
+<line x1="24" y1="290" x2="32" y2="290" stroke="#666" stroke-width="0.8"/>
+<text x="23" y="338.0" font-size="7.5" fill="#555" text-anchor="end" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">30"</text>
+<line x1="28" y1="290" x2="28" y2="128" stroke="#666" stroke-width="0.8"/>
+<line x1="24" y1="290" x2="32" y2="290" stroke="#666" stroke-width="0.8"/>
+<line x1="24" y1="128" x2="32" y2="128" stroke="#666" stroke-width="0.8"/>
+<text x="23" y="212.0" font-size="7.5" fill="#555" text-anchor="end" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">54"</text>
+<line x1="10" y1="380" x2="10" y2="128" stroke="#666" stroke-width="0.8"/>
+<line x1="6" y1="380" x2="14" y2="380" stroke="#666" stroke-width="0.8"/>
+<line x1="6" y1="128" x2="14" y2="128" stroke="#666" stroke-width="0.8"/>
+<text x="5" y="257.0" font-size="7.5" fill="#555" text-anchor="end" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">84"</text>
+<line x1="421" y1="254" x2="421" y2="146" stroke="#666" stroke-width="0.8"/>
+<line x1="417" y1="254" x2="425" y2="254" stroke="#666" stroke-width="0.8"/>
+<line x1="417" y1="146" x2="425" y2="146" stroke="#666" stroke-width="0.8"/>
+<text x="426" y="203.0" font-size="7.5" fill="#555" text-anchor="start" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">art 42"&#8211;78"</text>
+<text x="580" y="58" font-size="11" fill="#111" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round" font-weight="bold">EAST WALL &#8211; MANDIR FRONT (looking east)</text>
+<rect x="520" y="92" width="120" height="288" fill="#fafafa" stroke="#333" stroke-width="1.5" />
+<line x1="510" y1="380" x2="680" y2="380" stroke="#333" stroke-width="2"/>
+<text x="520" y="88" font-size="8" fill="#ff6b6b" text-anchor="start" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round" font-weight="bold">m11a</text>
+<text x="640" y="88" font-size="8" fill="#ff6b6b" text-anchor="end" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round" font-weight="bold">m11</text>
+<text x="662" y="236" font-size="7" fill="#999" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">open to</text>
+<text x="662" y="245" font-size="7" fill="#999" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">dining &#8594;</text>
+<rect x="520" y="290" width="120" height="90" fill="#efe6d8" stroke="#5d4037" stroke-width="1.2" />
+<rect x="523" y="293" width="55.5" height="18" fill="#e3d5c0" stroke="#5d4037" stroke-width="0.8" />
+<rect x="581.5" y="293" width="55.5" height="18" fill="#e3d5c0" stroke="#5d4037" stroke-width="0.8" />
+<rect x="523" y="314" width="55.5" height="63" fill="#e3d5c0" stroke="#5d4037" stroke-width="0.8" />
+<rect x="581.5" y="314" width="55.5" height="63" fill="#e3d5c0" stroke="#5d4037" stroke-width="0.8" />
+<circle cx="550" cy="302" r="1.5" fill="#5d4037"/>
+<circle cx="610" cy="302" r="1.5" fill="#5d4037"/>
+<circle cx="574" cy="347" r="1.5" fill="#5d4037"/><circle cx="586" cy="347" r="1.5" fill="#5d4037"/>
+<rect x="517" y="284" width="126" height="6" fill="#eceff1" stroke="#78909c" stroke-width="1" />
+<rect x="520" y="164" width="9" height="120" fill="#d7b98e" stroke="#5d4037" stroke-width="1" />
+<rect x="631" y="164" width="9" height="120" fill="#d7b98e" stroke="#5d4037" stroke-width="1" />
+<path d="M529,284 L529,194 Q580,158 631,194 L631,284 Z" fill="url(#warm)" stroke="#8d6e63" stroke-width="1"/>
+<path d="M535,200 Q580,167 625,200" fill="none" stroke="#ffb300" stroke-width="1.5" stroke-dasharray="1,2"/>
+<rect x="538" y="272" width="84" height="12" fill="#f5f5f5" stroke="#9e9e9e" stroke-width="0.8" />
+<rect x="550" y="260" width="60" height="12" fill="#f5f5f5" stroke="#9e9e9e" stroke-width="0.8" />
+<ellipse cx="562.0" cy="248.0" rx="6.0" ry="12.0" fill="#ffcc80" stroke="#e65100" stroke-width="0.6"/>
+<ellipse cx="580.0" cy="245.0" rx="6.0" ry="15.0" fill="#ffcc80" stroke="#e65100" stroke-width="0.6"/>
+<ellipse cx="598.0" cy="248.0" rx="6.0" ry="12.0" fill="#ffcc80" stroke="#e65100" stroke-width="0.6"/>
+<path d="M541,272 l3,-6 l3,6 z" fill="#ffb300"/>
+<path d="M613,272 l3,-6 l3,6 z" fill="#ffb300"/>
+<polygon points="517,164 643,164 628,140 604,128 580,116 556,128 532,140" fill="#d7b98e" stroke="#5d4037" stroke-width="1.2"/>
+<line x1="580" y1="116" x2="580" y2="107" stroke="#5d4037" stroke-width="1"/><circle cx="580" cy="105" r="2" fill="#ffb300"/>
+<line x1="619" y1="164" x2="619" y2="176" stroke="#795548" stroke-width="0.8"/><path d="M615,182 q4,-8 8,0 z" fill="#ffb300"/>
+<text x="580" y="338" font-size="6.5" fill="#5d4037" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">drawers + storage</text>
+<line x1="520" y1="394" x2="640" y2="394" stroke="#666" stroke-width="0.8"/>
+<line x1="520" y1="390" x2="520" y2="398" stroke="#666" stroke-width="0.8"/>
+<line x1="640" y1="390" x2="640" y2="398" stroke="#666" stroke-width="0.8"/>
+<text x="580.0" y="405" font-size="7.5" fill="#555" text-anchor="middle" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">40" (m11a &#8211; m11)</text>
+<line x1="508" y1="380" x2="508" y2="290" stroke="#666" stroke-width="0.8"/>
+<line x1="504" y1="380" x2="512" y2="380" stroke="#666" stroke-width="0.8"/>
+<line x1="504" y1="290" x2="512" y2="290" stroke="#666" stroke-width="0.8"/>
+<text x="503" y="338.0" font-size="7.5" fill="#555" text-anchor="end" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">30"</text>
+<line x1="508" y1="290" x2="508" y2="164" stroke="#666" stroke-width="0.8"/>
+<line x1="504" y1="290" x2="512" y2="290" stroke="#666" stroke-width="0.8"/>
+<line x1="504" y1="164" x2="512" y2="164" stroke="#666" stroke-width="0.8"/>
+<text x="503" y="230.0" font-size="7.5" fill="#555" text-anchor="end" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">42"</text>
+<line x1="508" y1="164" x2="508" y2="116" stroke="#666" stroke-width="0.8"/>
+<line x1="504" y1="164" x2="512" y2="164" stroke="#666" stroke-width="0.8"/>
+<line x1="504" y1="116" x2="512" y2="116" stroke="#666" stroke-width="0.8"/>
+<text x="503" y="143.0" font-size="7.5" fill="#555" text-anchor="end" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">16"</text>
+<text x="695" y="128" font-size="7" fill="#333" text-anchor="start" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">&#8226; canopy / shikhara with brass kalash</text>
+<text x="695" y="141" font-size="7" fill="#333" text-anchor="start" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">&#8226; arched alcove, warm LED cove light</text>
+<text x="695" y="154" font-size="7" fill="#333" text-anchor="start" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">&#8226; optional jali or glass folding doors</text>
+<text x="695" y="167" font-size="7" fill="#333" text-anchor="start" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">&#8226; tiered steps for idols: about chest</text>
+<text x="695" y="180" font-size="7" fill="#333" text-anchor="start" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">   height standing, above eye level seated</text>
+<text x="695" y="193" font-size="7" fill="#333" text-anchor="start" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">&#8226; marble / granite slab at 30"</text>
+<text x="695" y="206" font-size="7" fill="#333" text-anchor="start" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">&#8226; base: 2 drawers + 2 doors for puja items</text>
+<text x="695" y="219" font-size="7" fill="#333" text-anchor="start" paint-order="stroke" stroke="#fdf8f0" stroke-width="2.5" stroke-linejoin="round">&#8226; 24" deep, protrudes west into the room</text>
+<text x="40" y="470" font-size="8" fill="#555">Notes: 8' ceiling assumed &#183; trophy cabinet and console 12" deep &#183; console ends 6" before the mandir so the space in front of the mandir stays usable</text>
+<text x="40" y="483" font-size="8" fill="#555">&#183; mandir faces west, so you face east while praying &#183; put mandir, jali and trophy lights on separate dimmable circuits</text>
+</svg>
