@@ -10,7 +10,7 @@
          (same coordinates + dimensions) from the source floor plan.
          ============================================================ -->
 
-    <text x="250" y="-698" font-size="16" font-weight="bold" text-anchor="middle" fill="#111">Front Mudroom with Bath (dissected section)</text>
+    <text x="250" y="-698" font-size="16" font-weight="bold" text-anchor="middle" fill="#111">Entry Foyer (Mudroom) with Bath</text>
 
     <!-- ===================== WALLS ===================== -->
 
@@ -220,7 +220,8 @@
 
 
     <!-- ===================== ROOM LABEL ===================== -->
-    <text x="190" y="-560" font-size="13" fill="#5d4037" text-anchor="middle" font-weight="bold">MUDROOM</text>
+    <text x="190" y="-562" font-size="13" fill="#5d4037" text-anchor="middle" font-weight="bold">ENTRY FOYER</text>
+    <text x="190" y="-549" font-size="10" fill="#5d4037" text-anchor="middle" font-style="italic">(Mudroom)</text>
 
     <!-- ===================== MARKERS ===================== -->
     <circle cx="33" cy="-464" r="3" fill="#ff6b6b"/><text x="24" y="-453" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m52</text>
