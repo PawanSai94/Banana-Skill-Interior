@@ -82,7 +82,7 @@
     <line x1="434" y1="-664" x2="434" y2="-621" stroke="#333" stroke-width="2"/>
     <line x1="430" y1="-664" x2="434" y2="-664" stroke="#333" stroke-width="2"/>
     <line x1="430" y1="-621" x2="434" y2="-621" stroke="#333" stroke-width="2"/>
-    <text x="424" y="-640" font-size="10" fill="#333" text-anchor="end">26"</text>
+    <text x="438" y="-645" font-size="10" fill="#333" text-anchor="start">26"</text>
 
     <!-- m46 -> m47 : wall East 3' -->
     <line x1="430" y1="-621" x2="490" y2="-621" stroke="#333" stroke-width="3"/>
@@ -103,7 +103,7 @@
     <line x1="490" y1="-525" x2="430" y2="-525" stroke="#333" stroke-width="2"/>
     <line x1="490" y1="-521" x2="490" y2="-525" stroke="#333" stroke-width="2"/>
     <line x1="430" y1="-521" x2="430" y2="-525" stroke="#333" stroke-width="2"/>
-    <text x="460" y="-533" font-size="10" fill="#333" text-anchor="middle">3'</text>
+    <text x="460" y="-509" font-size="10" fill="#333" text-anchor="middle">3'</text>
 
     <!-- m48 -> m38 : wall(5")+window(2')+wall(5") -->
     <line x1="490" y1="-521" x2="489.57" y2="-512.99" stroke="#333" stroke-width="3"/>
@@ -120,21 +120,21 @@
     <line x1="487" y1="-465" x2="487" y2="-469" stroke="#333" stroke-width="2"/>
     <line x1="290" y1="-465" x2="290" y2="-469" stroke="#333" stroke-width="2"/>
     <text x="405" y="-438" font-size="10" fill="#333" text-anchor="middle">9'10" (m37-m38 overall)</text>
-    <text x="318" y="-477" font-size="9" fill="#555" text-anchor="middle">3' (m37-m40)</text>
+    <text x="318" y="-474" font-size="9" fill="#555" text-anchor="middle">3' (m37-m40)</text>
 
     <!-- m40 -> m41 : wall 27" -->
     <line x1="350" y1="-465" x2="350" y2="-510" stroke="#333" stroke-width="3"/>
     <line x1="346" y1="-465" x2="346" y2="-510" stroke="#333" stroke-width="2"/>
     <line x1="350" y1="-465" x2="346" y2="-465" stroke="#333" stroke-width="2"/>
     <line x1="350" y1="-510" x2="346" y2="-510" stroke="#333" stroke-width="2"/>
-    <text x="356" y="-485" font-size="9" fill="#333" text-anchor="start">27"</text>
+    <text x="340" y="-488" font-size="9" fill="#333" text-anchor="end">27"</text>
 
     <!-- m41 -> m42 : door 37" -->
     <line x1="350" y1="-510" x2="350" y2="-572" stroke="#ff9800" stroke-width="2"/>
     <line x1="346" y1="-510" x2="346" y2="-572" stroke="#ff9800" stroke-width="2"/>
     <line x1="350" y1="-510" x2="346" y2="-510" stroke="#ff9800" stroke-width="2"/>
     <line x1="350" y1="-572" x2="346" y2="-572" stroke="#ff9800" stroke-width="2"/>
-    <text x="356" y="-538" font-size="9" fill="#ff9800" text-anchor="start" font-weight="bold">Door 37"</text>
+    <text x="340" y="-538" font-size="9" fill="#ff9800" text-anchor="end" font-weight="bold">Door 37"</text>
 
     <!-- m42 -> m43 : wall 55" -->
     <line x1="350" y1="-572" x2="350" y2="-664" stroke="#333" stroke-width="3"/>
@@ -165,18 +165,55 @@
         <text x="262" y="-403" font-size="9" fill="#ff9800" text-anchor="middle" font-weight="bold">Door 30"</text>
     </g>
 
-    <!-- ========== OPEN / UNRESOLVED EDGES (not a wall in source) ========== -->
-    <!-- m37 to m53: no connecting wall found in the source file between these two points.
-         Shown as a dashed reference line marking where this section was cut from the rest of the house. -->
-    <line x1="290" y1="-465" x2="233" y2="-463" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
-    <text x="227" y="-438" font-size="8" fill="#e91e63" text-anchor="end" font-style="italic">section cut (no wall in source)</text>
+    <!-- ===================== BATHROOM FIXTURES ===================== -->
 
-    <!-- m49: only one connecting wall found in source (to m48). Left open-faced as drawn. -->
-    <text x="424" y="-600" font-size="8" fill="#e91e63" text-anchor="end" font-style="italic">open side</text><text x="424" y="-591" font-size="8" fill="#e91e63" text-anchor="end" font-style="italic">(no wall m46-m49)</text>
+    <!-- Door m41-m42 (37"): hinged at m42, swings into the bathroom toward the m42-m43 wall -->
+    <g id="door-m41-m42-swing">
+        <path d="M 350 -572 L 350 -510 A 62 62 0 0 0 412 -572 Z" fill="#ff9800" fill-opacity="0.12" stroke="none"/>
+        <path d="M 350 -510 A 62 62 0 0 0 412 -572" fill="none" stroke="#ff9800" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <rect x="350" y="-576" width="62" height="4" fill="#ff9800" stroke="#e65100" stroke-width="0.8"/>
+        <circle cx="350" cy="-572" r="2" fill="#e65100"/>
+    </g>
+
+    <!-- Stand-in shower: m46-m47-m48-m49 (3' x 5'), open entry on the m46-m49 side -->
+    <defs>
+        <pattern id="tile" width="6" height="6" patternUnits="userSpaceOnUse">
+            <rect width="6" height="6" fill="#e3f2fd"/>
+            <path d="M0 6 L6 0" stroke="#90caf9" stroke-width="0.6"/>
+        </pattern>
+    </defs>
+    <g id="shower">
+        <rect x="430" y="-621" width="60" height="96" fill="url(#tile)" stroke="none"/>
+        <line x1="430" y1="-621" x2="430" y2="-525" stroke="#0288d1" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <circle cx="460" cy="-560" r="4" fill="none" stroke="#0277bd" stroke-width="1.2"/>
+        <line x1="457" y1="-560" x2="463" y2="-560" stroke="#0277bd" stroke-width="0.8"/>
+        <line x1="460" y1="-563" x2="460" y2="-557" stroke="#0277bd" stroke-width="0.8"/>
+        <text x="460" y="-590" font-size="10" font-weight="bold" fill="#01579b" text-anchor="middle">SHOWER</text>
+        <text x="460" y="-578" font-size="8" fill="#01579b" text-anchor="middle">3' x 5'</text>
+    </g>
+
+    <!-- W.C. in the m38-m48-m49 corner: toilet against the east wall, facing west -->
+    <g id="wc">
+        <rect x="474" y="-509" width="13" height="32" rx="2" fill="#fff" stroke="#333" stroke-width="1.2"/>
+        <ellipse cx="458" cy="-493" rx="17" ry="11" fill="#fff" stroke="#333" stroke-width="1.2"/>
+        <ellipse cx="456" cy="-493" rx="11" ry="7" fill="none" stroke="#999" stroke-width="0.8"/>
+        <text x="437" y="-490" font-size="9" font-weight="bold" fill="#333" text-anchor="end">W.C.</text>
+    </g>
+
+    <!-- Vanity 27" from m40 toward east along the m40-m38 wall (21" deep) -->
+    <g id="vanity">
+        <rect x="350" y="-504" width="45" height="35" fill="#efebe9" stroke="#5d4037" stroke-width="1.2"/>
+        <ellipse cx="372.5" cy="-486" rx="12" ry="9" fill="#fff" stroke="#5d4037" stroke-width="1"/>
+        <circle cx="372.5" cy="-486" r="1.2" fill="#5d4037"/>
+        <text x="399" y="-474" font-size="8" font-weight="bold" fill="#5d4037" text-anchor="start">Vanity 27"</text>
+    </g>
+
+    <text x="388" y="-634" font-size="11" font-weight="bold" fill="#5d4037" text-anchor="middle">BATHROOM</text>
+
+
 
     <!-- ===================== ROOM LABEL ===================== -->
     <text x="190" y="-560" font-size="13" fill="#5d4037" text-anchor="middle" font-weight="bold">MUDROOM</text>
-    <text x="190" y="-545" font-size="9" fill="#5d4037" text-anchor="middle">(adjoins Bathroom1 at m37-m38 wall, not included)</text>
 
     <!-- ===================== MARKERS ===================== -->
     <circle cx="33" cy="-463" r="3" fill="#ff6b6b"/><text x="24" y="-453" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m52</text>
@@ -191,8 +228,8 @@
     <circle cx="430" cy="-521" r="4" fill="#ff6b6b"/><text x="430" y="-507" font-size="10" fill="#ff6b6b" text-anchor="middle" font-weight="bold">m49</text>
     <circle cx="487" cy="-465" r="4" fill="#ff6b6b"/><text x="500" y="-461" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m38</text>
     <circle cx="350" cy="-465" r="4" fill="#ff6b6b"/><text x="350" y="-451" font-size="10" fill="#ff6b6b" text-anchor="middle" font-weight="bold">m40</text>
-    <circle cx="350" cy="-510" r="3" fill="#ff6b6b"/><text x="356" y="-506" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m41</text>
-    <circle cx="350" cy="-572" r="3" fill="#ff6b6b"/><text x="356" y="-568" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m42</text>
+    <circle cx="350" cy="-510" r="3" fill="#ff6b6b"/><text x="340" y="-506" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m41</text>
+    <circle cx="350" cy="-572" r="3" fill="#ff6b6b"/><text x="340" y="-568" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m42</text>
     <circle cx="290" cy="-465" r="3" fill="#ff6b6b"/><text x="296" y="-451" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m37</text>
     <circle cx="233" cy="-463" r="4" fill="#ff6b6b"/><text x="227" y="-452" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m53</text>
 
@@ -223,8 +260,8 @@
         <text x="14" y="-417" fill="#ff9800">Door</text>
         <line x1="60" y1="-430" x2="80" y2="-430" stroke="#2196F3" stroke-width="2" stroke-dasharray="4,4"/>
         <text x="84" y="-427" fill="#2196F3">Window</text>
-        <line x1="150" y1="-430" x2="170" y2="-430" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
-        <text x="174" y="-427" fill="#e91e63">Section cut / open edge</text>
+        <line x1="150" y1="-430" x2="170" y2="-430" stroke="#0288d1" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <text x="174" y="-427" fill="#0288d1">Shower entry (open)</text>
         <line x1="60" y1="-420" x2="80" y2="-420" stroke="#d84315" stroke-width="3"/>
         <text x="84" y="-417" fill="#d84315" font-weight="bold">Main entry door</text>
     </g>
