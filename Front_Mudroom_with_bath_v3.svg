@@ -1,0 +1,401 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -720 580 430" width="1160" height="860" style="background:#fff;font-family:Arial,Helvetica,sans-serif;">
+    <style>text{paint-order:stroke;stroke:#fff;stroke-width:2.5px;stroke-linejoin:round;}</style>
+
+    <!-- ============================================================
+         Front_Mudroom_with_bath
+         Dissected from main floor plan. Points included:
+         m52, m51, m50, m44, m43, m45, m46, m47, m48, m49,
+         m38, m40, m41, m42, m37, m53, m36, m39
+         All wall/door/window segments below are copied verbatim
+         (same coordinates + dimensions) from the source floor plan.
+         ============================================================ -->
+
+    <text x="250" y="-703" font-size="14" font-weight="bold" text-anchor="middle" fill="#111">Entry Foyer (Mudroom) with Bath · v3 Dual-Mode: Everyday Foyer + Guest Stay</text>
+
+    <!-- Floor (v2): slate-look porcelain tile, 12" grid -->
+    <defs><pattern id="floortile" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#f4f3f1"/><path d="M20 0 V20 H0" fill="none" stroke="#e2dfda" stroke-width="0.6"/></pattern></defs>
+    <rect x="33" y="-664" width="313" height="196" fill="url(#floortile)"/>
+    <rect x="237" y="-468" width="49" height="50.67" fill="url(#floortile)"/>
+
+    <!-- ===================== WALLS ===================== -->
+
+    <!-- Scale: 20 units = 1 ft (1" = 1.667 units). South line (m52, m53, m37, m40, m38) at y=-464, i.e. 10'0" south of the north wall (y=-664). -->
+
+    <!-- m52 -> m53 : wall East 10' -->
+    <line x1="33" y1="-464" x2="233" y2="-464" stroke="#333" stroke-width="3"/>
+    <line x1="33" y1="-468" x2="233" y2="-468" stroke="#333" stroke-width="2"/>
+    <line x1="33" y1="-464" x2="33" y2="-468" stroke="#333" stroke-width="2"/>
+    <line x1="233" y1="-464" x2="233" y2="-468" stroke="#333" stroke-width="2"/>
+    <text x="133" y="-452" font-size="10" fill="#333" text-anchor="middle">10'</text>
+
+    <!-- m52 -> m51 : wall 25" -->
+    <line x1="33" y1="-505.67" x2="33" y2="-464" stroke="#333" stroke-width="3"/>
+    <line x1="29" y1="-505.67" x2="29" y2="-464" stroke="#333" stroke-width="2"/>
+    <line x1="33" y1="-505.67" x2="29" y2="-505.67" stroke="#333" stroke-width="2"/>
+    <line x1="33" y1="-464" x2="29" y2="-464" stroke="#333" stroke-width="2"/>
+    <text x="18" y="-484" font-size="9" fill="#333" text-anchor="end">25"</text>
+
+    <!-- m51 -> m50 : window 70" -->
+    <line x1="33" y1="-622.33" x2="33" y2="-505.67" stroke="#2196F3" stroke-width="2" stroke-dasharray="4,4"/>
+    <line x1="29" y1="-622.33" x2="29" y2="-505.67" stroke="#2196F3" stroke-width="2" stroke-dasharray="4,4"/>
+    <line x1="33" y1="-622.33" x2="29" y2="-622.33" stroke="#2196F3" stroke-width="2"/>
+    <line x1="33" y1="-505.67" x2="29" y2="-505.67" stroke="#2196F3" stroke-width="2"/>
+    <text x="18" y="-563" font-size="9" fill="#2196F3" text-anchor="middle" font-weight="bold" transform="rotate(-90 18 -563)">Window 70"</text>
+
+    <!-- m50 -> m44 : wall 25" -->
+    <line x1="33" y1="-664" x2="33" y2="-622.33" stroke="#333" stroke-width="3"/>
+    <line x1="29" y1="-664" x2="29" y2="-622.33" stroke="#333" stroke-width="2"/>
+    <line x1="33" y1="-664" x2="29" y2="-664" stroke="#333" stroke-width="2"/>
+    <line x1="33" y1="-622.33" x2="29" y2="-622.33" stroke="#333" stroke-width="2"/>
+    <text x="18" y="-643" font-size="9" fill="#333" text-anchor="end">25"</text>
+
+    <!-- m44 -> m43 : wall East 15'10" overall (now wall 12'10" + MAIN ENTRY DOOR 36" at the m43 end) -->
+    <line x1="290" y1="-664" x2="33" y2="-664" stroke="#333" stroke-width="3"/>
+    <line x1="290" y1="-668" x2="33" y2="-668" stroke="#333" stroke-width="2"/>
+    <line x1="290" y1="-664" x2="290" y2="-668" stroke="#333" stroke-width="2"/>
+    <line x1="33" y1="-664" x2="33" y2="-668" stroke="#333" stroke-width="2"/>
+    <text x="191" y="-676" font-size="10" fill="#333" text-anchor="middle">15'10"</text>
+
+    <!-- MAIN ENTRY DOOR 36" : m43 westward, x 350 -> 290 (36" = 60 units).
+         Hinged at m43 corner, swings inward (south) to rest against the m42-m43 wall. -->
+    <g id="main-entry-door">
+        <!-- jambs -->
+        <line x1="290" y1="-662" x2="290" y2="-670" stroke="#d84315" stroke-width="3"/>
+        <line x1="350" y1="-662" x2="350" y2="-670" stroke="#d84315" stroke-width="3"/>
+        <!-- threshold -->
+        <line x1="290" y1="-666" x2="350" y2="-666" stroke="#d84315" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <!-- swing area -->
+        <path d="M 346 -664 L 290 -664 A 56 56 0 0 0 346 -608 Z" fill="#ff9800" fill-opacity="0.15" stroke="none"/>
+        <!-- swing arc -->
+        <path d="M 290 -664 A 56 56 0 0 0 346 -608" fill="none" stroke="#d84315" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- door leaf (open, against m42-m43 wall) -->
+        <rect x="340" y="-664" width="5" height="56" fill="#d84315" stroke="#bf360c" stroke-width="1"/>
+        <!-- hinge -->
+        <circle cx="346" cy="-664" r="2.5" fill="#bf360c"/>
+        <!-- labels -->
+        
+        <text x="318" y="-681" font-size="10" font-weight="bold" fill="#d84315" text-anchor="middle">MAIN ENTRY 36"</text>
+    </g>
+
+    <!-- m43 -> m45 : wall East 4' -->
+    <line x1="350" y1="-664" x2="430" y2="-664" stroke="#333" stroke-width="3"/>
+    <line x1="350" y1="-668" x2="430" y2="-668" stroke="#333" stroke-width="2"/>
+    <line x1="350" y1="-664" x2="350" y2="-668" stroke="#333" stroke-width="2"/>
+    <line x1="430" y1="-664" x2="430" y2="-668" stroke="#333" stroke-width="2"/>
+    <text x="390" y="-676" font-size="10" fill="#333" text-anchor="middle">4'</text>
+
+    <!-- m45 -> m46 : wall South 26" -->
+    <line x1="430" y1="-664" x2="430" y2="-621" stroke="#333" stroke-width="3"/>
+    <line x1="434" y1="-664" x2="434" y2="-621" stroke="#333" stroke-width="2"/>
+    <line x1="430" y1="-664" x2="434" y2="-664" stroke="#333" stroke-width="2"/>
+    <line x1="430" y1="-621" x2="434" y2="-621" stroke="#333" stroke-width="2"/>
+    <text x="438" y="-645" font-size="10" fill="#333" text-anchor="start">26"</text>
+
+    <!-- m46 -> m47 : wall East 3' -->
+    <line x1="430" y1="-621" x2="490" y2="-621" stroke="#333" stroke-width="3"/>
+    <line x1="430" y1="-625" x2="490" y2="-625" stroke="#333" stroke-width="2"/>
+    <line x1="430" y1="-621" x2="430" y2="-625" stroke="#333" stroke-width="2"/>
+    <line x1="490" y1="-621" x2="490" y2="-625" stroke="#333" stroke-width="2"/>
+    <text x="460" y="-633" font-size="10" fill="#333" text-anchor="middle">3'</text>
+
+    <!-- m47 -> m48 : wall South 5' -->
+    <line x1="490" y1="-621" x2="490" y2="-521" stroke="#333" stroke-width="3"/>
+    <line x1="494" y1="-621" x2="494" y2="-521" stroke="#333" stroke-width="2"/>
+    <line x1="490" y1="-621" x2="494" y2="-621" stroke="#333" stroke-width="2"/>
+    <line x1="490" y1="-521" x2="494" y2="-521" stroke="#333" stroke-width="2"/>
+    <text x="505" y="-571" font-size="10" fill="#333" text-anchor="start">5'</text>
+
+    <!-- m48 -> m49 : wall West 3' -->
+    <line x1="490" y1="-521" x2="430" y2="-521" stroke="#333" stroke-width="3"/>
+    <line x1="490" y1="-525" x2="430" y2="-525" stroke="#333" stroke-width="2"/>
+    <line x1="490" y1="-521" x2="490" y2="-525" stroke="#333" stroke-width="2"/>
+    <line x1="430" y1="-521" x2="430" y2="-525" stroke="#333" stroke-width="2"/>
+    <text x="460" y="-509" font-size="10" fill="#333" text-anchor="middle">3'</text>
+
+    <!-- m48 -> m38 : wall(5")+window(2')+wall(5") = 34" ; straightened, m38 now directly below m48 at x=490 -->
+    <line x1="490" y1="-521" x2="490" y2="-512.67" stroke="#333" stroke-width="3"/>
+    <line x1="494" y1="-521" x2="494" y2="-512.67" stroke="#333" stroke-width="2"/>
+    <line x1="490" y1="-512.67" x2="490" y2="-472.67" stroke="#2196F3" stroke-width="2" stroke-dasharray="4,4"/>
+    <line x1="494" y1="-512.67" x2="494" y2="-472.67" stroke="#2196F3" stroke-width="2" stroke-dasharray="4,4"/>
+    <line x1="490" y1="-512.67" x2="494" y2="-512.67" stroke="#2196F3" stroke-width="2"/>
+    <line x1="490" y1="-472.67" x2="494" y2="-472.67" stroke="#2196F3" stroke-width="2"/>
+    <text x="500" y="-490" font-size="9" fill="#2196F3" text-anchor="start" font-weight="bold">Window 2'</text>
+    <line x1="490" y1="-472.67" x2="490" y2="-464" stroke="#333" stroke-width="3"/>
+    <line x1="494" y1="-472.67" x2="494" y2="-464" stroke="#333" stroke-width="2"/>
+    <line x1="490" y1="-464" x2="494" y2="-464" stroke="#333" stroke-width="2"/>
+
+    <!-- m38 -> m40 -> m37 : single wall, 10'0" overall (corrected from 9'10"), 3' sub-segment m37-m40 -->
+    <line x1="490" y1="-464" x2="290" y2="-464" stroke="#333" stroke-width="3"/>
+    <line x1="490" y1="-468" x2="290" y2="-468" stroke="#333" stroke-width="2"/>
+    <line x1="490" y1="-464" x2="490" y2="-468" stroke="#333" stroke-width="2"/>
+    <line x1="290" y1="-464" x2="290" y2="-468" stroke="#333" stroke-width="2"/>
+    <text x="405" y="-438" font-size="10" fill="#333" text-anchor="middle">10'0" (m37-m38 overall)</text>
+    <text x="318" y="-474" font-size="9" fill="#555" text-anchor="middle">3' (m37-m40)</text>
+
+    <!-- m40 -> m41 : wall 28" (corrected from 27") -->
+    <line x1="350" y1="-464" x2="350" y2="-510.67" stroke="#333" stroke-width="3"/>
+    <line x1="346" y1="-464" x2="346" y2="-510.67" stroke="#333" stroke-width="2"/>
+    <line x1="350" y1="-464" x2="346" y2="-464" stroke="#333" stroke-width="2"/>
+    <line x1="350" y1="-510.67" x2="346" y2="-510.67" stroke="#333" stroke-width="2"/>
+    <text x="340" y="-488" font-size="9" fill="#333" text-anchor="end">28"</text>
+
+    <!-- m41 -> m42 : door 37" -->
+    <line x1="350" y1="-510.67" x2="350" y2="-572.33" stroke="#ff9800" stroke-width="2"/>
+    <line x1="346" y1="-510.67" x2="346" y2="-572.33" stroke="#ff9800" stroke-width="2"/>
+    <line x1="350" y1="-510.67" x2="346" y2="-510.67" stroke="#ff9800" stroke-width="2"/>
+    <line x1="350" y1="-572.33" x2="346" y2="-572.33" stroke="#ff9800" stroke-width="2"/>
+    <text x="356" y="-517" font-size="9" fill="#ff9800" text-anchor="start" font-weight="bold">Door 37"</text>
+
+    <!-- m42 -> m43 : wall 55" -->
+    <line x1="350" y1="-572.33" x2="350" y2="-664" stroke="#333" stroke-width="3"/>
+    <line x1="346" y1="-572.33" x2="346" y2="-664" stroke="#333" stroke-width="2"/>
+    <line x1="350" y1="-572.33" x2="346" y2="-572.33" stroke="#333" stroke-width="2"/>
+    <line x1="350" y1="-664" x2="346" y2="-664" stroke="#333" stroke-width="2"/>
+    <text x="356" y="-618" font-size="9" fill="#333" text-anchor="start">55"</text>
+
+    <!-- m37 -> m36 : wall South 28" -->
+    <line x1="290" y1="-464" x2="290" y2="-417.33" stroke="#333" stroke-width="3"/>
+    <line x1="286" y1="-464" x2="286" y2="-417.33" stroke="#333" stroke-width="2"/>
+    <line x1="290" y1="-464" x2="286" y2="-464" stroke="#333" stroke-width="2"/>
+    <line x1="290" y1="-417.33" x2="286" y2="-417.33" stroke="#333" stroke-width="2"/>
+    <text x="296" y="-433" font-size="9" fill="#333" text-anchor="start">28"</text>
+
+    <!-- m53 -> m39 : wall South 28" -->
+    <line x1="233" y1="-464" x2="233" y2="-417.33" stroke="#333" stroke-width="3"/>
+    <line x1="237" y1="-464" x2="237" y2="-417.33" stroke="#333" stroke-width="2"/>
+    <line x1="233" y1="-464" x2="237" y2="-464" stroke="#333" stroke-width="2"/>
+    <line x1="233" y1="-417.33" x2="237" y2="-417.33" stroke="#333" stroke-width="2"/>
+    <text x="227" y="-422" font-size="9" fill="#333" text-anchor="end">28"</text>
+
+    <!-- m39 -> m36 : door 30", hinged at m36, swings north to rest against the m36-m37 wall -->
+    <g id="door-m39-m36">
+        <line x1="237" y1="-417.33" x2="286" y2="-417.33" stroke="#ff9800" stroke-width="2"/>
+        <path d="M 286 -417.33 L 239 -417.33 A 47 47 0 0 1 286 -464.33 Z" fill="#ff9800" fill-opacity="0.12" stroke="none"/>
+        <path d="M 239 -417.33 A 47 47 0 0 1 286 -464.33" fill="none" stroke="#ff9800" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <rect x="282" y="-464.33" width="4" height="47" fill="#ff9800" stroke="#e65100" stroke-width="0.8"/>
+        <circle cx="286" cy="-417.33" r="2" fill="#e65100"/>
+        <text x="262" y="-403" font-size="9" fill="#ff9800" text-anchor="middle" font-weight="bold">Door 30"</text>
+    </g>
+
+    <!-- ===================== BATHROOM FIXTURES ===================== -->
+
+    <!-- Door m41-m42 (37"): hinged at m42, swings into the bathroom toward the m42-m43 wall -->
+    <g id="door-m41-m42-swing">
+        <path d="M 350 -572.33 L 350 -510.67 A 61.67 61.67 0 0 0 411.67 -572.33 Z" fill="#ff9800" fill-opacity="0.12" stroke="none"/>
+        <path d="M 350 -510.67 A 61.67 61.67 0 0 0 411.67 -572.33" fill="none" stroke="#ff9800" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <rect x="350" y="-576.33" width="61.67" height="4" fill="#ff9800" stroke="#e65100" stroke-width="0.8"/>
+        <circle cx="350" cy="-572.33" r="2" fill="#e65100"/>
+    </g>
+
+    <!-- Stand-in shower: m46-m47-m48-m49 (3' x 5'), open entry on the m46-m49 side -->
+    <defs>
+        <pattern id="tile" width="6" height="6" patternUnits="userSpaceOnUse">
+            <rect width="6" height="6" fill="#e3f2fd"/>
+            <path d="M0 6 L6 0" stroke="#90caf9" stroke-width="0.6"/>
+        </pattern>
+    </defs>
+    <g id="shower">
+        <rect x="430" y="-621" width="60" height="96" fill="url(#tile)" stroke="none"/>
+        <line x1="430" y1="-621" x2="430" y2="-525" stroke="#0288d1" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <circle cx="460" cy="-560" r="4" fill="none" stroke="#0277bd" stroke-width="1.2"/>
+        <line x1="457" y1="-560" x2="463" y2="-560" stroke="#0277bd" stroke-width="0.8"/>
+        <line x1="460" y1="-563" x2="460" y2="-557" stroke="#0277bd" stroke-width="0.8"/>
+        <text x="460" y="-590" font-size="10" font-weight="bold" fill="#01579b" text-anchor="middle">SHOWER</text>
+        <text x="460" y="-578" font-size="8" fill="#01579b" text-anchor="middle">3' x 5'</text>
+        <text x="460" y="-540" font-size="6" fill="#01579b" text-anchor="middle">handheld sprayer</text>
+        <text x="460" y="-533" font-size="6" fill="#01579b" text-anchor="middle">(pet wash)</text>
+    </g>
+
+    <!-- W.C. in the m38-m48-m49 corner: toilet against the east wall, facing west -->
+    <g id="wc">
+        <rect x="474" y="-510.5" width="13" height="32" rx="2" fill="#fff" stroke="#333" stroke-width="1.2"/>
+        <ellipse cx="458" cy="-494.5" rx="17" ry="11" fill="#fff" stroke="#333" stroke-width="1.2"/>
+        <ellipse cx="456" cy="-494.5" rx="11" ry="7" fill="none" stroke="#999" stroke-width="0.8"/>
+        <text x="437" y="-490" font-size="9" font-weight="bold" fill="#333" text-anchor="end">W.C.</text>
+    </g>
+
+    <!-- Vanity 27" from m40 toward east along the m40-m38 wall (21" deep) -->
+    <g id="vanity">
+        <rect x="350" y="-503" width="45" height="35" fill="#efebe9" stroke="#5d4037" stroke-width="1.2"/>
+        <ellipse cx="372.5" cy="-485.5" rx="12" ry="9" fill="#fff" stroke="#5d4037" stroke-width="1"/>
+        <circle cx="372.5" cy="-485.5" r="1.2" fill="#5d4037"/>
+        <text x="399" y="-474" font-size="8" font-weight="bold" fill="#5d4037" text-anchor="start">Vanity 27"</text>
+    </g>
+
+    <text x="388" y="-634" font-size="11" font-weight="bold" fill="#5d4037" text-anchor="middle">BATHROOM</text>
+
+
+
+    <!-- ===================== v2 FURNITURE LAYOUT : MODERN FARMHOUSE ===================== -->
+    <!-- Foyer interior: x 33..346, y -664..-468 (about 15'8" x 9'10"). Scale 20 units = 1 ft. -->
+    <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#8d6e63"/>
+        </marker>
+    </defs>
+    <g id="furniture">
+
+        <!-- West wall built-in: 22" coat lockers in each 25" pier + 70" window seat -->
+        <rect x="33" y="-662" width="33" height="38" fill="#9CAF88" stroke="#6F8460" stroke-width="1.2"/>
+        <line x1="33" y1="-643" x2="66" y2="-643" stroke="#6F8460" stroke-width="0.6"/>
+        <circle cx="62" cy="-647" r="1" fill="#2B2B2B"/><circle cx="62" cy="-639" r="1" fill="#2B2B2B"/>
+        <text x="49.5" y="-643" font-size="5" font-weight="bold" fill="#fff" text-anchor="middle" transform="rotate(-90 49.5 -643)" style="stroke:none">GUEST CLOSET</text>
+
+        <rect x="33" y="-620" width="30" height="113" fill="#F5F2EA" stroke="#6F8460" stroke-width="1.2"/>
+        <rect x="35" y="-618" width="26" height="109" rx="3" fill="#D9B48A" opacity="0.7"/>
+        <line x1="33" y1="-582" x2="63" y2="-582" stroke="#6F8460" stroke-width="0.6" stroke-dasharray="2,2"/>
+        <line x1="33" y1="-545" x2="63" y2="-545" stroke="#6F8460" stroke-width="0.6" stroke-dasharray="2,2"/>
+        <text x="48" y="-563" font-size="6.5" font-weight="bold" fill="#5d4037" text-anchor="middle" transform="rotate(-90 48 -563)">WINDOW SEAT · blackout blinds</text>
+
+        <rect x="33" y="-503" width="33" height="35" fill="#9CAF88" stroke="#6F8460" stroke-width="1.2"/>
+        <line x1="33" y1="-485.5" x2="66" y2="-485.5" stroke="#6F8460" stroke-width="0.6"/>
+        <circle cx="62" cy="-490" r="1" fill="#2B2B2B"/><circle cx="62" cy="-481" r="1" fill="#2B2B2B"/>
+        <text x="49.5" y="-485.5" font-size="5" font-weight="bold" fill="#fff" text-anchor="middle" transform="rotate(-90 49.5 -485.5)" style="stroke:none">OWNER LOCK</text>
+        <path d="M 33 -604 a 4 4 0 0 1 0 8" fill="#ffe082" stroke="#b28704" stroke-width="0.8"/>
+        <path d="M 33 -530 a 4 4 0 0 1 0 8" fill="#ffe082" stroke="#b28704" stroke-width="0.8"/>
+
+
+
+        <!-- Doormat inside the front door -->
+        <rect x="296" y="-660" width="46" height="26" rx="2" fill="#a1887f" opacity="0.55" stroke="#6d4c41" stroke-width="0.8" stroke-dasharray="2,1.5"/>
+        <text x="319" y="-645" font-size="6" fill="#4e342e" text-anchor="middle">MAT</text>
+
+
+        <!-- Washable runner along the walk path -->
+        <rect x="258" y="-620" width="40" height="140" rx="3" fill="#c8b6a6" opacity="0.35" stroke="#8d6e63" stroke-width="0.6"/>
+
+        <!-- Walk path: front door -> 30" door, branch to bathroom -->
+        <path d="M 318 -632 L 290 -575 L 268 -478" fill="none" stroke="#8d6e63" stroke-width="1.6" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+        <path d="M 290 -575 L 336 -546" fill="none" stroke="#8d6e63" stroke-width="1.6" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+        <text x="272" y="-590" font-size="7" fill="#6d4c41" text-anchor="middle" font-style="italic" transform="rotate(-90 272 -590)">walk path · keep ~36" clear</text>
+
+
+
+        <!-- ===== EVERYDAY + GUEST (v3) ===== -->
+        <!-- North wall: horizontal QUEEN wall bed (Murphy), cabinet 85" x 18". Opens 64" into the room. -->
+        <rect x="70" y="-662" width="141.67" height="30" fill="#F5F2EA" stroke="#6F8460" stroke-width="1.2"/>
+        <line x1="140.8" y1="-662" x2="140.8" y2="-632" stroke="#6F8460" stroke-width="0.6"/>
+        <circle cx="136" cy="-647" r="1" fill="#2B2B2B"/><circle cx="146" cy="-647" r="1" fill="#2B2B2B"/>
+        <text x="105" y="-650" font-size="6.5" font-weight="bold" fill="#5d4037" text-anchor="middle">WALL BED</text>
+        <text x="105" y="-642" font-size="5.5" fill="#5d4037" text-anchor="middle">queen, side-tilt</text>
+        <text x="176" y="-650" font-size="6.5" font-weight="bold" fill="#5d4037" text-anchor="middle">85" cabinet</text>
+        <text x="176" y="-642" font-size="5.5" fill="#5d4037" text-anchor="middle">shelf + sconces</text>
+        <!-- Guest mode: bed open (dashed purple) -->
+        <rect x="72" y="-632" width="137.67" height="77" fill="#7b1fa2" fill-opacity="0.06" stroke="#7b1fa2" stroke-width="1.2" stroke-dasharray="5,3"/>
+        <rect x="76" y="-628" width="30" height="69" rx="3" fill="none" stroke="#7b1fa2" stroke-width="0.6" stroke-dasharray="2,2"/>
+        <text x="158" y="-566" font-size="7" font-weight="bold" fill="#7b1fa2" text-anchor="middle">GUEST MODE: queen bed open (64" deep)</text>
+
+        <!-- Everyday: two armchairs + side table facing the aquarium (store/move out in guest mode) -->
+        <rect x="95" y="-615" width="45" height="45" rx="7" fill="#D9B48A" stroke="#7a5230" stroke-width="1"/>
+        <rect x="99" y="-615" width="37" height="9" rx="3" fill="#B07D4F"/>
+        <rect x="162" y="-615" width="45" height="45" rx="7" fill="#D9B48A" stroke="#7a5230" stroke-width="1"/>
+        <rect x="166" y="-615" width="37" height="9" rx="3" fill="#B07D4F"/>
+        <circle cx="151" cy="-590" r="8" fill="#B07D4F" stroke="#7a5230" stroke-width="0.8"/>
+        <text x="151" y="-604" font-size="6" fill="#5d4037" text-anchor="middle" font-style="italic">everyday lounge</text>
+
+        <!-- Console by the door: everyday drop zone; guest mode coffee station + mini fridge -->
+        <rect x="216" y="-662" width="60" height="20" fill="#D9B48A" stroke="#7a5230" stroke-width="1.2"/>
+        <line x1="221" y1="-663.5" x2="271" y2="-663.5" stroke="#90a4ae" stroke-width="2.5"/>
+        <text x="246" y="-653" font-size="6" font-weight="bold" fill="#5d4037" text-anchor="middle">CONSOLE 36"</text>
+        <text x="246" y="-646" font-size="5" fill="#5d4037" text-anchor="middle">keys · mail / coffee + mini fridge</text>
+
+        <!-- South wall: 60" aquarium (60" x 18", ~120 gal, ~1,400 lb filled) on locking stand -->
+        <rect x="113" y="-498" width="100" height="30" fill="#2B2B2B" stroke="#000" stroke-width="1"/>
+        <rect x="116" y="-495" width="94" height="24" fill="#7FC8E8" stroke="#0277bd" stroke-width="0.8"/>
+        <path d="M 128 -483 q 4 -4 8 0 q -4 4 -8 0 l -3 -2 v 4 z" fill="#ff7043"/>
+        <path d="M 170 -488 q 4 -4 8 0 q -4 4 -8 0 l -3 -2 v 4 z" fill="#ffca28"/>
+        <path d="M 190 -478 q 3 -3 6 0 q -3 3 -6 0 l -2 -1.5 v 3 z" fill="#ef5350"/>
+        <path d="M 150 -480 q 3 -3 6 0 q -3 3 -6 0 l -2 -1.5 v 3 z" fill="#ef5350"/>
+        <text x="163" y="-505" font-size="7.5" font-weight="bold" fill="#01579b" text-anchor="middle">AQUARIUM 60" · locked stand · auto-feeder</text>
+
+        <!-- Guest-mode notes on lockers, doors and safety -->
+        <text x="262" y="-394" font-size="6.5" font-weight="bold" fill="#7b1fa2" text-anchor="middle">deadbolt (house side)</text>
+        <text x="318" y="-690" font-size="6.5" font-weight="bold" fill="#7b1fa2" text-anchor="middle">smart lock (guest code)</text>
+
+        <!-- Smoke + CO detector, fire extinguisher -->
+        <g>
+            <circle cx="250" cy="-560" r="5" fill="#fff" stroke="#c62828" stroke-width="1.2"/>
+            <text x="250" y="-557.5" font-size="5" font-weight="bold" fill="#c62828" text-anchor="middle" style="stroke:none">SD</text>
+            <text x="258" y="-558" font-size="5.5" fill="#c62828" text-anchor="start">smoke + CO</text>
+            <rect x="339" y="-605" width="5" height="10" rx="2" fill="#c62828"/>
+            <text x="337" y="-598" font-size="5.5" fill="#c62828" text-anchor="end">extinguisher</text>
+        </g>
+
+        <!-- Ceiling lights -->
+        <g stroke="#b28704" stroke-width="0.9" fill="#fff8e1">
+            <circle cx="236" cy="-525" r="6"/><line x1="232" y1="-529" x2="240" y2="-521"/><line x1="240" y1="-529" x2="232" y2="-521"/>
+        </g>
+    </g>
+
+    <!-- ===================== ROOM LABEL ===================== -->
+    <text x="160" y="-541" font-size="12" fill="#5d4037" text-anchor="middle" font-weight="bold">ENTRY FOYER</text>
+    <text x="160" y="-530" font-size="9" fill="#5d4037" text-anchor="middle" font-style="italic">(Mudroom · Guest Studio)</text>
+
+    <!-- ===================== MARKERS ===================== -->
+    <circle cx="33" cy="-464" r="3" fill="#ff6b6b"/><text x="24" y="-453" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m52</text>
+    <circle cx="33" cy="-505.67" r="3" fill="#ff6b6b"/><text x="24" y="-501" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m51</text>
+    <circle cx="33" cy="-622.33" r="3" fill="#ff6b6b"/><text x="24" y="-618" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m50</text>
+    <circle cx="33" cy="-664" r="4" fill="#ff6b6b"/><text x="24" y="-672" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m44</text>
+    <circle cx="350" cy="-664" r="3" fill="#ff6b6b"/><text x="356" y="-651" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m43</text>
+    <circle cx="430" cy="-664" r="4" fill="#ff6b6b"/><text x="438" y="-670" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m45</text>
+    <circle cx="430" cy="-621" r="4" fill="#ff6b6b"/><text x="424" y="-610" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m46</text>
+    <circle cx="490" cy="-621" r="4" fill="#ff6b6b"/><text x="500" y="-626" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m47</text>
+    <circle cx="490" cy="-521" r="4" fill="#ff6b6b"/><text x="500" y="-517" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m48</text>
+    <circle cx="430" cy="-521" r="4" fill="#ff6b6b"/><text x="430" y="-507" font-size="10" fill="#ff6b6b" text-anchor="middle" font-weight="bold">m49</text>
+    <circle cx="490" cy="-464" r="4" fill="#ff6b6b"/><text x="500" y="-461" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m38</text>
+    <circle cx="350" cy="-464" r="4" fill="#ff6b6b"/><text x="350" y="-451" font-size="10" fill="#ff6b6b" text-anchor="middle" font-weight="bold">m40</text>
+    <circle cx="350" cy="-510.67" r="3" fill="#ff6b6b"/><text x="340" y="-506" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m41</text>
+    <circle cx="350" cy="-572.33" r="3" fill="#ff6b6b"/><text x="340" y="-568" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m42</text>
+    <circle cx="290" cy="-464" r="3" fill="#ff6b6b"/><text x="296" y="-451" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m37</text>
+    <circle cx="233" cy="-464" r="4" fill="#ff6b6b"/><text x="227" y="-452" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m53</text>
+
+    <circle cx="290" cy="-417.33" r="4" fill="#ff6b6b"/><text x="296" y="-413" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m36</text>
+
+    <circle cx="233" cy="-417.33" r="4" fill="#ff6b6b"/><text x="227" y="-408" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m39</text>
+
+    <!-- ===================== COMPASS ===================== -->
+    <!-- North = m44-m43-m45 wall (top); East = m47-m48-m38 wall (right) -->
+    <g id="compass" transform="translate(470,-390)" font-family="Arial,Helvetica,sans-serif">
+        <circle cx="0" cy="0" r="20" fill="#fff" stroke="#333" stroke-width="1.2"/>
+        <line x1="-20" y1="0" x2="20" y2="0" stroke="#999" stroke-width="0.8"/>
+        <line x1="0" y1="-20" x2="0" y2="20" stroke="#999" stroke-width="0.8"/>
+        <polygon points="0,-18 5,0 0,-3 -5,0" fill="#d32f2f" stroke="#333" stroke-width="0.6"/>
+        <polygon points="0,18 5,0 0,3 -5,0" fill="#fff" stroke="#333" stroke-width="0.6"/>
+        <circle cx="0" cy="0" r="1.8" fill="#333"/>
+        <text x="0" y="-24" font-size="10" font-weight="bold" fill="#d32f2f" text-anchor="middle">N</text>
+        <text x="25" y="3.5" font-size="9" font-weight="bold" fill="#333" text-anchor="start">E</text>
+        <text x="0" y="32" font-size="9" font-weight="bold" fill="#333" text-anchor="middle">S</text>
+        <text x="-25" y="3.5" font-size="9" font-weight="bold" fill="#333" text-anchor="end">W</text>
+    </g>
+
+    <!-- ===================== LEGEND ===================== -->
+    <g font-size="8" fill="#333" transform="translate(0,48)">
+        <line x1="-10" y1="-430" x2="10" y2="-430" stroke="#333" stroke-width="3"/>
+        <text x="14" y="-427" fill="#333">Wall</text>
+        <line x1="-10" y1="-420" x2="10" y2="-420" stroke="#ff9800" stroke-width="2"/>
+        <text x="14" y="-417" fill="#ff9800">Door</text>
+        <line x1="60" y1="-430" x2="80" y2="-430" stroke="#2196F3" stroke-width="2" stroke-dasharray="4,4"/>
+        <text x="84" y="-427" fill="#2196F3">Window</text>
+        <line x1="150" y1="-430" x2="170" y2="-430" stroke="#0288d1" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <text x="174" y="-427" fill="#0288d1">Shower entry (open)</text>
+        <line x1="150" y1="-420" x2="170" y2="-420" stroke="#8d6e63" stroke-width="1.6" stroke-dasharray="5,3"/>
+        <text x="174" y="-417" fill="#6d4c41">Walk path</text>
+        <g stroke="#b28704" stroke-width="0.9" fill="#fff8e1"><circle cx="245" cy="-420" r="4"/><line x1="242" y1="-423" x2="248" y2="-417"/><line x1="248" y1="-423" x2="242" y2="-417"/></g>
+        <text x="252" y="-417" fill="#333">Ceiling light</text>
+        <rect x="300" y="-433" width="20" height="8" fill="#7b1fa2" fill-opacity="0.06" stroke="#7b1fa2" stroke-width="1.2" stroke-dasharray="5,3"/>
+        <text x="324" y="-427" fill="#7b1fa2" font-weight="bold">Guest mode</text>
+        <line x1="60" y1="-420" x2="80" y2="-420" stroke="#d84315" stroke-width="3"/>
+        <text x="84" y="-417" fill="#d84315" font-weight="bold">Main entry door</text>
+    </g>
+
+    <!-- ===================== STYLE NOTES : MODERN FARMHOUSE ===================== -->
+    <g id="style-notes" font-size="7" fill="#333">
+        <text x="-10" y="-342" font-size="9" font-weight="bold" fill="#5d4037">Modern Farmhouse palette &amp; finishes</text>
+        <rect x="-10" y="-334" width="14" height="10" fill="#F5F2EA" stroke="#999" stroke-width="0.5"/><text x="7" y="-326">Warm white walls (shiplap lower 4')</text>
+        <rect x="130" y="-334" width="14" height="10" fill="#9CAF88" stroke="#999" stroke-width="0.5"/><text x="147" y="-326">Sage green built-ins</text>
+        <rect x="230" y="-334" width="14" height="10" fill="#B07D4F" stroke="#999" stroke-width="0.5"/><text x="247" y="-326">Warm oak bench / console</text>
+        <rect x="-10" y="-319" width="14" height="10" fill="#2B2B2B" stroke="#999" stroke-width="0.5"/><text x="7" y="-311">Matte black hooks, pulls, sconces</text>
+        <rect x="130" y="-319" width="14" height="10" fill="#6E7378" stroke="#999" stroke-width="0.5"/><text x="147" y="-311">Slate-look porcelain tile (heated)</text>
+        <rect x="280" y="-319" width="14" height="10" fill="#c8b6a6" stroke="#999" stroke-width="0.5"/><text x="297" y="-311">Washable jute-look runner</text>
+    </g>
+</svg>
