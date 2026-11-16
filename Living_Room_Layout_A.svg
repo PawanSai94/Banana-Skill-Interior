@@ -64,11 +64,6 @@
         <rect x="310" y="77.67" width="175" height="23.33" fill="#d7ccc8" stroke="#4e342e" stroke-width="1.2"/>
         <text x="397.5" y="92" font-size="7.5" fill="#3e2723" font-weight="bold" text-anchor="middle">LIBRARY WALL ~8'9" &#215; 14"</text>
 
-        <!-- reading chair + floor lamp -->
-        <rect x="300" y="-96" width="45" height="45" rx="8" fill="#d7ccc8" stroke="#5d4037" stroke-width="1.2"/>
-        <text x="322.5" y="-75" font-size="7" fill="#3e2723" text-anchor="middle">reading</text>
-        <text x="322.5" y="-67" font-size="7" fill="#3e2723" text-anchor="middle">chair</text>
-        <circle cx="356" cy="-92" r="5" fill="#fff9c4" stroke="#f9a825" stroke-width="1"/>
 
         <!-- mandir prayer space -->
         <rect x="371" y="-115" width="80" height="66.67" fill="#f3e5f5" opacity="0.5" stroke="#7b1fa2" stroke-width="1" stroke-dasharray="3,3"/>

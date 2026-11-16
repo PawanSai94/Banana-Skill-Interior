@@ -68,11 +68,6 @@
         <text x="300" y="-38" font-size="7" fill="#f57f17" font-weight="bold">TROPHY DISPLAY 40"&#215;10"</text>
         <text x="300" y="-29" font-size="6.5" fill="#f57f17">see-through, replaces m14-m15 wall</text>
 
-        <!-- reading chair + floor lamp -->
-        <rect x="300" y="-96" width="45" height="45" rx="8" fill="#d7ccc8" stroke="#5d4037" stroke-width="1.2"/>
-        <text x="322.5" y="-75" font-size="7" fill="#3e2723" text-anchor="middle">reading</text>
-        <text x="322.5" y="-67" font-size="7" fill="#3e2723" text-anchor="middle">chair</text>
-        <circle cx="356" cy="-92" r="5" fill="#fff9c4" stroke="#f9a825" stroke-width="1"/>
 
         <!-- mandir prayer space -->
         <rect x="371" y="-115" width="80" height="66.67" fill="#f3e5f5" opacity="0.5" stroke="#7b1fa2" stroke-width="1" stroke-dasharray="3,3"/>
