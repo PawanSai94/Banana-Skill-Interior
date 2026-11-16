@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -490 560 745" width="1120" height="1490" style="background:#fff;font-family:Arial,Helvetica,sans-serif;">
+
+    <!-- ============================================================
+         Living Room (dissected section)
+         Points included: m58, m62, m63, m64, m65, m66, m67, m68,
+         m36, m35, m26, m25, m29, m14, m15, m13, m11a, m11, m39,
+         m54, m55, m56, m57
+         Wall/door/window geometry copied verbatim from source.
+         Marker label positions reuse the overlap-free placement
+         already verified for the full-house cleanup.
+         ============================================================ -->
+
+    <text x="275" y="-470" font-size="16" font-weight="bold" text-anchor="middle" fill="#111">Living Room &#8211; Layout Idea (Option A)</text>
+
+    <!-- ===================== FURNITURE LAYOUT (concept) =====================
+         Scale 5/3 units per inch. All furniture sizes are typical, adjustable. -->
+    <g id="furniture" font-family="Arial,Helvetica,sans-serif">
+        <!-- walkway: south door -> hallway -->
+        <rect x="236" y="-190" width="54" height="288" fill="#e8f5e9" opacity="0.7"/>
+        <line x1="271" y1="92" x2="262" y2="-180" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <polygon points="262,-188 257,-176 267,-176" fill="#2e7d32"/>
+        <text x="252" y="-60" font-size="8" fill="#2e7d32" font-weight="bold" text-anchor="middle" transform="rotate(-90 252 -60)">MAIN WALKWAY (keep clear)</text>
+
+        <!-- rug 8'x10' -->
+        <rect x="63" y="-150" width="160" height="200" fill="#fff8e1" stroke="#bfa76f" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="143" y="-138" font-size="7" fill="#9c8650" text-anchor="middle">rug 8'&#215;10'</text>
+
+        <!-- hearth clearance -->
+        <rect x="33" y="-80" width="27" height="120" fill="none" stroke="#8b4513" stroke-width="1" stroke-dasharray="2,2"/>
+        <text x="47" y="-20" font-size="8" fill="#8b4513" font-weight="bold" text-anchor="middle" transform="rotate(-90 47 -20)">FIREPLACE 72" &#183; keep 18" clear</text>
+
+        <!-- TV console 72"x16" + 65" TV on north wall -->
+        <rect x="70" y="-193" width="120" height="26.67" fill="#cfd8dc" stroke="#455a64" stroke-width="1.2"/>
+        <line x1="82.5" y1="-189" x2="177.5" y2="-189" stroke="#111" stroke-width="3"/>
+        <text x="130" y="-175" font-size="7" fill="#263238" text-anchor="middle" font-weight="bold">65" TV on 72" console</text>
+
+        <!-- sofa 84"x38" on south wall -->
+        <rect x="60" y="37.67" width="140" height="63.33" rx="6" fill="#d7ccc8" stroke="#5d4037" stroke-width="1.2"/>
+        <rect x="60" y="85" width="140" height="16" rx="3" fill="#bcaaa4" stroke="#5d4037" stroke-width="0.8"/>
+        <text x="130" y="66" font-size="8" fill="#3e2723" text-anchor="middle" font-weight="bold">SOFA 84"</text>
+
+        <!-- coffee table 48"x24" -->
+        <rect x="90" y="-30" width="80" height="40" rx="4" fill="#efebe9" stroke="#6d4c41" stroke-width="1"/>
+        <text x="130" y="-7" font-size="7" fill="#4e342e" text-anchor="middle">coffee table 48"&#215;24"</text>
+
+        <!-- accent / swivel chair 30" -->
+        <rect x="175" y="-115" width="50" height="50" rx="8" fill="#d7ccc8" stroke="#5d4037" stroke-width="1.2" transform="rotate(30 200 -90)"/>
+        <text x="200" y="-87" font-size="7" fill="#3e2723" text-anchor="middle">chair</text>
+
+        <!-- m14-m15 stub: candidate for removal -->
+        <rect x="282" y="-115" width="12" height="67" fill="none" stroke="#d32f2f" stroke-width="1.2" stroke-dasharray="3,2"/>
+        <line x1="282" y1="-115" x2="294" y2="-48" stroke="#d32f2f" stroke-width="1"/>
+        <line x1="294" y1="-115" x2="282" y2="-48" stroke="#d32f2f" stroke-width="1"/>
+        <text x="296" y="-36" font-size="7" fill="#d32f2f" font-weight="bold">remove? (check structure)</text>
+
+        <!-- mandir prayer space -->
+        <rect x="371" y="-115" width="80" height="66.67" fill="#f3e5f5" opacity="0.5" stroke="#7b1fa2" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="411" y="-84" font-size="7" fill="#7b1fa2" text-anchor="middle">prayer space</text>
+        <text x="411" y="-75" font-size="7" fill="#7b1fa2" text-anchor="middle">~48" clear</text>
+
+        <!-- shoe cabinet / entry console at the door -->
+        <rect x="345" y="76" width="80" height="25" fill="#cfd8dc" stroke="#455a64" stroke-width="1"/>
+        <text x="385" y="92" font-size="7" fill="#263238" text-anchor="middle">shoe cabinet 48"</text>
+    </g>
+
+    <!-- ===================== WALLS / DOORS / WINDOWS ===================== -->
+
+    <!-- m54 -> m55 : door 34" -->
+    <line x1="230" y1="-327" x2="230" y2="-270" stroke="#ff9800" stroke-width="2"/>
+    <line x1="226" y1="-327" x2="226" y2="-270" stroke="#ff9800" stroke-width="2"/>
+    <line x1="230" y1="-327" x2="226" y2="-327" stroke="#ff9800" stroke-width="2"/>
+    <line x1="230" y1="-270" x2="226" y2="-270" stroke="#ff9800" stroke-width="2"/>
+    <text x="219" y="-295" font-size="9" fill="#ff9800" text-anchor="end" font-weight="bold">Door 34"</text>
+
+    <!-- m55 -> m56 : wall 8" -->
+    <line x1="230" y1="-270" x2="230" y2="-257" stroke="#333" stroke-width="3"/>
+    <line x1="226" y1="-270" x2="226" y2="-257" stroke="#333" stroke-width="2"/>
+    <line x1="230" y1="-270" x2="226" y2="-270" stroke="#333" stroke-width="2"/>
+    <line x1="230" y1="-257" x2="226" y2="-257" stroke="#333" stroke-width="2"/>
+    <text x="219" y="-265" font-size="9" fill="#333" text-anchor="end">8"</text>
+
+    <!-- m56 -> m57 : door 34" -->
+    <line x1="230" y1="-257" x2="230" y2="-200" stroke="#ff9800" stroke-width="2"/>
+    <line x1="226" y1="-257" x2="226" y2="-200" stroke="#ff9800" stroke-width="2"/>
+    <line x1="230" y1="-257" x2="226" y2="-257" stroke="#ff9800" stroke-width="2"/>
+    <line x1="230" y1="-200" x2="226" y2="-200" stroke="#ff9800" stroke-width="2"/>
+    <text x="219" y="-225" font-size="9" fill="#ff9800" text-anchor="end" font-weight="bold">Door 34"</text>
+
+    <!-- m57 -> m58 : wall 4" -->
+    <line x1="230" y1="-200" x2="230" y2="-193" stroke="#333" stroke-width="3"/>
+    <line x1="226" y1="-200" x2="226" y2="-193" stroke="#333" stroke-width="2"/>
+    <line x1="230" y1="-200" x2="226" y2="-200" stroke="#333" stroke-width="2"/>
+    <line x1="230" y1="-193" x2="226" y2="-193" stroke="#333" stroke-width="2"/>
+    <text x="219" y="-203" font-size="9" fill="#333" text-anchor="end">4"</text>
+
+    <!-- m58 -> m62 : wall West 10' -->
+    <line x1="230" y1="-193" x2="30" y2="-193" stroke="#333" stroke-width="3"/>
+    <line x1="230" y1="-197" x2="30" y2="-197" stroke="#333" stroke-width="2"/>
+    <line x1="230" y1="-193" x2="230" y2="-197" stroke="#333" stroke-width="2"/>
+    <line x1="30" y1="-193" x2="30" y2="-197" stroke="#333" stroke-width="2"/>
+    <text x="130" y="-205" font-size="10" fill="#333" text-anchor="middle">10'</text>
+
+    <!-- m62 -> m63 : wall 45" -->
+    <line x1="30" y1="-193" x2="30" y2="-118" stroke="#333" stroke-width="3"/>
+    <line x1="26" y1="-193" x2="26" y2="-118" stroke="#333" stroke-width="2"/>
+    <line x1="30" y1="-193" x2="26" y2="-193" stroke="#333" stroke-width="2"/>
+    <line x1="30" y1="-118" x2="26" y2="-118" stroke="#333" stroke-width="2"/>
+    <text x="45" y="-155" font-size="9" fill="#333" text-anchor="start">45"</text>
+
+    <!-- m63 -> m64 : window 23" -->
+    <line x1="30" y1="-118" x2="30" y2="-80" stroke="#2196F3" stroke-width="2" stroke-dasharray="4,4"/>
+    <line x1="26" y1="-118" x2="26" y2="-80" stroke="#2196F3" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="30" y1="-118" x2="26" y2="-118" stroke="#2196F3" stroke-width="2"/>
+    <line x1="30" y1="-80" x2="26" y2="-80" stroke="#2196F3" stroke-width="2"/>
+    
+
+    <!-- m64 -> m65 : fireplace 72" -->
+    <line x1="30" y1="-80" x2="30" y2="40" stroke="#8b4513" stroke-width="4"/>
+    <line x1="26" y1="-80" x2="26" y2="40" stroke="#8b4513" stroke-width="3"/>
+    <rect x="26" y="-80" width="8" height="120" fill="#d2691e" opacity="0.3"/>
+    
+
+    <!-- m65 -> m66 : window 23" -->
+    <line x1="30" y1="40" x2="30" y2="78" stroke="#2196F3" stroke-width="2" stroke-dasharray="4,4"/>
+    <line x1="26" y1="40" x2="26" y2="78" stroke="#2196F3" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="30" y1="40" x2="26" y2="40" stroke="#2196F3" stroke-width="2"/>
+    <line x1="30" y1="78" x2="26" y2="78" stroke="#2196F3" stroke-width="2"/>
+    
+
+    <!-- m66 -> m67 : wall 14" -->
+    <line x1="30" y1="78" x2="30" y2="101" stroke="#333" stroke-width="3"/>
+    <line x1="26" y1="78" x2="26" y2="101" stroke="#333" stroke-width="2"/>
+    <line x1="30" y1="78" x2="26" y2="78" stroke="#333" stroke-width="2"/>
+    <line x1="30" y1="101" x2="26" y2="101" stroke="#333" stroke-width="2"/>
+    <text x="45" y="89" font-size="9" fill="#333" text-anchor="start">14"</text>
+
+    <!-- m67 -> m68 : wall East 32" -->
+    <line x1="30" y1="101" x2="83" y2="101" stroke="#333" stroke-width="3"/>
+    <line x1="30" y1="105" x2="83" y2="105" stroke="#333" stroke-width="2"/>
+    <line x1="30" y1="101" x2="30" y2="105" stroke="#333" stroke-width="2"/>
+    <line x1="83" y1="101" x2="83" y2="105" stroke="#333" stroke-width="2"/>
+    <text x="56" y="117" font-size="9" fill="#333" text-anchor="middle">32"</text>
+
+    <!-- m54 -> m39 : wall North, ~55" (91 units) - added join -->
+    <line x1="230" y1="-327" x2="230" y2="-418" stroke="#333" stroke-width="3"/>
+    <line x1="226" y1="-327" x2="226" y2="-414" stroke="#333" stroke-width="2"/>
+    <line x1="230" y1="-418" x2="226" y2="-418" stroke="#333" stroke-width="2"/>
+    <text x="218" y="-370" font-size="9" fill="#333" text-anchor="end">&#8776;4'7" (scaled)</text>
+
+    <!-- m26 -> m35 : wall 10" -->
+    <line x1="290" y1="-354" x2="290" y2="-371" stroke="#333" stroke-width="3"/>
+    <line x1="286" y1="-354" x2="286" y2="-371" stroke="#333" stroke-width="2"/>
+    <line x1="290" y1="-354" x2="286" y2="-354" stroke="#333" stroke-width="2"/>
+    <line x1="290" y1="-371" x2="286" y2="-371" stroke="#333" stroke-width="2"/>
+    <text x="300" y="-360" font-size="9" fill="#333" text-anchor="start">10"</text>
+
+    <!-- m35 -> m36 : door 28" -->
+    <line x1="290" y1="-371" x2="290" y2="-418" stroke="#ff9800" stroke-width="2"/>
+    <line x1="286" y1="-371" x2="286" y2="-418" stroke="#ff9800" stroke-width="2"/>
+    <line x1="290" y1="-371" x2="286" y2="-371" stroke="#ff9800" stroke-width="2"/>
+    <line x1="290" y1="-418" x2="286" y2="-418" stroke="#ff9800" stroke-width="2"/>
+    <text x="300" y="-394" font-size="9" fill="#ff9800" text-anchor="start" font-weight="bold">Door 28"</text>
+
+    <!-- m36 -> m39 : door West 3' -->
+    <line x1="290" y1="-418" x2="230" y2="-418" stroke="#ff9800" stroke-width="2"/>
+    <line x1="290" y1="-414" x2="230" y2="-414" stroke="#ff9800" stroke-width="2"/>
+    <line x1="290" y1="-418" x2="290" y2="-414" stroke="#ff9800" stroke-width="2"/>
+    <line x1="230" y1="-418" x2="230" y2="-414" stroke="#ff9800" stroke-width="2"/>
+    <text x="260" y="-402" font-size="10" fill="#ff9800" text-anchor="middle" font-weight="bold">Door 3'</text>
+
+    <!-- m25 -> m26 : door 34" -->
+    <line x1="290" y1="-297" x2="290" y2="-354" stroke="#ff9800" stroke-width="2"/>
+    <line x1="286" y1="-297" x2="286" y2="-354" stroke="#ff9800" stroke-width="2"/>
+    <line x1="290" y1="-297" x2="286" y2="-297" stroke="#ff9800" stroke-width="2"/>
+    <line x1="290" y1="-354" x2="286" y2="-354" stroke="#ff9800" stroke-width="2"/>
+    <text x="300" y="-325" font-size="9" fill="#ff9800" text-anchor="start" font-weight="bold">Door 34"</text>
+
+    <!-- m14 -> m25 : wall North 109" (m29 sits on this wall as a midpoint, at y=-164) -->
+    <line x1="290" y1="-115" x2="290" y2="-297" stroke="#333" stroke-width="3"/>
+    <line x1="286" y1="-115" x2="286" y2="-297" stroke="#333" stroke-width="2"/>
+    <line x1="290" y1="-115" x2="286" y2="-115" stroke="#333" stroke-width="2"/>
+    <line x1="290" y1="-297" x2="286" y2="-297" stroke="#333" stroke-width="2"/>
+    <text x="300" y="-206" font-size="10" fill="#333" text-anchor="start">109" (m14-m25 overall)</text>
+
+    <!-- m14 -> m15 : wall South 40" -->
+    <line x1="290" y1="-115" x2="290" y2="-48" stroke="#333" stroke-width="3"/>
+    <line x1="286" y1="-115" x2="286" y2="-48" stroke="#333" stroke-width="2"/>
+    <line x1="290" y1="-115" x2="286" y2="-115" stroke="#333" stroke-width="2"/>
+    <line x1="290" y1="-48" x2="286" y2="-48" stroke="#333" stroke-width="2"/>
+    <text x="300" y="-78" font-size="9" fill="#333" text-anchor="start">40"</text>
+
+    <!-- m13 -> m14 : wall West 3' -->
+    <line x1="350" y1="-115" x2="290" y2="-115" stroke="#333" stroke-width="3"/>
+    <line x1="350" y1="-119" x2="290" y2="-119" stroke="#333" stroke-width="2"/>
+    <line x1="350" y1="-115" x2="350" y2="-119" stroke="#333" stroke-width="2"/>
+    <line x1="290" y1="-115" x2="290" y2="-119" stroke="#333" stroke-width="2"/>
+    <text x="320" y="-103" font-size="10" fill="#333" text-anchor="middle">3'</text>
+
+    <!-- m13 -> m11a : wall East (top side), overall dimension 7'3" -->
+    <line x1="350" y1="-115" x2="495" y2="-115" stroke="#333" stroke-width="3"/>
+    <line x1="350" y1="-119" x2="495" y2="-119" stroke="#333" stroke-width="2"/>
+    <line x1="350" y1="-119" x2="350" y2="-123" stroke="#666" stroke-width="1"/>
+    <line x1="495" y1="-119" x2="495" y2="-123" stroke="#666" stroke-width="1"/>
+    <text x="422" y="-128" font-size="10" fill="#666" font-weight="bold" text-anchor="middle">7'3" (m13-m11a)</text>
+
+    <!-- m11a -> m11 : wall South 40" (corrected from 3'; 66.67 units) -->
+    <line x1="495" y1="-115" x2="495" y2="-48.33" stroke="#333" stroke-width="3"/>
+    <line x1="491" y1="-115" x2="491" y2="-48.33" stroke="#333" stroke-width="2"/>
+    <line x1="495" y1="-115" x2="491" y2="-115" stroke="#333" stroke-width="2"/>
+    <line x1="495" y1="-48.33" x2="491" y2="-48.33" stroke="#333" stroke-width="2"/>
+    <text x="503" y="-79" font-size="9" fill="#333" text-anchor="start">40"</text>
+    <!-- Mandir on the m11a-m11 wall: full 40" length, protrudes 24" (40 units) West into the room -->
+    <rect x="451" y="-115" width="40" height="66.67" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
+    <text x="471" y="-86" font-size="8" fill="#7b1fa2" font-weight="bold" text-anchor="middle">MANDIR</text>
+    <text x="471" y="-76" font-size="8" fill="#7b1fa2" text-anchor="middle">24" deep</text>
+
+    <!-- ========== EXTENSIONS (added): m11 extended South (open, no wall), m68 extended East, meeting at m68a ==========
+         Drawing scale is 5/3 units per inch (e.g. m58-m62 10' = 200 units).
+         Lengths below are scaled from the drawing, not field-measured. -->
+    <!-- m11 -> m68a : OPEN to the dining area (no wall), ~90" (149.33 units) -->
+    <line x1="493" y1="-48.33" x2="493" y2="101" stroke="#999" stroke-width="1.5" stroke-dasharray="2,4"/>
+    <text x="480" y="26" font-size="9" fill="#333" text-anchor="end">open &#8776;7'6" (scaled)</text>
+    <text x="512" y="26" font-size="10" fill="#999" font-weight="bold" text-anchor="middle" transform="rotate(90 512 26)">OPEN TO DINING</text>
+
+    <!-- m68 -> m68a run (East), split into: wall 95" | door 36" | wall remainder -->
+    <!-- m68 -> m68b : wall East 95" (158.33 units) -->
+    <line x1="83" y1="101" x2="241.33" y2="101" stroke="#333" stroke-width="3"/>
+    <line x1="83" y1="105" x2="241.33" y2="105" stroke="#333" stroke-width="2"/>
+    <line x1="241.33" y1="101" x2="241.33" y2="105" stroke="#333" stroke-width="2"/>
+    <text x="162" y="120" font-size="9" fill="#333" text-anchor="middle">95"</text>
+
+    <!-- m68b -> m68c : door East 36" (60 units). Hinged at m68c, swings out of the layout (South), leaf opens to the East side -->
+    <line x1="241.33" y1="101" x2="301.33" y2="101" stroke="#ff9800" stroke-width="2"/>
+    <line x1="241.33" y1="105" x2="301.33" y2="105" stroke="#ff9800" stroke-width="2"/>
+    <line x1="241.33" y1="101" x2="241.33" y2="105" stroke="#ff9800" stroke-width="2"/>
+    <line x1="301.33" y1="101" x2="301.33" y2="105" stroke="#ff9800" stroke-width="2"/>
+    <line x1="301.33" y1="105" x2="301.33" y2="165" stroke="#ff9800" stroke-width="2"/>
+    <path d="M241.33,105 A60,60 0 0,0 301.33,165" fill="none" stroke="#ff9800" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="271.33" y="94" font-size="9" fill="#ff9800" text-anchor="middle" font-weight="bold">Door 36"</text>
+
+    <!-- m68c -> m68a : wall East, ~116" (193.67 units, scaled remainder) -->
+    <line x1="301.33" y1="101" x2="495" y2="101" stroke="#333" stroke-width="3"/>
+    <line x1="301.33" y1="105" x2="495" y2="105" stroke="#333" stroke-width="2"/>
+    <line x1="301.33" y1="101" x2="301.33" y2="105" stroke="#333" stroke-width="2"/>
+    <line x1="495" y1="101" x2="495" y2="105" stroke="#333" stroke-width="2"/>
+    <text x="398" y="120" font-size="9" fill="#333" text-anchor="middle">&#8776;9'8" (scaled)</text>
+
+    <circle cx="241.33" cy="101" r="3" fill="#ff6b6b"/><text x="236" y="94" font-size="10" fill="#ff6b6b" font-weight="bold" text-anchor="end">m68b</text>
+    <circle cx="301.33" cy="101" r="3" fill="#ff6b6b"/><text x="306.5" y="94" font-size="10" fill="#ff6b6b" font-weight="bold">m68c</text>
+
+    <circle cx="495" cy="101" r="4" fill="#ff6b6b"/><text x="505.5" y="106.1" font-size="12" fill="#ff6b6b" font-weight="bold">m68a</text>
+
+    <!-- ========== SECTION CUTS: real walls in source continuing to points NOT in this subset ========== -->
+    <!-- m56 -> (west, 10' wall) -> m59 [excluded] -->
+    <line x1="230" y1="-257" x2="200" y2="-257" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <text x="195" y="-261" font-size="8" fill="#e91e63" text-anchor="end" font-style="italic">cut &#8594; m59</text>
+
+    <!-- m68 -> (south, wall) -> m69 [excluded] -->
+    <line x1="83" y1="101" x2="83" y2="125" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <text x="88" y="123" font-size="8" fill="#e91e63" font-style="italic">cut &#8594; m69</text>
+
+    <!-- m29 (on the m14-m25 wall, y=-164) -> (east, 9'10" wall) -> m28 [excluded] -->
+    <circle cx="290" cy="-164" r="4" fill="#ff6b6b"/>
+    <line x1="290" y1="-164" x2="315" y2="-164" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <text x="320" y="-160" font-size="8" fill="#e91e63" font-style="italic">cut &#8594; m28 (9'10" wall)</text>
+    <text x="274.8" y="-158.9" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m29</text>
+
+    <!-- m11 -> (west, 7'3" wall) -> m12 [excluded] -->
+    <line x1="495" y1="-48.33" x2="470" y2="-48.33" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <text x="465" y="-33" font-size="8" fill="#e91e63" text-anchor="end" font-style="italic">cut &#8594; m12</text>
+
+    <!-- ========== WALL ENDS confirmed in source (not a cut - no further wall anywhere) ========== -->
+
+    <!-- ===================== ROOM LABEL ===================== -->
+    
+
+    <!-- ===================== MARKERS (overlap-free positions) ===================== -->
+    <circle cx="230" cy="-193" r="3" fill="#ff6b6b"/><text x="242.1" y="-182.5" font-size="10" fill="#ff6b6b" font-weight="bold">m58</text>
+    <circle cx="30" cy="-193" r="4" fill="#ff6b6b"/><text x="14.8" y="-187.9" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m62</text>
+    <circle cx="30" cy="-118" r="3" fill="#ff6b6b"/><text x="14.8" y="-112.9" font-size="10" fill="#ff6b6b" font-weight="bold" text-anchor="end">m63</text>
+    <circle cx="30" cy="-80" r="3" fill="#ff6b6b"/><text x="14.8" y="-74.9" font-size="10" fill="#ff6b6b" font-weight="bold" text-anchor="end">m64</text>
+    <circle cx="30" cy="40" r="3" fill="#ff6b6b"/><text x="14.8" y="45.1" font-size="10" fill="#ff6b6b" font-weight="bold" text-anchor="end">m65</text>
+    <circle cx="30" cy="78" r="3" fill="#ff6b6b"/><text x="14.8" y="83.1" font-size="10" fill="#ff6b6b" font-weight="bold" text-anchor="end">m66</text>
+    <circle cx="30" cy="101" r="3" fill="#ff6b6b"/><text x="14.8" y="106.1" font-size="10" fill="#ff6b6b" font-weight="bold" text-anchor="end">m67</text>
+    <circle cx="83" cy="101" r="3" fill="#ff6b6b"/><text x="89" y="94" font-size="10" fill="#ff6b6b" font-weight="bold">m68</text>
+    <circle cx="290" cy="-418" r="3" fill="#ff6b6b"/><text x="279.5" y="-430.1" font-size="10" fill="#ff6b6b" font-weight="bold" text-anchor="end">m36</text>
+    <circle cx="290" cy="-371" r="3" fill="#ff6b6b"/><text x="274.8" y="-365.9" font-size="10" fill="#ff6b6b" font-weight="bold" text-anchor="end">m35</text>
+    <circle cx="290" cy="-354" r="4" fill="#ff6b6b"/><text x="274.8" y="-348.9" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m26</text>
+    <circle cx="290" cy="-297" r="4" fill="#ff6b6b"/><text x="274.8" y="-291.9" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m25</text>
+    <circle cx="290" cy="-115" r="4" fill="#ff6b6b"/><text x="274.8" y="-120.1" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m14</text>
+    <circle cx="290" cy="-48" r="4" fill="#ff6b6b"/><text x="274.8" y="-42.9" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m15</text>
+    <circle cx="350" cy="-115" r="4" fill="#ff6b6b"/><text x="334.9" y="-128.1" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m13</text>
+    <circle cx="495" cy="-115" r="4" fill="#ff6b6b"/><text x="505.5" y="-127.1" font-size="12" fill="#ff6b6b" font-weight="bold">m11a</text>
+    <circle cx="495" cy="-48.33" r="4" fill="#ff6b6b"/><text x="505.5" y="-43.3" font-size="12" fill="#ff6b6b" font-weight="bold">m11</text>
+    <circle cx="230" cy="-418" r="4" fill="#ff6b6b"/><text x="214.8" y="-412.9" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m39</text>
+    <circle cx="230" cy="-327" r="4" fill="#ff6b6b"/><text x="245.2" y="-321.9" font-size="12" fill="#ff6b6b" font-weight="bold">m54</text>
+    <circle cx="230" cy="-270" r="4" fill="#ff6b6b"/><text x="245.2" y="-264.9" font-size="12" fill="#ff6b6b" font-weight="bold">m55</text>
+    <circle cx="230" cy="-257" r="3" fill="#ff6b6b"/><text x="245.2" y="-251.9" font-size="10" fill="#ff6b6b" font-weight="bold">m56</text>
+    <circle cx="230" cy="-200" r="3" fill="#ff6b6b"/><text x="245.2" y="-194.9" font-size="10" fill="#ff6b6b" font-weight="bold">m57</text>
+
+    <!-- ===================== COMPASS =====================
+         Orientation: m58-m62 wall = North (up), m11-m11a wall = East (right) -->
+    <g id="compass" transform="translate(70,-360)" font-family="Arial,Helvetica,sans-serif">
+        <circle cx="0" cy="0" r="30" fill="#fff" stroke="#333" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="26" fill="none" stroke="#bbb" stroke-width="0.75"/>
+        <line x1="-26" y1="0" x2="26" y2="0" stroke="#bbb" stroke-width="0.75"/>
+        <line x1="0" y1="-26" x2="0" y2="26" stroke="#bbb" stroke-width="0.75"/>
+        <polygon points="0,-26 6,0 -6,0" fill="#c62828"/>
+        <polygon points="0,26 6,0 -6,0" fill="#fff" stroke="#333" stroke-width="1"/>
+        <polygon points="26,0 0,-4 0,4" fill="#555"/>
+        <polygon points="-26,0 0,-4 0,4" fill="#fff" stroke="#333" stroke-width="1"/>
+        <circle cx="0" cy="0" r="2" fill="#333"/>
+        <text x="0" y="-35" font-size="12" font-weight="bold" fill="#c62828" text-anchor="middle">N</text>
+        <text x="0" y="45" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">S</text>
+        <text x="36" y="4" font-size="11" font-weight="bold" fill="#333" text-anchor="start">E</text>
+        <text x="-36" y="4" font-size="11" font-weight="bold" fill="#333" text-anchor="end">W</text>
+        <text x="0" y="60" font-size="7" fill="#666" text-anchor="middle">N = m58-m62 wall</text>
+        <text x="0" y="69" font-size="7" fill="#666" text-anchor="middle">E = m11-m11a wall</text>
+    </g>
+
+    <!-- ===================== LEGEND ===================== -->
+    <g font-size="9" fill="#333" transform="translate(0,40)">
+        <line x1="-5" y1="155" x2="20" y2="155" stroke="#333" stroke-width="3"/>
+        <text x="25" y="158" fill="#333">Wall</text>
+        <line x1="-5" y1="170" x2="20" y2="170" stroke="#ff9800" stroke-width="2"/>
+        <text x="25" y="173" fill="#ff9800">Door</text>
+        <line x1="90" y1="155" x2="115" y2="155" stroke="#2196F3" stroke-width="2" stroke-dasharray="4,4"/>
+        <text x="120" y="158" fill="#2196F3">Window</text>
+        <line x1="90" y1="170" x2="115" y2="170" stroke="#8b4513" stroke-width="3"/>
+        <text x="120" y="173" fill="#8b4513">Fireplace</text>
+        <path d="M90,200 A14,14 0 0,0 104,186" fill="none" stroke="#ff9800" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="104" y1="186" x2="104" y2="200" stroke="#ff9800" stroke-width="2"/>
+        <text x="120" y="196" fill="#ff9800">Door swing</text>
+        <rect x="210" y="186" width="25" height="12" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
+        <text x="240" y="196" fill="#7b1fa2">Mandir</text>
+        <line x1="300" y1="192" x2="325" y2="192" stroke="#999" stroke-width="1.5" stroke-dasharray="2,4"/>
+        <text x="330" y="196" fill="#999">Open (no wall)</text>
+        <line x1="210" y1="155" x2="235" y2="155" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <text x="240" y="158" fill="#e91e63">Section cut (real wall, continues to an excluded point)</text>
+        <text x="210" y="173" fill="#777" font-style="italic">(wall end) = confirmed dead end in the original source, not a cut</text>
+    </g>
+</svg>

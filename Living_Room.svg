@@ -164,14 +164,13 @@
     <text x="471" y="-86" font-size="8" fill="#7b1fa2" font-weight="bold" text-anchor="middle">MANDIR</text>
     <text x="471" y="-76" font-size="8" fill="#7b1fa2" text-anchor="middle">24" deep</text>
 
-    <!-- ========== EXTENSIONS (added): m11 extended South, m68 extended East, meeting at m68a ==========
+    <!-- ========== EXTENSIONS (added): m11 extended South (open, no wall), m68 extended East, meeting at m68a ==========
          Drawing scale is 5/3 units per inch (e.g. m58-m62 10' = 200 units).
          Lengths below are scaled from the drawing, not field-measured. -->
-    <!-- m11 -> m68a : wall South, ~90" (149.33 units) -->
-    <line x1="495" y1="-48.33" x2="495" y2="101" stroke="#333" stroke-width="3"/>
-    <line x1="491" y1="-48.33" x2="491" y2="101" stroke="#333" stroke-width="2"/>
-    <line x1="495" y1="-48.33" x2="491" y2="-48.33" stroke="#333" stroke-width="2"/>
-    <text x="480" y="26" font-size="9" fill="#333" text-anchor="end">&#8776;7'6" (scaled)</text>
+    <!-- m11 -> m68a : OPEN to the dining area (no wall), ~90" (149.33 units) -->
+    <line x1="493" y1="-48.33" x2="493" y2="101" stroke="#999" stroke-width="1.5" stroke-dasharray="2,4"/>
+    <text x="480" y="26" font-size="9" fill="#333" text-anchor="end">open &#8776;7'6" (scaled)</text>
+    <text x="512" y="26" font-size="10" fill="#999" font-weight="bold" text-anchor="middle" transform="rotate(90 512 26)">OPEN TO DINING</text>
 
     <!-- m68 -> m68a run (East), split into: wall 95" | door 36" | wall remainder -->
     <!-- m68 -> m68b : wall East 95" (158.33 units) -->
@@ -224,7 +223,7 @@
     <text x="274.8" y="-30" font-size="8" fill="#777" text-anchor="end" font-style="italic">(wall end in source - only a dashed reference line continues)</text>
 
     <!-- ===================== ROOM LABEL ===================== -->
-    <text x="112" y="-230" font-size="15" font-weight="bold" fill="#2e7d32" text-anchor="middle">LIVING ROOM</text>
+    <text x="160" y="-125" font-size="15" font-weight="bold" fill="#2e7d32" text-anchor="middle">LIVING ROOM</text>
 
     <!-- ===================== MARKERS (overlap-free positions) ===================== -->
     <circle cx="230" cy="-193" r="3" fill="#ff6b6b"/><text x="242.1" y="-182.5" font-size="10" fill="#ff6b6b" font-weight="bold">m58</text>
@@ -285,6 +284,8 @@
         <text x="120" y="196" fill="#ff9800">Door swing</text>
         <rect x="210" y="186" width="25" height="12" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
         <text x="240" y="196" fill="#7b1fa2">Mandir</text>
+        <line x1="300" y1="192" x2="325" y2="192" stroke="#999" stroke-width="1.5" stroke-dasharray="2,4"/>
+        <text x="330" y="196" fill="#999">Open (no wall)</text>
         <line x1="210" y1="155" x2="235" y2="155" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
         <text x="240" y="158" fill="#e91e63">Section cut (real wall, continues to an excluded point)</text>
         <text x="210" y="173" fill="#777" font-style="italic">(wall end) = confirmed dead end in the original source, not a cut</text>
