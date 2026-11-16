@@ -64,11 +64,11 @@
     <line x1="30" y1="-80" x2="26" y2="-80" stroke="#2196F3" stroke-width="2"/>
     <text x="45" y="-99" font-size="9" fill="#2196F3" text-anchor="start" font-weight="bold">Window 23"</text>
 
-    <!-- m64 -> m65 : fireplace 72" -->
+    <!-- m64 -> m65 : fireplace 72" - decorative/dummy (disconnected), 40" floor to top -->
     <line x1="30" y1="-80" x2="30" y2="40" stroke="#8b4513" stroke-width="4"/>
     <line x1="26" y1="-80" x2="26" y2="40" stroke="#8b4513" stroke-width="3"/>
     <rect x="26" y="-80" width="8" height="120" fill="#d2691e" opacity="0.3"/>
-    <text x="45" y="-12" font-size="9" fill="#8b4513" text-anchor="start" font-weight="bold">Fireplace 72"</text>
+    <text x="45" y="-12" font-size="9" fill="#8b4513" text-anchor="start" font-weight="bold">Fireplace 72" (dummy, 40" high)</text>
 
     <!-- m65 -> m66 : window 23" -->
     <line x1="30" y1="40" x2="30" y2="78" stroke="#2196F3" stroke-width="2" stroke-dasharray="4,4"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -490 560 885" width="1120" height="1770" style="background:#fff;font-family:Arial,Helvetica,sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -490 560 895" width="1120" height="1790" style="background:#fff;font-family:Arial,Helvetica,sans-serif;">
 
     <!-- ============================================================
          Living Room (dissected section)
@@ -33,7 +33,7 @@
         <!-- fireplace + 75" TV mounted above it -->
         <rect x="33" y="-80" width="27" height="120" fill="none" stroke="#8b4513" stroke-width="1" stroke-dasharray="2,2"/>
         <line x1="38" y1="-74.5" x2="38" y2="34.5" stroke="#111" stroke-width="3.5"/>
-        <text x="50" y="-20" font-size="7.5" fill="#8b4513" font-weight="bold" text-anchor="middle" transform="rotate(-90 50 -20)">75" TV over fireplace</text>
+        <text x="50" y="-20" font-size="7.5" fill="#8b4513" font-weight="bold" text-anchor="middle" transform="rotate(-90 50 -20)">75" TV over 40" dummy fireplace</text>
 
         <!-- low credenza on the north wall (m58-m62): 72" x 18", books + trophies on/in it -->
         <rect x="70" y="-193" width="120" height="30" fill="#d7ccc8" stroke="#4e342e" stroke-width="1.2"/>
@@ -360,5 +360,30 @@
         <line x1="324" y1="289" x2="440" y2="289" stroke="#2e7d32" stroke-width="0.6" stroke-dasharray="1,2"/>
         <text x="388" y="356" font-size="7" fill="#2e7d32" text-anchor="middle">gallery zone ~96" &#215; 54", centre ~57" above floor, 2"&#8211;3" gaps</text>
         <text x="390" y="257" font-size="6" fill="#777" text-anchor="middle">8' ceiling assumed</text>
+    </g>
+
+    <!-- ===================== FIREPLACE WALL ELEVATION (inset, 1 unit = 1 inch, looking west) ===================== -->
+    <g id="fireplace-wall-elevation" font-family="Arial,Helvetica,sans-serif">
+        <text x="98" y="262" font-size="9" font-weight="bold" fill="#37474f" text-anchor="middle">Fireplace wall elevation &#8211; looking west</text>
+        <rect x="10" y="272" width="177" height="96" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+        <line x1="0" y1="368" x2="197" y2="368" stroke="#333" stroke-width="2"/>
+        <text x="98" y="279" font-size="6" fill="#777" text-anchor="middle">8' ceiling assumed</text>
+        <text x="12" y="376" font-size="6" fill="#777">S (m67)</text><text x="185" y="376" font-size="6" fill="#777" text-anchor="end">N (m62)</text>
+        <!-- windows (sill/head heights assumed) -->
+        <rect x="24" y="288" width="23" height="50" fill="#e3f2fd" stroke="#2196F3" stroke-width="1" stroke-dasharray="3,2"/>
+        <rect x="119" y="288" width="23" height="50" fill="#e3f2fd" stroke="#2196F3" stroke-width="1" stroke-dasharray="3,2"/>
+        <text x="35.5" y="316" font-size="5.5" fill="#2196F3" text-anchor="middle">win</text><text x="130.5" y="316" font-size="5.5" fill="#2196F3" text-anchor="middle">win</text>
+        <!-- dummy fireplace 72" x 40" -->
+        <rect x="47" y="328" width="72" height="40" fill="#efebe9" stroke="#8b4513" stroke-width="1.5"/>
+        <rect x="65" y="342" width="36" height="26" fill="#d7ccc8" stroke="#8b4513" stroke-width="0.8"/>
+        <text x="83" y="338" font-size="5.5" fill="#8b4513" text-anchor="middle">dummy fireplace 72"&#215;40"</text>
+        <!-- 75" TV: 65.4" x 36.8", bottom 46" (6" above mantel) -->
+        <rect x="50.3" y="285.2" width="65.4" height="36.8" fill="#263238" stroke="#000" stroke-width="1"/>
+        <text x="83" y="306" font-size="6.5" fill="#fff" text-anchor="middle" font-weight="bold">75" TV</text>
+        <text x="83" y="314" font-size="5.5" fill="#cfd8dc" text-anchor="middle">centre ~64" high</text>
+        <!-- seated eye level -->
+        <line x1="10" y1="326" x2="187" y2="326" stroke="#2e7d32" stroke-width="0.8" stroke-dasharray="3,2"/>
+        <text x="186" y="324" font-size="5.5" fill="#2e7d32" text-anchor="end">seated eye ~42"</text>
+        <text x="98" y="386" font-size="7" fill="#2e7d32" text-anchor="middle">TV bottom ~46" (6" above mantel)</text><text x="98" y="395" font-size="7" fill="#2e7d32" text-anchor="middle">from the sofa (~8'), centre ~13&#176; above eye level &#8211; comfortable</text>
     </g>
 </svg>
