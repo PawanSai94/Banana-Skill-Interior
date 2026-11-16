@@ -41,12 +41,33 @@
     <line x1="33" y1="-622" x2="29" y2="-622" stroke="#333" stroke-width="2"/>
     <text x="18" y="-643" font-size="9" fill="#333" text-anchor="end">25"</text>
 
-    <!-- m44 -> m43 : wall East 15'10" -->
-    <line x1="350" y1="-664" x2="33" y2="-664" stroke="#333" stroke-width="3"/>
-    <line x1="350" y1="-668" x2="33" y2="-668" stroke="#333" stroke-width="2"/>
-    <line x1="350" y1="-664" x2="350" y2="-668" stroke="#333" stroke-width="2"/>
+    <!-- m44 -> m43 : wall East 15'10" overall (now wall 12'10" + MAIN ENTRY DOOR 36" at the m43 end) -->
+    <line x1="290" y1="-664" x2="33" y2="-664" stroke="#333" stroke-width="3"/>
+    <line x1="290" y1="-668" x2="33" y2="-668" stroke="#333" stroke-width="2"/>
+    <line x1="290" y1="-664" x2="290" y2="-668" stroke="#333" stroke-width="2"/>
     <line x1="33" y1="-664" x2="33" y2="-668" stroke="#333" stroke-width="2"/>
     <text x="191" y="-676" font-size="10" fill="#333" text-anchor="middle">15'10"</text>
+
+    <!-- MAIN ENTRY DOOR 36" : m43 westward, x 350 -> 290 (36" = 60 units).
+         Hinged at m43 corner, swings inward (south) to rest against the m42-m43 wall. -->
+    <g id="main-entry-door">
+        <!-- jambs -->
+        <line x1="290" y1="-662" x2="290" y2="-670" stroke="#d84315" stroke-width="3"/>
+        <line x1="350" y1="-662" x2="350" y2="-670" stroke="#d84315" stroke-width="3"/>
+        <!-- threshold -->
+        <line x1="290" y1="-666" x2="350" y2="-666" stroke="#d84315" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <!-- swing area -->
+        <path d="M 346 -664 L 290 -664 A 56 56 0 0 0 346 -608 Z" fill="#ff9800" fill-opacity="0.15" stroke="none"/>
+        <!-- swing arc -->
+        <path d="M 290 -664 A 56 56 0 0 0 346 -608" fill="none" stroke="#d84315" stroke-width="2" stroke-dasharray="5,3"/>
+        <!-- door leaf (open, against m42-m43 wall) -->
+        <rect x="340" y="-664" width="5" height="56" fill="#d84315" stroke="#bf360c" stroke-width="1"/>
+        <!-- hinge -->
+        <circle cx="346" cy="-664" r="2.5" fill="#bf360c"/>
+        <!-- labels -->
+        <text x="284" y="-648" font-size="11" font-weight="bold" fill="#d84315" text-anchor="end">MAIN ENTRY</text>
+        <text x="284" y="-636" font-size="10" font-weight="bold" fill="#d84315" text-anchor="end">Door 36"</text>
+    </g>
 
     <!-- m43 -> m45 : wall East 4' -->
     <line x1="350" y1="-664" x2="430" y2="-664" stroke="#333" stroke-width="3"/>
@@ -177,5 +198,7 @@
         <text x="84" y="-427" fill="#2196F3">Window</text>
         <line x1="150" y1="-430" x2="170" y2="-430" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
         <text x="174" y="-427" fill="#e91e63">Section cut / open edge</text>
+        <line x1="60" y1="-420" x2="80" y2="-420" stroke="#d84315" stroke-width="3"/>
+        <text x="84" y="-417" fill="#d84315" font-weight="bold">Main entry door</text>
     </g>
 </svg>
