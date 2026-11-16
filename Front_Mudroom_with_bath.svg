@@ -5,7 +5,7 @@
          Front_Mudroom_with_bath
          Dissected from main floor plan. Points included:
          m52, m51, m50, m44, m43, m45, m46, m47, m48, m49,
-         m38, m40, m41, m42, m37, m53, m36
+         m38, m40, m41, m42, m37, m53, m36, m39
          All wall/door/window segments below are copied verbatim
          (same coordinates + dimensions) from the source floor plan.
          ============================================================ -->
@@ -149,11 +149,27 @@
     <line x1="290" y1="-418.33" x2="286" y2="-418.33" stroke="#333" stroke-width="2"/>
     <text x="296" y="-433" font-size="9" fill="#333" text-anchor="start">28"</text>
 
+    <!-- m53 -> m39 : wall South 28" (28" = 46.67 units) -->
+    <line x1="233" y1="-463" x2="233" y2="-416.33" stroke="#333" stroke-width="3"/>
+    <line x1="237" y1="-463" x2="237" y2="-416.33" stroke="#333" stroke-width="2"/>
+    <line x1="233" y1="-416.33" x2="237" y2="-416.33" stroke="#333" stroke-width="2"/>
+    <text x="227" y="-422" font-size="9" fill="#333" text-anchor="end">28"</text>
+
+    <!-- m39 -> m36 : door 30", hinged at m36, swings north to rest against the m36-m37 wall -->
+    <g id="door-m39-m36">
+        <line x1="237" y1="-416.4" x2="286" y2="-418.3" stroke="#ff9800" stroke-width="2"/>
+        <path d="M 286 -418.33 L 239 -418.33 A 47 47 0 0 1 286 -465.33 Z" fill="#ff9800" fill-opacity="0.12" stroke="none"/>
+        <path d="M 239 -418.33 A 47 47 0 0 1 286 -465.33" fill="none" stroke="#ff9800" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <rect x="282" y="-465.33" width="4" height="47" fill="#ff9800" stroke="#e65100" stroke-width="0.8"/>
+        <circle cx="286" cy="-418.33" r="2" fill="#e65100"/>
+        <text x="262" y="-403" font-size="9" fill="#ff9800" text-anchor="middle" font-weight="bold">Door 30"</text>
+    </g>
+
     <!-- ========== OPEN / UNRESOLVED EDGES (not a wall in source) ========== -->
     <!-- m37 to m53: no connecting wall found in the source file between these two points.
          Shown as a dashed reference line marking where this section was cut from the rest of the house. -->
     <line x1="290" y1="-465" x2="233" y2="-463" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
-    <text x="225" y="-436" font-size="8" fill="#e91e63" text-anchor="middle" font-style="italic">section cut (no wall in source)</text>
+    <text x="227" y="-438" font-size="8" fill="#e91e63" text-anchor="end" font-style="italic">section cut (no wall in source)</text>
 
     <!-- m49: only one connecting wall found in source (to m48). Left open-faced as drawn. -->
     <text x="424" y="-600" font-size="8" fill="#e91e63" text-anchor="end" font-style="italic">open side</text><text x="424" y="-591" font-size="8" fill="#e91e63" text-anchor="end" font-style="italic">(no wall m46-m49)</text>
@@ -178,9 +194,11 @@
     <circle cx="350" cy="-510" r="3" fill="#ff6b6b"/><text x="356" y="-506" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m41</text>
     <circle cx="350" cy="-572" r="3" fill="#ff6b6b"/><text x="356" y="-568" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m42</text>
     <circle cx="290" cy="-465" r="3" fill="#ff6b6b"/><text x="296" y="-451" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m37</text>
-    <circle cx="233" cy="-463" r="4" fill="#ff6b6b"/><text x="233" y="-451" font-size="10" fill="#ff6b6b" text-anchor="middle" font-weight="bold">m53</text>
+    <circle cx="233" cy="-463" r="4" fill="#ff6b6b"/><text x="227" y="-452" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m53</text>
 
     <circle cx="290" cy="-418.33" r="4" fill="#ff6b6b"/><text x="296" y="-413" font-size="10" fill="#ff6b6b" text-anchor="start" font-weight="bold">m36</text>
+
+    <circle cx="233" cy="-416.33" r="4" fill="#ff6b6b"/><text x="227" y="-408" font-size="10" fill="#ff6b6b" text-anchor="end" font-weight="bold">m39</text>
 
     <!-- ===================== COMPASS ===================== -->
     <!-- North = m44-m43-m45 wall (top); East = m47-m48-m38 wall (right) -->
@@ -198,7 +216,7 @@
     </g>
 
     <!-- ===================== LEGEND ===================== -->
-    <g font-size="8" fill="#333" transform="translate(0,30)">
+    <g font-size="8" fill="#333" transform="translate(0,48)">
         <line x1="-10" y1="-430" x2="10" y2="-430" stroke="#333" stroke-width="3"/>
         <text x="14" y="-427" fill="#333">Wall</text>
         <line x1="-10" y1="-420" x2="10" y2="-420" stroke="#ff9800" stroke-width="2"/>
