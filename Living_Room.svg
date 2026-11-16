@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -490 560 690" width="1120" height="1380" style="background:#fff;font-family:Arial,Helvetica,sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -490 560 745" width="1120" height="1490" style="background:#fff;font-family:Arial,Helvetica,sans-serif;">
 
     <!-- ============================================================
          Living Room (dissected section)
@@ -169,11 +169,31 @@
     <line x1="495" y1="-55" x2="491" y2="-55" stroke="#333" stroke-width="2"/>
     <text x="480" y="26" font-size="9" fill="#333" text-anchor="end">&#8776;7'10" (scaled)</text>
 
-    <!-- m68 -> m68a : wall East, ~247" (412 units) -->
-    <line x1="83" y1="101" x2="495" y2="101" stroke="#333" stroke-width="3"/>
-    <line x1="83" y1="105" x2="495" y2="105" stroke="#333" stroke-width="2"/>
+    <!-- m68 -> m68a run (East), split into: wall 95" | door 36" | wall remainder -->
+    <!-- m68 -> m68b : wall East 95" (158.33 units) -->
+    <line x1="83" y1="101" x2="241.33" y2="101" stroke="#333" stroke-width="3"/>
+    <line x1="83" y1="105" x2="241.33" y2="105" stroke="#333" stroke-width="2"/>
+    <line x1="241.33" y1="101" x2="241.33" y2="105" stroke="#333" stroke-width="2"/>
+    <text x="162" y="120" font-size="9" fill="#333" text-anchor="middle">95"</text>
+
+    <!-- m68b -> m68c : door East 36" (60 units). Hinged at m68c, swings out of the layout (South), leaf opens to the East side -->
+    <line x1="241.33" y1="101" x2="301.33" y2="101" stroke="#ff9800" stroke-width="2"/>
+    <line x1="241.33" y1="105" x2="301.33" y2="105" stroke="#ff9800" stroke-width="2"/>
+    <line x1="241.33" y1="101" x2="241.33" y2="105" stroke="#ff9800" stroke-width="2"/>
+    <line x1="301.33" y1="101" x2="301.33" y2="105" stroke="#ff9800" stroke-width="2"/>
+    <line x1="301.33" y1="105" x2="301.33" y2="165" stroke="#ff9800" stroke-width="2"/>
+    <path d="M241.33,105 A60,60 0 0,0 301.33,165" fill="none" stroke="#ff9800" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="271.33" y="94" font-size="9" fill="#ff9800" text-anchor="middle" font-weight="bold">Door 36"</text>
+
+    <!-- m68c -> m68a : wall East, ~116" (193.67 units, scaled remainder) -->
+    <line x1="301.33" y1="101" x2="495" y2="101" stroke="#333" stroke-width="3"/>
+    <line x1="301.33" y1="105" x2="495" y2="105" stroke="#333" stroke-width="2"/>
+    <line x1="301.33" y1="101" x2="301.33" y2="105" stroke="#333" stroke-width="2"/>
     <line x1="495" y1="101" x2="495" y2="105" stroke="#333" stroke-width="2"/>
-    <text x="290" y="120" font-size="9" fill="#333" text-anchor="middle">&#8776;20'7" (scaled)</text>
+    <text x="398" y="120" font-size="9" fill="#333" text-anchor="middle">&#8776;9'8" (scaled)</text>
+
+    <circle cx="241.33" cy="101" r="3" fill="#ff6b6b"/><text x="236" y="94" font-size="10" fill="#ff6b6b" font-weight="bold" text-anchor="end">m68b</text>
+    <circle cx="301.33" cy="101" r="3" fill="#ff6b6b"/><text x="306.5" y="94" font-size="10" fill="#ff6b6b" font-weight="bold">m68c</text>
 
     <circle cx="495" cy="101" r="4" fill="#ff6b6b"/><text x="505.5" y="106.1" font-size="12" fill="#ff6b6b" font-weight="bold">m68a</text>
 
@@ -247,7 +267,7 @@
     </g>
 
     <!-- ===================== LEGEND ===================== -->
-    <g font-size="9" fill="#333">
+    <g font-size="9" fill="#333" transform="translate(0,40)">
         <line x1="-5" y1="155" x2="20" y2="155" stroke="#333" stroke-width="3"/>
         <text x="25" y="158" fill="#333">Wall</text>
         <line x1="-5" y1="170" x2="20" y2="170" stroke="#ff9800" stroke-width="2"/>
@@ -256,6 +276,9 @@
         <text x="120" y="158" fill="#2196F3">Window</text>
         <line x1="90" y1="170" x2="115" y2="170" stroke="#8b4513" stroke-width="3"/>
         <text x="120" y="173" fill="#8b4513">Fireplace</text>
+        <path d="M90,200 A14,14 0 0,0 104,186" fill="none" stroke="#ff9800" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="104" y1="186" x2="104" y2="200" stroke="#ff9800" stroke-width="2"/>
+        <text x="120" y="196" fill="#ff9800">Door swing</text>
         <line x1="210" y1="155" x2="235" y2="155" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
         <text x="240" y="158" fill="#e91e63">Section cut (real wall, continues to an excluded point)</text>
         <text x="210" y="173" fill="#777" font-style="italic">(wall end) = confirmed dead end in the original source, not a cut</text>
