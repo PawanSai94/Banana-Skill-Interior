@@ -153,21 +153,25 @@
     <line x1="495" y1="-119" x2="495" y2="-123" stroke="#666" stroke-width="1"/>
     <text x="422" y="-128" font-size="10" fill="#666" font-weight="bold" text-anchor="middle">7'3" (m13-m11a)</text>
 
-    <!-- m11a -> m11 : wall South 3' -->
-    <line x1="495" y1="-115" x2="495" y2="-55" stroke="#333" stroke-width="3"/>
-    <line x1="491" y1="-115" x2="491" y2="-55" stroke="#333" stroke-width="2"/>
+    <!-- m11a -> m11 : wall South 40" (corrected from 3'; 66.67 units) -->
+    <line x1="495" y1="-115" x2="495" y2="-48.33" stroke="#333" stroke-width="3"/>
+    <line x1="491" y1="-115" x2="491" y2="-48.33" stroke="#333" stroke-width="2"/>
     <line x1="495" y1="-115" x2="491" y2="-115" stroke="#333" stroke-width="2"/>
-    <line x1="495" y1="-55" x2="491" y2="-55" stroke="#333" stroke-width="2"/>
-    <text x="465" y="-85" font-size="9" fill="#333" text-anchor="end">3'</text>
+    <line x1="495" y1="-48.33" x2="491" y2="-48.33" stroke="#333" stroke-width="2"/>
+    <text x="503" y="-79" font-size="9" fill="#333" text-anchor="start">40"</text>
+    <!-- Mandir on the m11a-m11 wall: full 40" length, protrudes 24" (40 units) West into the room -->
+    <rect x="451" y="-115" width="40" height="66.67" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
+    <text x="471" y="-86" font-size="8" fill="#7b1fa2" font-weight="bold" text-anchor="middle">MANDIR</text>
+    <text x="471" y="-76" font-size="8" fill="#7b1fa2" text-anchor="middle">24" deep</text>
 
     <!-- ========== EXTENSIONS (added): m11 extended South, m68 extended East, meeting at m68a ==========
          Drawing scale is 5/3 units per inch (e.g. m58-m62 10' = 200 units).
          Lengths below are scaled from the drawing, not field-measured. -->
-    <!-- m11 -> m68a : wall South, ~94" (156 units) -->
-    <line x1="495" y1="-55" x2="495" y2="101" stroke="#333" stroke-width="3"/>
-    <line x1="491" y1="-55" x2="491" y2="101" stroke="#333" stroke-width="2"/>
-    <line x1="495" y1="-55" x2="491" y2="-55" stroke="#333" stroke-width="2"/>
-    <text x="480" y="26" font-size="9" fill="#333" text-anchor="end">&#8776;7'10" (scaled)</text>
+    <!-- m11 -> m68a : wall South, ~90" (149.33 units) -->
+    <line x1="495" y1="-48.33" x2="495" y2="101" stroke="#333" stroke-width="3"/>
+    <line x1="491" y1="-48.33" x2="491" y2="101" stroke="#333" stroke-width="2"/>
+    <line x1="495" y1="-48.33" x2="491" y2="-48.33" stroke="#333" stroke-width="2"/>
+    <text x="480" y="26" font-size="9" fill="#333" text-anchor="end">&#8776;7'6" (scaled)</text>
 
     <!-- m68 -> m68a run (East), split into: wall 95" | door 36" | wall remainder -->
     <!-- m68 -> m68b : wall East 95" (158.33 units) -->
@@ -213,8 +217,8 @@
     <text x="274.8" y="-158.9" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m29</text>
 
     <!-- m11 -> (west, 7'3" wall) -> m12 [excluded] -->
-    <line x1="495" y1="-55" x2="470" y2="-55" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
-    <text x="465" y="-40" font-size="8" fill="#e91e63" text-anchor="end" font-style="italic">cut &#8594; m12</text>
+    <line x1="495" y1="-48.33" x2="470" y2="-48.33" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <text x="465" y="-33" font-size="8" fill="#e91e63" text-anchor="end" font-style="italic">cut &#8594; m12</text>
 
     <!-- ========== WALL ENDS confirmed in source (not a cut - no further wall anywhere) ========== -->
     <text x="274.8" y="-30" font-size="8" fill="#777" text-anchor="end" font-style="italic">(wall end in source - only a dashed reference line continues)</text>
@@ -239,7 +243,7 @@
     <circle cx="290" cy="-48" r="4" fill="#ff6b6b"/><text x="274.8" y="-42.9" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m15</text>
     <circle cx="350" cy="-115" r="4" fill="#ff6b6b"/><text x="334.9" y="-128.1" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m13</text>
     <circle cx="495" cy="-115" r="4" fill="#ff6b6b"/><text x="505.5" y="-127.1" font-size="12" fill="#ff6b6b" font-weight="bold">m11a</text>
-    <circle cx="495" cy="-55" r="4" fill="#ff6b6b"/><text x="484.5" y="-67.1" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m11</text>
+    <circle cx="495" cy="-48.33" r="4" fill="#ff6b6b"/><text x="505.5" y="-43.3" font-size="12" fill="#ff6b6b" font-weight="bold">m11</text>
     <circle cx="230" cy="-418" r="4" fill="#ff6b6b"/><text x="214.8" y="-412.9" font-size="12" fill="#ff6b6b" font-weight="bold" text-anchor="end">m39</text>
     <circle cx="230" cy="-327" r="4" fill="#ff6b6b"/><text x="245.2" y="-321.9" font-size="12" fill="#ff6b6b" font-weight="bold">m54</text>
     <circle cx="230" cy="-270" r="4" fill="#ff6b6b"/><text x="245.2" y="-264.9" font-size="12" fill="#ff6b6b" font-weight="bold">m55</text>
@@ -279,6 +283,8 @@
         <path d="M90,200 A14,14 0 0,0 104,186" fill="none" stroke="#ff9800" stroke-width="1" stroke-dasharray="3,3"/>
         <line x1="104" y1="186" x2="104" y2="200" stroke="#ff9800" stroke-width="2"/>
         <text x="120" y="196" fill="#ff9800">Door swing</text>
+        <rect x="210" y="186" width="25" height="12" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
+        <text x="240" y="196" fill="#7b1fa2">Mandir</text>
         <line x1="210" y1="155" x2="235" y2="155" stroke="#e91e63" stroke-width="1.5" stroke-dasharray="6,3"/>
         <text x="240" y="158" fill="#e91e63">Section cut (real wall, continues to an excluded point)</text>
         <text x="210" y="173" fill="#777" font-style="italic">(wall end) = confirmed dead end in the original source, not a cut</text>
