@@ -73,10 +73,15 @@
         <rect x="286" y="-115" width="4" height="66.67" fill="none" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="2,2"/>
         <text x="296" y="-60" font-size="7" fill="#757575" font-style="italic">m14-m15 wall removed</text>
 
-        <!-- built-in base run on the north wall: ~48-51" x 14" deep, stops 48" short of the mandir face;
-             lit glass trophy box (36"x36") wall-hung above it; jali wall-hung over the clear prayer space -->
-        <rect x="291" y="-115" width="80" height="23.33" fill="#fff59d" stroke="#f9a825" stroke-width="1.5"/>
-        <text x="331" y="-105" font-size="6" fill="#f57f17" font-weight="bold" text-anchor="middle">BASE RUN ~48" &#215; 14"</text><text x="331" y="-97.5" font-size="5.5" fill="#f57f17" text-anchor="middle">trophy box above</text>
+        <!-- L-shaped built-in: see-through trophy display 10" x 24" on the old m14-m15 line (walkway face flush with the
+             hallway wall, x=286) + library 40" W x 12" D x 84" H on the north wall; prayer space stays clear -->
+        <rect x="286" y="-115" width="16.67" height="40" fill="#fff59d" stroke="#f9a825" stroke-width="1.5"/>
+        <line x1="286" y1="-101.7" x2="302.67" y2="-101.7" stroke="#f9a825" stroke-width="0.6"/>
+        <line x1="286" y1="-88.3" x2="302.67" y2="-88.3" stroke="#f9a825" stroke-width="0.6"/>
+        <rect x="302.67" y="-115" width="66.67" height="20" fill="#d7ccc8" stroke="#5d4037" stroke-width="1.2"/>
+        <text x="336" y="-102" font-size="6.5" fill="#3e2723" font-weight="bold" text-anchor="middle">LIBRARY 40"&#215;12"</text>
+        <text x="306" y="-80" font-size="6" fill="#f57f17" font-weight="bold">&#8592; TROPHY 10"&#215;24"</text>
+        <text x="306" y="-73" font-size="5.5" fill="#f57f17">see-through, flush</text>
 
         <!-- PHOTO GALLERY WALL on m68c-m68a (frames hang flat; elevation inset below the legend) -->
         <rect x="312" y="95" width="173" height="6" fill="#eceff1" stroke="#607d8b" stroke-width="0.8"/>
