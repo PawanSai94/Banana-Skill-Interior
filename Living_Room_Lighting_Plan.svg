@@ -35,20 +35,21 @@
         <text x="47" y="-20" font-size="8" fill="#8b4513" font-weight="bold" text-anchor="middle" transform="rotate(-90 47 -20)">FIREPLACE 72" &#183; keep 18" clear</text>
 
         <!-- 120" (16:9) screen on north wall: 104.6" wide, centred on the sofa -->
-        <polygon points="130,38 42.8,-190 217.2,-190" fill="#fffde7" opacity="0.55" stroke="#fbc02d" stroke-width="0.8" stroke-dasharray="3,3"/>
         <line x1="42.8" y1="-190" x2="217.2" y2="-190" stroke="#212121" stroke-width="3"/>
-        <text x="130" y="-151" font-size="7" fill="#212121" text-anchor="middle" font-weight="bold">120" SCREEN on north wall</text>
+        <text x="130" y="-151" font-size="7" fill="#212121" text-anchor="middle" font-weight="bold">120" SCREEN &#183; console + Sonos soundbar</text>
         <!-- low console 72"x16" with Sonos soundbar; sub beside it -->
         <rect x="70" y="-186" width="120" height="26.67" fill="#cfd8dc" stroke="#455a64" stroke-width="1.2"/>
         <rect x="95" y="-184" width="70" height="6" fill="#263238"/>
-        <text x="130" y="-167" font-size="6.5" fill="#263238" text-anchor="middle">console + Sonos soundbar</text>
+        
         <rect x="193" y="-186" width="20" height="20" rx="2" fill="#263238"/>
         <text x="203" y="-158" font-size="6" fill="#263238" text-anchor="middle">sub</text>
-        <!-- ceiling-mounted projector above the front of the sofa (~11'8" throw) -->
-        <rect x="120" y="30" width="20" height="16" fill="#fff" stroke="#212121" stroke-width="1.2"/>
-        <circle cx="130" cy="31" r="3" fill="#212121"/>
-        <text x="146" y="22" font-size="6.5" fill="#212121" font-weight="bold">projector (ceiling)</text>
+        <text x="146" y="22" font-size="6.5" fill="#212121" font-weight="bold"> </text>
         <text x="146" y="31" font-size="6" fill="#263238">&#9642; = Sonos rears, wall-mounted</text>
+
+        <!-- ultra-short-throw laser projector on the console, centred under the screen -->
+        <rect x="116" y="-176" width="28" height="12" rx="2" fill="#fafafa" stroke="#212121" stroke-width="1.2"/>
+        <rect x="122" y="-176" width="16" height="2.5" fill="#212121"/>
+        <text x="148" y="-166" font-size="6" fill="#212121" font-weight="bold">UST projector</text>
         <!-- Sonos rear surrounds, wall-mounted on the south wall either side of the sofa -->
         <rect x="38" y="88" width="12" height="10" fill="#263238"/>
         <rect x="212" y="88" width="12" height="10" fill="#263238"/>
